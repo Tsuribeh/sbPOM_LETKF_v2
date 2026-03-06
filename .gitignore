@@ -34,3 +34,18 @@ pom90-ens/run/log
 pom90/run/log
 prep/obs/
 prep/program/fsm.dat
+
+
+# sensitivity experiment directories
+letkf_a*/
+pom90-ens_a*/
+
+# logs
+*/log*
+
+# restart
+*/restart*
+
+# temporary
+*.ps
+*.nc

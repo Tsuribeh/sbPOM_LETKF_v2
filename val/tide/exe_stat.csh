@@ -1,17 +1,7 @@
 #!/bin/csh
 #---------------------------------------------------------------
-# Date |
-#---------------------------------------------------------------
-#
-###### KEO
-# T & S: 2004.06.16-
-# U & V: 2005.05.30-
-###### Papa
-# T & S: 2007.06.08-
-# U & V: 2007.06.08-
-#---------------------------------------------------------------
 
-set sdate=(2004 6 1)
+set sdate=(2003 1 1)
 set edate=(2023 12 31)
 
 #---------------------------------------------------------------
@@ -47,7 +37,7 @@ endif
 # Subroutine & Module |
 #---------------------------------------------------------------
 
-set module="../module/mod_rmiss.f90  ../module/mod_julian.f90 ../module/mod_read_ocs.f90 ../module/mod_gridinfo.f90 ../module/mod_read_lora_v20.f90 ../module/mod_read_glorys025.f90 ../module/mod_stat.f90 mod_setting.f90 mod_make_ncfile.f90 mod_io.f90"
+set module="../module/mod_rmiss.f90 ../module/mod_julian.f90 ../module/mod_stat.f90  ../module/mod_read_tide.f90 ../module/mod_gridinfo.f90 ../module/mod_read_lora_v20.f90 ../module/mod_read_glorys025.f90 mod_setting.f90 mod_make_ncfile.f90 mod_io.f90"
 set subroutine=""
 
 #---------------------------------------------------------------
@@ -67,14 +57,7 @@ if(! -f stat.out)then
     exit
 endif
 
-#---Clean
-rm -f dat/keo/*.dat
-rm -f dat/keo/*/*.dat
-rm -f dat/papa/*.dat
-rm -f dat/papa/*/*.dat
-
 #---Execulte
 ./stat.out ${sdate} ${edate}
 
 rm -f *.mod
-

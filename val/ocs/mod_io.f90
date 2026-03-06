@@ -2,6 +2,10 @@ module mod_io
 
 contains
 
+  !-----------------------------------------------------------------------
+  ! Read Argument |
+  !-----------------------------------------------------------------------
+  
   subroutine read_argument(syr,smon,sday,eyr,emon,eday)
 
     implicit none
@@ -51,8 +55,11 @@ contains
 
   end subroutine read_argument
 
-  !---------------------------------------------------------------------------------
+  !-----------------------------------------------------------------------
+  ! Read grid data |
+  !-----------------------------------------------------------------------
 
+  !*** To be modified
   subroutine read_grid(idat,im,jm,km,lont,lonu,lonv,latt,latu,latv,dept,depu,depv,maskt,masku,maskv)
 
     use setting, only: datname
@@ -111,8 +118,11 @@ contains
 
   end subroutine read_grid
 
-  !-------------------------------------------------
+  !---------------------------------------------------------------------------------
+  ! Extract analysis data |
+  !---------------------------------------------------------------------------------
 
+  !***To be modified
   subroutine extract_data(varname,idat,iyr,imon,iday,is,im,js,jm,ks,km,mean,sprd)
 
     use setting, only: datname
@@ -163,8 +173,10 @@ contains
 
   end subroutine extract_data
 
-  !------------------------------------
-
+  !---------------------------------------------------------------------------------
+  ! Read data in obs. space |
+  !---------------------------------------------------------------------------------
+  
   subroutine read_hdata(buoyname,varname,idat_a,iyr,imon,iday, &
        & km_o,lon_o,lat_o,dep_o,dat_o,hmean_a,hsprd_a)
 
@@ -232,6 +244,9 @@ contains
     status=nf90_inq_varid(ncid,"dep_o",varid)
     status=nf90_get_var(ncid,varid,dep_o)
 
+    !status=nf90_inq_varid(ncid,"pres_o",varid)
+    !status=nf90_get_var(ncid,varid,pres_o,(/1,iday/),(/km_o,1/))
+    
     status=nf90_inq_varid(ncid,"h"//trim(varname)//"mean_a",varid)
     status=nf90_get_var(ncid,varid,hmean_a,(/1,iday/),(/km_o,1/))
 
@@ -260,11 +275,13 @@ contains
     if(allocated(hsprd_a)) deallocate(hsprd_a)
     
   end subroutine deallcate_hdata    
-  
-  !------------------------------------
-  
+
+  !---------------------------------------------------------------------------------
+  ! Write data in obs. space |
+  !---------------------------------------------------------------------------------
+    
   subroutine write_hdata(buoyname,varname,idat_a,iyr,imon,iday, &
-       & km_o,lon_o,lat_o,dep_o,dat_o,hmean_a,hsprd_a)
+       & km_o,lon_o,lat_o,dep_o,pres_o,dat_o,hmean_a,hsprd_a)
 
     use setting, only: datname
     use mod_make_ncfile
@@ -284,7 +301,7 @@ contains
     integer,intent(in) :: iyr,imon,iday
     integer,intent(in) :: km_o
 
-    real(kind = 8),intent(in) :: lon_o,lat_o,dep_o(km_o)
+    real(kind = 8),intent(in) :: lon_o,lat_o,dep_o(km_o),pres_o(km_o)
     real(kind = 8),intent(in) :: dat_o(km_o)
     real(kind = 8),intent(in) :: hmean_a(km_o),hsprd_a(km_o)
     
@@ -317,6 +334,9 @@ contains
     status=nf90_inq_varid(ncid,"dep_o",varid)
     status=nf90_put_var(ncid,varid,dep_o)
 
+    status=nf90_inq_varid(ncid,"pres_o",varid)
+    status=nf90_put_var(ncid,varid,pres_o,(/1,iday/),(/km_o,1/))
+    
     status=nf90_inq_varid(ncid,"h"//trim(varname)//"mean_a",varid)
     status=nf90_put_var(ncid,varid,hmean_a,(/1,iday/),(/km_o,1/))
 
@@ -330,8 +350,10 @@ contains
         
   end subroutine write_hdata
 
-  !------------------------------------------------------------------
-
+  !---------------------------------------------------------------------------------
+  ! Write data in obs. space |
+  !---------------------------------------------------------------------------------
+  
   subroutine write_obs(buoyname,varname,datname,iyr,imon,iday,km_o,dep_o,hmean_a,dat_o)
 
     implicit none
@@ -369,9 +391,11 @@ contains
     close(11)
     
   end subroutine write_obs
-  
-  !------------------------------------------------------------------
 
+  !---------------------------------------------------------------------------------
+  ! Write Monthly statistics |
+  !---------------------------------------------------------------------------------
+  
   subroutine write_mave(buoyname,varname,syr,eyr,ndat_a,km_o,dep_o,num_mave,bias_mave,rmsd_mave,sprd_mave)
 
     implicit none
@@ -422,11 +446,13 @@ contains
 
   end subroutine write_mave
 
-  !---------------------------------------------------------
-
+  !---------------------------------------------------------------------------------
+  ! Write statistics for whole analysis period |
+  !---------------------------------------------------------------------------------
+  
   subroutine write_ave(buoyname,varname,sjul,ejul,ndat_a,km_o,dep_o,num_ave, &
-       & bias_ave,bias_dof_ave,bias_tcrit_ave,bias_tval_ave, &
-       & rmsd_ave,rmsd_dof_ave,rmsd_tcrit_ave,rmsd_tval_ave, &
+       & bias_ave,abias_dif_low,abias_dif_ave,abias_dif_upp, &
+       & rmsd_ave,rmsd_dif_low,rmsd_dif_ave,rmsd_dif_upp, &
        & sprd_ave)
 
     implicit none
@@ -442,14 +468,16 @@ contains
     integer,intent(in) :: ndat_a
     integer,intent(in) :: km_o
     integer,intent(in) :: num_ave(km_o,ndat_a)
-    integer,intent(in) :: bias_dof_ave(km_o,ndat_a,ndat_a)
-    integer,intent(in) :: rmsd_dof_ave(km_o,ndat_a,ndat_a)
     
     real(kind = 8),intent(in) :: dep_o(km_o)
     real(kind = 8),intent(in) :: bias_ave(km_o,ndat_a)
-    real(kind = 8),intent(in) :: bias_tcrit_ave(km_o,ndat_a,ndat_a),bias_tval_ave(km_o,ndat_a,ndat_a)
+    real(kind = 8),intent(in) :: abias_dif_low(km_o,ndat_a,ndat_a)
+    real(kind = 8),intent(in) :: abias_dif_ave(km_o,ndat_a,ndat_a)
+    real(kind = 8),intent(in) :: abias_dif_upp(km_o,ndat_a,ndat_a)
     real(kind = 8),intent(in) :: rmsd_ave(km_o,ndat_a)
-    real(kind = 8),intent(in) :: rmsd_tcrit_ave(km_o,ndat_a,ndat_a),rmsd_tval_ave(km_o,ndat_a,ndat_a)
+    real(kind = 8),intent(in) :: rmsd_dif_low(km_o,ndat_a,ndat_a)
+    real(kind = 8),intent(in) :: rmsd_dif_ave(km_o,ndat_a,ndat_a)
+    real(kind = 8),intent(in) :: rmsd_dif_upp(km_o,ndat_a,ndat_a)
     real(kind = 8),intent(in) :: sprd_ave(km_o,ndat_a)
 
     character(10),intent(in) :: buoyname
@@ -461,8 +489,8 @@ contains
     open(12,file="dat/"//trim(buoyname)//"/"//trim(varname)//"rmsd_ave.dat",status="replace")
     do k=1,km_o
 
-       write(11,trim(format)) dep_o(k),num_ave(k,:)*100.d0/dble(ejul-sjul+1),bias_ave(k,:),bias_tcrit_ave(k,1,:),bias_tval_ave(k,1,:)
-       write(12,trim(format)) dep_o(k),num_ave(k,:)*100.d0/dble(ejul-sjul+1),rmsd_ave(k,:),rmsd_tcrit_ave(k,1,:),rmsd_tval_ave(k,1,:)
+       write(11,trim(format)) dep_o(k),num_ave(k,:)*100.d0/dble(ejul-sjul+1),bias_ave(k,:),abias_dif_low(k,1,:),abias_dif_upp(k,1,:)
+       write(12,trim(format)) dep_o(k),num_ave(k,:)*100.d0/dble(ejul-sjul+1),rmsd_ave(k,:),rmsd_dif_low(k,1,:),rmsd_dif_upp(k,1,:)
 
     end do
     close(11)
@@ -475,24 +503,53 @@ contains
        write(13,trim(format)) dep_o(k),num_ave(k,:)*100.d0/dble(ejul-sjul+1),sprd_ave(k,:)
     end do
     close(13)             
-    
-    !write(format,'(a,I0,a,I0,a)') "(f12.5,i6,",ndat_a,"i10,",2*ndat_a,"f12.5)"
-    
-    !open(11,file="dat/"//trim(buoyname)//"/"//trim(varname)//"bias_tval_ave.dat",status="replace")
-    !open(12,file="dat/"//trim(buoyname)//"/"//trim(varname)//"rmsd_tval_ave.dat",status="replace")
-    !do k=1,km_o
-    !   do idat_a=1,ndat_a
-
-    !      write(11,trim(format)) dep_o(k),idat_a, &
-    !           & bias_dof_ave(k,idat_a,:),bias_tcrit_ave(k,idat_a,:),bias_tval_ave(k,idat_a,:)
-    !      write(12,trim(format)) dep_o(k),idat_a, &
-    !           & rmsd_dof_ave(k,idat_a,:),rmsd_tcrit_ave(k,idat_a,:),rmsd_tval_ave(k,idat_a,:)
-          
-    !   end do
-    !end do
-    !close(11)
-    !close(12)
-    
+        
   end subroutine write_ave
+
+  !---------------------------------------------------------------------------------
+  ! Write statistics (bias, RMSD, spread difference) |
+  !---------------------------------------------------------------------------------  
   
+  subroutine write_dave(buoyname,varname,ndat_a, &
+       & bias_dave, &
+       & rmsd_dave,rmsd_dif_dlow,rmsd_dif_dave,rmsd_dif_dupp, &
+       & sprd_dave)
+    
+    implicit none
+
+    !---Common
+    integer idat_a
+    
+    character(100) format
+
+    !---IN
+    integer,intent(in) :: ndat_a
+    
+    real(kind = 8),intent(in) :: bias_dave(ndat_a)
+    real(kind = 8),intent(in) :: rmsd_dave(ndat_a)
+    real(kind = 8),intent(in) :: rmsd_dif_dlow(ndat_a,ndat_a)
+    real(kind = 8),intent(in) :: rmsd_dif_dave(ndat_a,ndat_a)
+    real(kind = 8),intent(in) :: rmsd_dif_dupp(ndat_a,ndat_a)
+    real(kind = 8),intent(in) :: sprd_dave(ndat_a)
+
+    character(10),intent(in) :: buoyname
+    character(1),intent(in) :: varname
+
+    write(format,'(a,I0,a)') "(",3*ndat_a,"f12.5)"
+    
+    open(11,file="dat/"//trim(buoyname)//"/"//trim(varname)//"rmsd_dave.dat",status="replace")
+    write(11,trim(format)) rmsd_dave(:),rmsd_dif_dlow(1,:),rmsd_dif_dupp(1,:)
+    close(11)
+
+    write(format,'(a,I0,a)') "(",ndat_a,"f12.5)"
+    
+    open(11,file="dat/"//trim(buoyname)//"/"//trim(varname)//"bias_dave.dat",status="replace")    
+    open(12,file="dat/"//trim(buoyname)//"/"//trim(varname)//"sprd_dave.dat",status="replace")
+    write(11,trim(format)) bias_dave(:)
+    write(12,trim(format)) sprd_dave(:)
+    close(11)
+    close(12)             
+    
+  end subroutine write_dave
+    
 end module mod_io

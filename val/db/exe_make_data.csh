@@ -1,13 +1,13 @@
 #!/bin/csh
 #---------------------------------------------------------------
-# Validation using surface current from drifter buoys |
+# Make data in observation space |
 #---------------------------------------------------------------
 
 set machine="jss3"
 #set machine="fugaku"
 
-set sdate=(2015 1)
-set edate=(2018 12)
+set sdate=(2003 1)
+set edate=(2023 12)
 
 #---------------------------------------------------------------
 # Option |

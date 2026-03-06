@@ -12,10 +12,12 @@
 #---------------------------------------------------------------
 
 set sdate=(2004 6 16)
-set edate=(2018 12 31)
+set edate=(2023 12 31)
+#set sdate=(2005 1 1)
+#set edate=(2005 1 1)
 
 #---------------------------------------------------------------
-# Validation using surface current from drifter buoys |
+# Validation using KEO and Papa buoys |
 #---------------------------------------------------------------
 
 set machine="jss3"

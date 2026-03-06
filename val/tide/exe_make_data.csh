@@ -1,17 +1,7 @@
 #!/bin/csh
 #---------------------------------------------------------------
-# Date |
-#---------------------------------------------------------------
-#
-###### KEO
-# T & S: 2004.06.16-
-# U & V: 2005.05.30-
-###### Papa
-# T & S: 2007.06.08-
-# U & V: 2007.06.08-
-#---------------------------------------------------------------
 
-set sdate=(2004 6 1)
+set sdate=(2003 1 1)
 set edate=(2023 12 31)
 
 #---------------------------------------------------------------
@@ -47,34 +37,32 @@ endif
 # Subroutine & Module |
 #---------------------------------------------------------------
 
-set module="../module/mod_rmiss.f90  ../module/mod_julian.f90 ../module/mod_read_ocs.f90 ../module/mod_gridinfo.f90 ../module/mod_read_lora_v20.f90 ../module/mod_read_glorys025.f90 ../module/mod_stat.f90 mod_setting.f90 mod_make_ncfile.f90 mod_io.f90"
-set subroutine=""
+set module="../module/mod_rmiss.f90 ../module/mod_julian.f90 ../module/mod_read_tide.f90 ../module/mod_gridinfo.f90 ../module/mod_read_lora_v20.f90 ../module/mod_read_glorys025.f90 mod_setting.f90 mod_make_ncfile.f90 mod_io.f90"
+set subroutine="sub_get_id.f90"
 
 #---------------------------------------------------------------
 # Compile |
 #---------------------------------------------------------------
 
-rm -f stat.out
-${FC} ${module} main_stat.f90 ${subroutine} ${option} ${debug} -o stat.out
+rm -f make_data.out
+${FC} ${module} main_make_data.f90 ${subroutine} ${option} ${debug} -o make_data.out
 
 #---------------------------------------------------------------
 # Execution |
 #---------------------------------------------------------------
 
+#---Make dir
+#rm -rf dat
+if(! -d dat) mkdir dat
+
 #---Check
-if(! -f stat.out)then
-    echo "***Error: Compile main_stat.f90"
+if(! -f make_data.out)then
+    echo "***Error: Compile main_make_data.f90"
     exit
 endif
 
-#---Clean
-rm -f dat/keo/*.dat
-rm -f dat/keo/*/*.dat
-rm -f dat/papa/*.dat
-rm -f dat/papa/*/*.dat
-
 #---Execulte
-./stat.out ${sdate} ${edate}
+./make_data.out ${sdate} ${edate}
 
 rm -f *.mod
 

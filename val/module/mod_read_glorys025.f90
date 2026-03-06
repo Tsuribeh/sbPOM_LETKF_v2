@@ -137,13 +137,13 @@ contains
 
     status=nf90_inq_varid(ncid,"depth",varid)
     status=nf90_get_var(ncid,varid,tmp1dz,(/1/),(/km_in/))
-
+    
     if(varname == "h")then
        status=nf90_inq_varid(ncid,trim(ncname),varid)
-       status=nf90_get_var(ncid,varid,tmp3d(:,:,1),(/1,1/),(/im,jm/))
+       status=nf90_get_var(ncid,varid,tmp3d,(/1,1,1/),(/im,jm,1/))
     else
        status=nf90_inq_varid(ncid,trim(ncname),varid)
-       status=nf90_get_var(ncid,varid,tmp3d,(/1,1,1/),(/im,jm,km_in/))
+       status=nf90_get_var(ncid,varid,tmp3d,(/1,1,1,1/),(/im,jm,km_in,1/))
     end if
 
     status=nf90_close(ncid)
@@ -157,7 +157,6 @@ contains
           lon(n)=dble(tmp1dx(i))
        end if
     end do
-
 
     do i=1,im
        if(tmp1dx(i) < 0.e0)then
@@ -210,20 +209,28 @@ contains
           do i=1,im
              if(0.e0 <= tmp1dx(i))then
                 n=n+1
-                dat(n,j,k)=dble(tmp3d(i,j,k))
+                if(tmp3d(i,j,k) == dmiss)then
+                   dat(n,j,k)=rmiss
+                else
+                   dat(n,j,k)=dble(tmp3d(i,j,k))
+                end if
              end if
           end do
 
           do i=1,im
              if(tmp1dx(i) < 0.e0)then
                 n=n+1
-                dat(n,j,k)=dble(tmp3d(i,j,k))
+                if(tmp3d(i,j,k) == dmiss)then
+                   dat(n,j,k)=rmiss
+                else
+                   dat(n,j,k)=dble(tmp3d(i,j,k))
+                end if
              end if
           end do !i
           
        end do    !j
     end do       !k
-
+    
     !Missing value
     do j=1,jm
        do i=1,im
@@ -232,7 +239,7 @@ contains
           end if
        end do
     end do
-    
+        
   end subroutine read_glorys025
 
   !-----------------------------
@@ -334,15 +341,17 @@ contains
     end do
     
     !Data
-    do j=1,jm_in
-       do i=1,im_in
-          if(mask(i,j) == 0.d0)then
-             dat(i,j,:)=rmiss
-          else
-             dat(i,j,:)=dble(tmp3d(i,j,:))
-          end if
+    do k=1,km_in
+       do j=1,jm_in
+          do i=1,im_in
+             if(mask(i,j) == 0.d0 .or. tmp3d(i,j,k) == dmiss)then
+                dat(i,j,k)=rmiss
+             else
+                dat(i,j,k)=dble(tmp3d(i,j,k))
+             end if
+          end do
        end do
-    end do        
+    end do
     
   end subroutine extract_glorys025
   
