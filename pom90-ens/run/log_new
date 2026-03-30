@@ -1,0 +1,62 @@
+Compile
+make: 'pom.exe' is up to date.
+ens/julian.f90:
+Fortran diagnostic messages: program name(julian_day)
+  jwd8220o-i  "ens/julian.f90", line 2: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+ Module subprogram name(julian_ymd)
+  jwd8206o-i  "ens/julian.f90", line 58: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "ens/julian.f90", line 65: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "ens/julian.f90", line 67: Division is changed to multiplication by reciprocal.
+ens/mesp_ens_mpi.f90:
+Fortran diagnostic messages: program name(mpi_ensemble_mean_sprd)
+  jwd8220o-i  "ens/mesp_ens_mpi.f90", line 628: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "ens/mesp_ens_mpi.f90", line 657: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "ens/mesp_ens_mpi.f90", line 666: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "ens/mesp_ens_mpi.f90", line 674: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "ens/mesp_ens_mpi.f90", line 694: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "ens/mesp_ens_mpi.f90", line 702: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Linking:
+Start 200001
+Make Workdir
+Make in/out DIR
+Make restart file link
+Make link
+Link Netcdf file
+Make namelist
+Make vcoordfile
+Submit Job: Ensemble simulation
+Ensemble size: 128
+Each Node: 4, Each Processor: 16, Each Thread: 12
+Total Node: 512, Total Processor: 2048
+Submit Job
+[INFO] PJM 0000 pjsub Job 42708276 submitted.
+Wait for ensemble forecast to finish
+sbPOM FINISHED [ 0 / 128 ], 0:10 passed
+sbPOM FINISHED [ 0 / 128 ], 0:20 passed
+sbPOM FINISHED [ 0 / 128 ], 0:30 passed
+sbPOM FINISHED [ 0 / 128 ], 0:40 passed
+sbPOM FINISHED [ 0 / 128 ], 0:50 passed
+sbPOM FINISHED [ 0 / 128 ], 1:0 passed
+sbPOM FINISHED [ 0 / 128 ], 1:10 passed
+sbPOM FINISHED [ 0 / 128 ], 1:20 passed
+sbPOM FINISHED [ 0 / 128 ], 1:30 passed
+sbPOM FINISHED [ 0 / 128 ], 1:40 passed
+sbPOM FINISHED [ 0 / 128 ], 1:50 passed
+sbPOM FINISHED [ 0 / 128 ], 2:0 passed
+sbPOM FINISHED [ 1 / 128 ], 2:10 passed
+sbPOM FINISHED [ 2 / 128 ], 2:20 passed
+sbPOM FINISHED [ 12 / 128 ], 2:30 passed
+sbPOM FINISHED [ 40 / 128 ], 2:40 passed
+sbPOM FINISHED [ 95 / 128 ], 2:50 passed
+sbPOM FINISHED [ 128 / 128 ], 3:0 passed
+End 200001
+Remove link
+Post process
+Submit Job: Post process
+Ensemble size: 128, Total Node: 32
+[INFO] PJM 0000 pjsub Job 42708293 submitted.
+Start 200002
+Make Workdir
+Make in/out DIR
+Make restart file link
+***Error: Not found restart.nc

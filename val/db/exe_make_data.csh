@@ -3,11 +3,11 @@
 # Make data in observation space |
 #---------------------------------------------------------------
 
-set machine="jss3"
-#set machine="fugaku"
+#set machine="jss3"
+set machine="fugaku"
 
-set sdate=(2003 1)
-set edate=(2023 12)
+set sdate=(2003 1 1)
+set edate=(2003 1 31)
 
 #---------------------------------------------------------------
 # Option |

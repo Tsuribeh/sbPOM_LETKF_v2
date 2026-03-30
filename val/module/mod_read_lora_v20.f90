@@ -1,7 +1,7 @@
 module mod_read_lora
 
-!  character(100),parameter :: pdir="/vol0004/ra000007/data/a04048"
-  character(100),parameter :: pdir="/data/R/R2402/ohishi"
+ character(100),parameter :: pdir="/vol0004/ra000007/data/tsuribe"
+!  character(100),parameter :: pdir="/data/R/R2402/ohishi"
   
 contains
 

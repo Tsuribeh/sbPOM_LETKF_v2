@@ -28,7 +28,7 @@ contains
 
     character(200) dirname,filename
 
-    dirname="/data/R/R2402/DATA/JRA55do"
+    dirname="/vol0004/ra000007/data/a04048/DATA/JRA55do"
     filename=trim(dirname)//"/sftof_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-5-0_gr.nc"
 
     status=nf90_open(trim(filename),nf90_nowrite,ncid)
@@ -100,7 +100,7 @@ contains
     itime=(ijul-ijul0)*8+ihour/3+1
 
     !FILENAME
-    dirname="/data/R/R2402/DATA/JRA55do"
+    dirname="/vol0004/ra000007/data/a04048/DATA/JRA55do"
     write(yyyy,'(i4.4)') iyr
 
     do ivar=1,nvar

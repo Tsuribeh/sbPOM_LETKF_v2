@@ -35,7 +35,7 @@ contains
     real(kind = 8),intent(out) :: land(im,jm)
 
 
-    filename="/data/R/R2402/DATA/CaMa-Flood/netcdf/YEE2_JRA-55_outflw_H198101_GLB025.nc"
+    filename="/vol0004/ra000007/data/a04048/DATA/CaMa-Flood/netcdf/YEE2_JRA-55_outflw_H198101_GLB025.nc"
     status=access(trim(filename)," ")
     if(status /= 0)then
        write(*,*) "***Error: Not found: "//trim(filename)
@@ -92,7 +92,7 @@ contains
     write(yyyy,'(i4.4)') iyr
     write(mm,'(i2.2)') imon
 
-    filename="/data/R/R2402/DATA/CaMa-Flood/netcdf/YEE2_JRA-55_outflw_H" &
+    filename="/vol0004/ra000007/data/a04048/DATA/CaMa-Flood/netcdf/YEE2_JRA-55_outflw_H" &
          & //yyyy//mm//"_GLB025.nc"
 
     status=access(trim(filename)," ")
@@ -101,7 +101,7 @@ contains
        !If no data, dat=0.
        write(*,'(a)') "***Error: Not Found:"//trim(filename)
 
-       filename="/data/R/R2402/DATA/CaMa-Flood/netcdf/YEE2_JRA-55_outflw_H200101_GLB025.nc "
+       filename="/vol0004/ra000007/data/a04048/DATA/CaMa-Flood/netcdf/YEE2_JRA-55_outflw_H200101_GLB025.nc "
        status=nf90_open(trim(filename),nf90_nowrite,ncid)
        
        status=nf90_inq_varid(ncid,"lon",varid)

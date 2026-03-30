@@ -34,14 +34,14 @@ contains
     yyyymm=yyyy//mm
     yyyymmdd=yyyy//mm//dd
 
-    status=access("/data/R/R2402/DATA/WindSat/"//yyyymm," ")
+    status=access("/vol0004/ra000007/data/a04048/DATA/WindSat/"//yyyymm," ")
     if(status /= 0)then
        nfile=0
        return
     end if
     
     !Make filename file
-    status=system("find /data/R/R2402/DATA/WindSat/"//yyyymm// &
+    status=system("find /vol0004/ra000007/data/a04048/DATA/WindSat/"//yyyymm// &
          & " -name "//yyyymmdd//&
          &"*-JAXA-L2P_GHRSST-SSTsubskin-WINDSAT-v8_*-v02.0-fv01.0.nc "//&
          &"> windsat"//yyyymmdd//".dat")

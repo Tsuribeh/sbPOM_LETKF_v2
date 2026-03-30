@@ -38,7 +38,7 @@ contains
     yyyymm=yyyy//mm
     yyyymmdd=yyyy//mm//dd
 
-    status=access("/data/R/R2402/DATA/AMSR2/"//yyyymm," ")
+    status=access("/vol0004/ra000007/data/a04048/DATA/AMSR2/"//yyyymm," ")
     if(status /= 0)then
        nfile=0
        return
@@ -46,12 +46,12 @@ contains
     
     !Make filename file
     if((iyr == 2022 .and. 8 <= imon) .or. 2023 <= iyr)then
-       status=system("find /data/R/R2402/DATA/AMSR2/"//yyyymm// &
+       status=system("find /vol0004/ra000007/data/a04048/DATA/AMSR2/"//yyyymm// &
             & " -name "//yyyymmdd//&
             &"*-JAXA-L2P_GHRSST-SSTsubskin-AMSR2-v4.1_*-v02.0-fv01.0.nc "//&
             &"> amsr2"//yyyymmdd//".dat")
     else
-       status=system("find /data/R/R2402/DATA/AMSR2/"//yyyymm// &
+       status=system("find /vol0004/ra000007/data/a04048/DATA/AMSR2/"//yyyymm// &
             & " -name "//yyyymmdd//&
             &"*-JAXA-L2P_GHRSST-SSTsubskin-AMSR2-v4.0_*-v02.0-fv01.0.nc "//&
             &"> amsr2"//yyyymmdd//".dat")

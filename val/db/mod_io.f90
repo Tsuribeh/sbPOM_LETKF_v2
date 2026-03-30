@@ -72,7 +72,7 @@ contains
     real(kind = 8),allocatable :: tmp3d(:,:,:)
 
     !LORA
-    character(10) :: dir="QGLOBAL"
+    character(20) :: dir="sbPOM_LETKF_v2"
 
     !GLORYS
     character(10) datname
@@ -92,7 +92,7 @@ contains
     allocate(tmp3d(im,jm,km))
 
     if(idat == 1)then
-       dir="QGLOBAL"
+       dir="sbPOM_LETKF_v2"
        call read_grid_lora(dir,lont,lonu,lonv, &
             & latt,latu,latv, &
             & tmp3d,tmp3d,tmp3d, &
@@ -140,7 +140,7 @@ contains
 
     !LORA
     integer imem !Dummy
-    character(10) :: dir="QGLOBAL"
+    character(20) :: dir="sbPOM_LETKF_v2"
     character(10) :: letkf="letkf"
     character(10) :: region="qglobal"
     character(10) :: ms

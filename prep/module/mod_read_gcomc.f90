@@ -29,7 +29,7 @@ contains
     write(dd,'(i2.2)') iday
     yyyymmdd=yyyy//mm//dd
 
-    status=system("find /data/R/R2402/DATA/GCOM-C/SST/"//yyyymmdd// &
+    status=system("find /vol0004/ra000007/data/a04048/DATA/GCOM-C/SST/"//yyyymmdd// &
          & " -name *"//yyyymmdd//"*.h5 > filename.dat")
 
     nfile=0
@@ -78,7 +78,7 @@ contains
     write(dd,'(i2.2)') iday
     yyyymmdd=yyyy//mm//dd
 
-    command="find /data/R/R2402/DATA/GCOM-C/SSUV/"//yyyy//mm//&
+    command="find /vol0004/ra000007/data/a04048/DATA/GCOM-C/SSUV/"//yyyy//mm//&
          &" -name curvec_S3*_OL_"//yyyymmdd//"*_GC1SG1_"//yyyymmdd//"*_LCI_J0000_v02.nc"//&
          &" > filename.dat"
     status=system(trim(command))

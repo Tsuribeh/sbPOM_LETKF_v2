@@ -41,7 +41,7 @@ contains
 
     write(mm,'(i2.2)') imon
     
-    filename="/data/R/R2402/DATA/CHLA/clim/"//&
+    filename="/vol0004/ra000007/data/a04048/DATA/CHLA/clim/"//&
          &"GC1SG1_YYYY"//mm//"00D01M_D0000_3MSG_CHLAM_CLIM.nc" 
 
     status=access(trim(filename)," ")

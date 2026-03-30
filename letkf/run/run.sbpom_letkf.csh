@@ -3,9 +3,9 @@
 # DATE |
 #========================================================#
 
-set sdate=(2001 1 1) #Spin-up start date
-set idate=(2003 1 1) #Assimilation start date
-set edate=(2003 1 1) #Assimilation end date
+set sdate=(2000 1 1) #Spin-up start date
+set idate=(2003 10 2) #Assimilation start date
+set edate=(2004 12 31) #Assimilation end date
 
 #========================================================#
 # Switch(1:execute, other: skip) |
@@ -20,7 +20,7 @@ set switch_fcst=1        #sbPOM forecast
 # GENERAL |
 #========================================================#
 
-set DIR=/data/R/R2402/ohishi/TEST
+set DIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2
 set PDIR=${DIR}/prep       #Pre-process DIR
 set LDIR=${DIR}/letkf      #LETKF DIR
 set CDIR=`pwd`             #Current DIR
@@ -28,14 +28,14 @@ set WORKDIR=${LDIR}/work   #Work DIR
 set OUTPUT=${LDIR}/output  #Output DIR
 set INFO=${LDIR}/run/info  #LOG INFORMATION
 # set NMEM=10                #Ensembel member
-set NMEM=128               #Ensembel member
+set NMEM=128               #Ensemble member
 set NPROC=48               #Proceccor at 1 node
 set DT=1                   #Delta T [unit: day]
-set CT=1                   #Computation window day [unit: day]
-set machine="jss3"
-#set machine="fugaku"
+set CT=3                   #Computation window day [unit: day]
+#set machine="jss3"
+set machine="fugaku"
 #set elapse_time="00:10:00"
-set elapse_time="01:00:00"
+set elapse_time="02:00:00"
 
 #=========================================================#
 # OBSERVATION |
@@ -60,9 +60,9 @@ set MODELDATADIR=${PDIR}/in                #grid,tsclim,ic,lbc, tsdata DIR
 set ATMDIR=${PDIR}/in                      #ATM DIR
 set RIVDIR=${PDIR}/in                      #RIVER DIR
 set MODELOUTPUTDIR=${DIR}/pom90-ens/output #sbPOM output DIR
-set REGION=test                            #Forecast filename
-set PPROC=8                                #Number of Processor at 1 simulation
-set PNODE=2                                #Number of Node at 1 simulation
+set REGION=qglobal                            #Forecast filename
+set PPROC=16                                #Number of Processor at 1 simulation
+set PNODE=4                                #Number of Node at 1 simulation
 set PEXE=pom.exe                           #EXE file
 set BUDGET=1                               #T and S budget term (1:on, 0:off)
 set TS_NUDGE=0.                            #SST nuding [day] (*0 --> not execute)

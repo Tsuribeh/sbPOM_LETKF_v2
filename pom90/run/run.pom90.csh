@@ -2,28 +2,28 @@
 #=======================================================================
 # Setting for single simulation|
 #=======================================================================
-set REGION=test  #Region name
-set DIR=/data/R/R2402/ohishi/TEST/pom90         #POM Directory
-set PDIR=/data/R/R2402/ohishi/TEST/prep/program #Pre-process source file directory
-set NCDIR=/data/R/R2402/ohishi/TEST/prep/in     #Pre-process netcdf directory
+set REGION=test_qglobal  #Region name
+set DIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/pom90         #POM Directory
+set PDIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/prep/program #Pre-process source file directory
+set NCDIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/prep/in     #Pre-process netcdf directory
 set ATMDIR=${NCDIR}
 set RIVDIR=${NCDIR}
 set CURDIR=`pwd`
 set NPROC=48 #Total Proceccor for 1 node (JSS3 & Fugaku: 48)
-set NODE=1   #Node used 
-set PROC=4   #Processor used
+set NODE=4   #Node used 
+set PROC=16   #Processor used
 @ THREAD = ${NPROC} * ${NODE} / ${PROC} #THREAD used
 set BUDGET=0      #Heat Salinity budget convervation (1:On, 0: Off)
 set TS_NUDGE=0.  #T surface nudging [day]
 set TI_NUDGE=0.  #T internal
 set SS_NUDGE=30.  #S surface
 set SI_NUDGE=0.  #S internal
-set machine="jss3"
-#set machine="fugaku"
+#set machine="jss3"
+set machine="fugaku"
 
-set sdate=(1993 1) #start time
-set idate=(1993 1) #initial time
-set edate=(1993 1) #end time
+set sdate=(1982 1) #start time
+set idate=(1982 1) #initial time
+set edate=(1982 2) #end time
 
 #========================================================================
 
@@ -93,7 +93,7 @@ endif
     else
 	set nday=31.
     endif
-    set nday=1. #DEBUG
+#    set nday=1. #DEBUG
     
     #-----------------------------------
     echo "Start ${yyyy}${mm}"

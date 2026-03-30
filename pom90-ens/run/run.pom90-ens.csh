@@ -1,23 +1,23 @@
-#!/bin/csh
+#!/bin/csh:
 #=======================================================================
 # Setting for ensemble simulation |
 #=======================================================================
 
-set REGION=test
+set REGION=qglobal
 set EXE=pom.exe
-set DIR=/data/R/R2402/ohishi/TEST/pom90-ens
-set PDIR=/data/R/R2402/ohishi/TEST/prep/
-set NCDIR=/data/R/R2402/ohishi/TEST/prep/in
+set DIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/pom90-ens
+set PDIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/prep/program
+set NCDIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/prep/in
 set ATMDIR=${NCDIR}
 set RIVDIR=${NCDIR}
 set CURDIR=`pwd`
 
 set NPROC=48   #Total processor for one node (JSS3: 48)
-set EPROC=8    #Processor for each simulation
+set EPROC=16    #Processor for each simulation
 #set NMEM=10    #Ensemble size
-set NMEM=32    #Ensemble size
-#set NMEM=128   #Ensemble size
-set ENODE=2    #Node for each simulation
+#set NMEM=32    #Ensemble size
+set NMEM=128   #Ensemble size
+set ENODE=4    #Node for each simulation
 @ THREAD = ${NPROC} * ${ENODE} / ${EPROC}
 @ NODE = ${ENODE} * ${NMEM}
 @ PROC = ${EPROC} * ${NMEM}
@@ -28,12 +28,12 @@ set TI_NUDGE=30. #T internal
 set SS_NUDGE=30. #S surface
 set SI_NUDGE=30. #S internal
 set RM_ENS=1     #Remove ensemble member 1: On, 0: Off
-set machine="jss3"
-#set machine="fugaku"
+#set machine="jss3"
+set machine="fugaku"
 
-set sdate=(2001 1) #start time
-set idate=(2001 1) #initial time
-set edate=(2002 12) #end time
+set sdate=(2000 1) #start time
+set idate=(2002 6) #initial time
+set edate=(2002 6) #end time
 
 #=========================================================================
 # Compile Option |
@@ -123,7 +123,7 @@ while(${iyr} <= ${edate[1]})
     else
 	set nday=31
     endif
-    #set nday=1
+#    set nday=1
     
     #-----------------------------------
     echo "Start ${yyyy}${mm}"

@@ -12,7 +12,7 @@ module mod_read_smos
   !-----------------------------------------------------------------
 
   integer,parameter :: im=1388,jm=584
-  character(100),parameter :: smos_dir="/data/R/R2402/DATA"
+  character(100),parameter :: smos_dir="/vol0004/ra000007/data/a04048/DATA"
   
 contains
 

@@ -39,11 +39,11 @@ contains
     yyyymmdd=yyyy//mm//dd
     
     if(iyr <= 2023 .or. (iyr == 2024 .and. imon <= 10))then
-       status=system("find /data/R/R2402/DATA/CMEMS/dt/"//&
+       status=system("find /vol0004/ra000007/data/a04048/DATA/CMEMS/dt/"//&
             &" -name *"//yyyymmdd//"_*.nc "//&
             &"> cmems"//yyyymmdd//".dat")
     else
-       status=system("find /data/R/R2402/DATA/CMEMS/nrt/"//&
+       status=system("find /vol0004/ra000007/data/a04048/DATA/CMEMS/nrt/"//&
             &" -name *"//yyyymmdd//"_*.nc "//&
             &"> cmems"//yyyymmdd//".dat")
     end if

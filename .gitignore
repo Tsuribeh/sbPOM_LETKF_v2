@@ -43,8 +43,8 @@ pom90-ens_a*/
 # logs
 */log*
 
-# restart
-*/restart*
+# script to remove restart
+remove_restart.sh
 
 # temporary
 *.ps

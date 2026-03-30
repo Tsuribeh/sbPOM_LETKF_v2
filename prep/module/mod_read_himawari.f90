@@ -46,13 +46,13 @@ contains
     write(hh,'(i2.2)') ihour
     yyyymmddhh=yyyy//mm//dd//hh
     
-    filename1="/data/R/R2402/DATA/Himawari8/"//yyyy//"/"&
+    filename1="/vol0004/ra000007/data/a04048/DATA/Himawari8/"//yyyy//"/"&
          &//yyyymmddhh//"0000-JAXA-L3C_GHRSST-SSTskin-H08_AHI-v1.2-v02.0-fv01.0.nc"
-    filename2="/data/R/R2402/DATA/Himawari8/"//yyyy//"/"&
+    filename2="/vol0004/ra000007/data/a04048/DATA/Himawari8/"//yyyy//"/"&
          &//yyyymmddhh//"0000-JAXA-L3C_GHRSST-SSTskin-H08_AHI-v1.2-v02.0-fv02.0.nc"
-    filename3="/data/R/R2402/DATA/Himawari8/"//yyyy//"/"&
+    filename3="/vol0004/ra000007/data/a04048/DATA/Himawari8/"//yyyy//"/"&
          &//yyyymmddhh//"0000-JAXA-L3C_GHRSST-SSTskin-H08_AHI-v2.0-v02.0-fv01.0.nc"
-    filename4="/data/R/R2402/DATA/Himawari9/"//yyyy//"/"&
+    filename4="/vol0004/ra000007/data/a04048/DATA/Himawari9/"//yyyy//"/"&
          &//yyyymmddhh//"0000-JAXA-L3C_GHRSST-SSTskin-H09_AHI_NRT-v2.1-v02.0-fv01.0.nc"
 
     status1=access(trim(filename1)," ")
@@ -74,7 +74,7 @@ contains
        filename=filename1
     else
        status_all=999
-       filename="/data/R/R2402/DATA/Himawari8/"//&
+       filename="/vol0004/ra000007/data/a04048/DATA/Himawari8/"//&
             &"2015/20150707000000-JAXA-L3C_GHRSST-SSTskin-H08_AHI-v1.2-v02.0-fv01.0.nc"
     end if
 

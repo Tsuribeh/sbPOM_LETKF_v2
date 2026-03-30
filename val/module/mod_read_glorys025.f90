@@ -1,8 +1,8 @@
 module mod_read_glorys025
 
   integer,parameter :: im=1440,jm=681,km=75
-  character(100),parameter :: g025_dir="/data/R/R2402/DATA/GLORYS/025"
-  
+!  character(100),parameter :: g025_dir="/data/R/R2402/DATA/GLORYS/025"
+  character(100),parameter :: g025_dir="/vol0004/ra000007/data/a04048/DATA/GLORYS/025"  
 contains
   
   !---------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 module mod_read_en4
 
-  character(100),parameter :: en4_dir="/data/R/R2402/DATA/EN4"
+  character(100),parameter :: en4_dir="/vol0004/ra000007/data/a04048/DATA/EN4"
 
 contains
 

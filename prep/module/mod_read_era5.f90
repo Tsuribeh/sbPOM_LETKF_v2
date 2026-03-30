@@ -1,7 +1,7 @@
 module mod_read_era5
 
   integer,parameter :: im=1440,jm=721
-  character(200),parameter :: era5_dir="/data/R/R2402/DATA"
+  character(200),parameter :: era5_dir="/vol0004/ra000007/data/a04048/DATA"
   
 contains
 

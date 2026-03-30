@@ -1,7 +1,7 @@
 module mod_read_db
 
-  character(100),parameter :: db_dir="/data/R/R2402/DATA/DB"
-  
+  character(100),parameter :: db_dir="/vol0004/ra000007/data/a04048/DATA/DB"
+!  character(100),parameter :: db_dir="/data/R/R2402/DATA/DB"  
 contains
 
   !-----------------------------------------------------------------------------

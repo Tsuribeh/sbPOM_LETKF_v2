@@ -52,7 +52,7 @@ contains
     !OUT
     real(kind = 8),intent(out) :: land(im,jm)
     
-    filename="/data/R/R2402/DATA/JRA55/Const/LL125.grib"
+    filename="/vol0004/ra000007/data/a04048/DATA/JRA55/Const/LL125.grib"
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -109,7 +109,7 @@ contains
     !OUT
     real(kind = 8),intent(out) :: geo(im,jm)
 
-    filename="/data/R/R2402/DATA/JRA55/Const/LL125.grib"
+    filename="/vol0004/ra000007/data/a04048/DATA/JRA55/Const/LL125.grib"
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -173,7 +173,7 @@ contains
     ymdhn=yyyy//mm//dd//hh//nnnnn
     ymdh=yyyy//mm//dd//hh
     
-    filename="/data/R/R2402/DATA/JRA55/anl_surf125/anl_surf125."//ymdh
+    filename="/vol0004/ra000007/data/a04048/DATA/JRA55/anl_surf125/anl_surf125."//ymdh
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -303,7 +303,7 @@ contains
     ymdhn=yyyy//mm//dd//hh//nnnnn
     ymdh=yyyy//mm//dd//hh
     
-    filename="/data/R/R2402/DATA/JRA55/anl_surf125/anl_surf125."//ymdh
+    filename="/vol0004/ra000007/data/a04048/DATA/JRA55/anl_surf125/anl_surf125."//ymdh
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -388,7 +388,7 @@ contains
     ymdhn=yyyy//mm//dd//hh//nnnnn
     ymdh=yyyy//mm//dd//hh
     
-    filename="/data/R/R2402/DATA/JRA55/anl_surf125/anl_surf125."//ymdh
+    filename="/vol0004/ra000007/data/a04048/DATA/JRA55/anl_surf125/anl_surf125."//ymdh
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -478,7 +478,7 @@ contains
     ymdhn=yyyy//mm//dd//hh//nnnnn
     ymdh=yyyy//mm//dd//hh
     
-    filename="/data/R/R2402/DATA/JRA55/fcst_surf125/fcst_surf125."//ymdh
+    filename="/vol0004/ra000007/data/a04048/DATA/JRA55/fcst_surf125/fcst_surf125."//ymdh
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -546,7 +546,7 @@ contains
     ymdhn=yyyy//mm//dd//hh//nnnnn
     ymdh=yyyy//mm//dd//hh
     
-    filename="/data/R/R2402/DATA/JRA55/fcst_phy2m125/fcst_phy2m125."//ymdh
+    filename="/vol0004/ra000007/data/a04048/DATA/JRA55/fcst_phy2m125/fcst_phy2m125."//ymdh
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -623,7 +623,7 @@ contains
     ymdhn=yyyy//mm//dd//hh//nnnnn
     ymdh=yyyy//mm//dd//hh
     
-    filename="/data/R/R2402/DATA/JRA55/fcst_phy2m125/fcst_phy2m125."//ymdh
+    filename="/vol0004/ra000007/data/a04048/DATA/JRA55/fcst_phy2m125/fcst_phy2m125."//ymdh
 
     status=access(trim(filename)," ")
     if(status /= 0)then

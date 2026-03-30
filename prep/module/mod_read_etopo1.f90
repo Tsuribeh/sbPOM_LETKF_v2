@@ -32,7 +32,7 @@ contains
     
     character(100) filename
 
-    filename="/data/R/R2402/DATA/ETOPO1/ETOPO1_Ice_g_gmt4.grd"
+    filename="/vol0004/ra000007/data/a04048/DATA/ETOPO1/ETOPO1_Ice_g_gmt4.grd"
     
     status=access(trim(filename)," ")
     if(status /= 0) write(*,*) "Not Found:"//trim(filename)

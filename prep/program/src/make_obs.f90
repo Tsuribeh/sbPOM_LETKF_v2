@@ -1,8 +1,8 @@
 module setting
 
   !---Temporal range
-  integer,parameter :: syr=2021,smon=1,sday=1,shour=0 !Start date
-  integer,parameter :: eyr=2021,emon=1,eday=2,ehour=0 !End date
+  integer,parameter :: syr=2004,smon=1,sday=1,shour=0 !Start date
+  integer,parameter :: eyr=2004,emon=12,eday=31,ehour=0 !End date
   integer,parameter :: dt=24
 
   !---Switch (1:On,Other:Off)
@@ -31,7 +31,7 @@ module setting
   integer,parameter :: ssh_ele=2567
 
   !---Output Interval (Surface)
-  integer,parameter :: idx_msst=1,idy_msst=1 !Microwave SST
+  integer,parameter :: idx_msst=2,idy_msst=2 !Microwave SST
   integer,parameter :: idx_hsst=1,idy_hsst=1 !Himawari SST
   integer,parameter :: idx_sss=1,idy_sss=1
   integer,parameter :: id_ssh=1
@@ -51,7 +51,7 @@ module setting
   real(kind = 8),parameter :: ssh_depth=200.d0 ![m]
 
   !---Start & End Year to calculate model mean dynamical ocean topography 
-  integer,parameter :: syr_ssh=2020,eyr_ssh=2020 ![year]
+  integer,parameter :: syr_ssh=2000,eyr_ssh=2000 ![year]
   
   !---Low Chl-a limit
   real(kind = 8),parameter :: chla_limit=0.1d0
@@ -61,7 +61,7 @@ module setting
   
   !---POM filename
   character(20),parameter :: pom_dirname="pom90-ens"
-  character(10),parameter :: pom_filename="test"
+  character(10),parameter :: pom_filename="qglobal"
 
 end module setting
 

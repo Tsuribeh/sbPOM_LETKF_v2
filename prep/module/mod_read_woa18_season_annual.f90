@@ -55,8 +55,8 @@ contains
     end if
 
     write(mm,'(i2.2)') jmon
-    tfilename="/data/R/R2402/DATA/WOA18/woa18_decav_t"//mm//"_01.nc"
-    sfilename="/data/R/R2402/DATA/WOA18/woa18_decav_s"//mm//"_01.nc"
+    tfilename="/vol0004/ra000007/data/a04048/DATA/WOA18/woa18_decav_t"//mm//"_01.nc"
+    sfilename="/vol0004/ra000007/data/a04048/DATA/WOA18/woa18_decav_s"//mm//"_01.nc"
       
     !Check filename
     status=access(trim(tfilename)," ")
@@ -206,9 +206,9 @@ contains
 
     write(mm,'(i2.2)') jmon
     if(varname == "t")then
-       filename="/data/R/R2402/DATA/WOA18/woa18_decav_t"//mm//"_01.nc"
+       filename="/vol0004/ra000007/data/a04048/DATA/WOA18/woa18_decav_t"//mm//"_01.nc"
     else if(varname == "s")then
-       filename="/data/R/R2402/DATA/WOA18/woa18_decav_s"//mm//"_01.nc"
+       filename="/vol0004/ra000007/data/a04048/DATA/WOA18/woa18_decav_s"//mm//"_01.nc"
     end if
        
     !Check filename
@@ -343,8 +343,8 @@ contains
     end if
 
     write(mm,'(i2.2)') jmon
-    tfilename="/data/R/R2402/DATA/WOA18/woa18_decav_t"//mm//"_01.nc"
-    sfilename="/data/R/R2402/DATA/WOA18/woa18_decav_s"//mm//"_01.nc"
+    tfilename="/vol0004/ra000007/data/a04048/DATA/WOA18/woa18_decav_t"//mm//"_01.nc"
+    sfilename="/vol0004/ra000007/data/a04048/DATA/WOA18/woa18_decav_s"//mm//"_01.nc"
       
     !Check filename
     status=access(trim(tfilename)," ")

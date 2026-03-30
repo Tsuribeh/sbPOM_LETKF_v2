@@ -40,7 +40,7 @@ contains
 
 
     write(yyyy,'(i4.4)') iyr
-    filename="/data/R/R2402/DATA/SODA/soda3.12.2_mn_ocean_reg_"//yyyy//".nc"
+    filename="/vol0004/ra000007/data/a04048/DATA/SODA/soda3.12.2_mn_ocean_reg_"//yyyy//".nc"
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -166,7 +166,7 @@ contains
 
 
     write(yyyy,'(i4.4)') iyr
-    filename="/data/R/R2402/DATA/SODA/soda3.12.2_mn_ocean_reg_"//yyyy//".nc"
+    filename="/vol0004/ra000007/data/a04048/DATA/SODA/soda3.12.2_mn_ocean_reg_"//yyyy//".nc"
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -226,7 +226,7 @@ contains
     real(kind = 8),intent(out) :: dat(im,jm)
 
     write(yyyy,'(i4.4)') iyr
-    filename="/data/R/R2402/DATA/SODA/soda3.12.2_mn_ocean_reg_"//yyyy//".nc"
+    filename="/vol0004/ra000007/data/a04048/DATA/SODA/soda3.12.2_mn_ocean_reg_"//yyyy//".nc"
 
     status=access(trim(filename)," ")
     if(status /= 0)then
@@ -292,7 +292,7 @@ contains
     real(kind = 8),intent(out) :: dat(im,jm,km)
 
     write(yyyy,'(i4.4)') iyr
-    filename="/data/R/R2402/DATA/SODA/soda3.12.2_mn_ocean_reg_"//yyyy//".nc"
+    filename="/vol0004/ra000007/data/a04048/DATA/SODA/soda3.12.2_mn_ocean_reg_"//yyyy//".nc"
 
     status=access(trim(filename)," ")
     if(status /= 0)then

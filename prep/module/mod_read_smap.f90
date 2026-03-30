@@ -3,7 +3,7 @@ module mod_read_smap
   !Modified by S.Ohishi 2020.04
   !Modified by S.Ohishi 2025.02
 
-  character(100),parameter :: smap_dir="/data/R/R2402/DATA/SMAP/"
+  character(100),parameter :: smap_dir="/vol0004/ra000007/data/a04048/DATA/SMAP/"
   
 contains
 

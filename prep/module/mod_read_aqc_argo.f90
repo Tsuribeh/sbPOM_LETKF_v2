@@ -62,7 +62,7 @@ contains
     write(mm,'(i2.2)') imon
 
     !---Filename
-    filename="/data/R/R2402/DATA/AQC_Argo/AQC_Profile_Data_" &
+    filename="/vol0004/ra000007/data/a04048/DATA/AQC_Argo/AQC_Profile_Data_" &
          & //yyyy//mm//".nc"
     status=access(trim(filename)," ")
 

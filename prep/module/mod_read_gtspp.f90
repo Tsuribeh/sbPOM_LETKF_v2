@@ -5,7 +5,7 @@ module mod_read_gtspp
   !Modified S.Ohishi 2025.07
   !Modified S.Ohishi 2025.09
   
-  character(100),parameter :: gtspp_dir="/data/R/R2402/DATA/GTSPP"
+  character(100),parameter :: gtspp_dir="/vol0004/ra000007/data/a04048/DATA/GTSPP"
 
 contains
 
