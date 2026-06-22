@@ -215,6 +215,7 @@ subroutine surface_airseaflux
   !$omp end do
   
   ! unit change [W/m**2] -> [K m/sec]
+  !!4.1876d6:hard-coded rho * cp ?
   !$omp do private(i,j)
   do j=1,jm
      do i=1,im

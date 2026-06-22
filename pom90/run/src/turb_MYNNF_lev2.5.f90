@@ -21,23 +21,23 @@ module MYNNF_lev25_2012
   !     Fixed parameters for MYNNF-2.5 scheme 
   !
   real(kind = r_size),parameter :: g1 = 0.235d0
-  real(kind = r_size),parameter :: b1 = 24.d0
-  real(kind = r_size),parameter :: b2 = 15.d0
-  real(kind = r_size),parameter :: c2 = 0.75d0
-  real(kind = r_size),parameter :: c3 = 0.352d0
+  real(kind = r_size),parameter :: b1 = 24.d0 !!consistent with Furuichi et al.(2012)
+  real(kind = r_size),parameter :: b2 = 15.d0 !!consistent with Furuichi et al.(2012)
+  real(kind = r_size),parameter :: c2 = 0.75d0 !!consistent with Furuichi et al.(2012)
+  real(kind = r_size),parameter :: c3 = 0.352d0 !!consistent with Furuichi et al.(2012)
   real(kind = r_size),parameter :: c4 = 0.d0
-  real(kind = r_size),parameter :: c5 = 0.2d0
-  real(kind = r_size),parameter :: pr = 0.74d0
+  real(kind = r_size),parameter :: c5 = 0.2d0 !!consistent with Furuichi et al.(2012)
+  real(kind = r_size),parameter :: pr = 0.74d0 !!???
   real(kind = r_size),parameter :: vk = 0.4d0   !Karman const
   real(kind = r_size),parameter :: a1 = b1*( 1.d0-3.d0*g1 )/6.d0
   ! c1 = g1 -1.0/( 3.0*a1*b1**(1.0/3.0) ),  !on SX only integer power is allowed
-  real(kind = r_size),parameter :: c1 = 0.13706763d0
-  real(kind = r_size),parameter :: a2 = a1*(g1-c1)/(g1*pr)
-  real(kind = r_size),parameter :: g2 = b2/b1*(1.d0-c3)+2.d0*a1/b1*(3.d0-2.d0*c2)
+  real(kind = r_size),parameter :: c1 = 0.13706763d0 !!consistent with Furuichi et al.(2012)
+  real(kind = r_size),parameter :: a2 = a1*(g1-c1)/(g1*pr) !!???
+  real(kind = r_size),parameter :: g2 = b2/b1*(1.d0-c3)+2.d0*a1/b1*(3.d0-2.d0*c2) !!???
 
-  real(kind = r_size),parameter :: alp1 = 0.23d0      !Multiplier for L as planetary boundary layer z-scale
-  real(kind = r_size),parameter :: alp2 = 0.53d0      !0.53 in Furuichi et al, 2012 for LES; 1 in NN
-  real(kind = r_size),parameter :: alp3 = 1.d0/3.7d0  !1/3.7 in NN; 1 in Furuichi et al, 2012, but no 
+  real(kind = r_size),parameter :: alp1 = 0.23d0      !Multiplier for L as planetary boundary layer z-scale  !!???
+  real(kind = r_size),parameter :: alp2 = 0.53d0      !0.53 in Furuichi et al, 2012 for LES; 1 in NN !!???
+  real(kind = r_size),parameter :: alp3 = 1.d0/3.7d0  !1/3.7 in NN; 1 in Furuichi et al, 2012, but no !!???
   real(kind = r_size),parameter :: almost_zero = 1d-12 !small value for nonsingular numerics
   !
   !     Constants for surfase boundary layer Monin-Obukhov length scale "Lmo" estimation
@@ -69,12 +69,16 @@ contains
     real(kind = r_size),intent(in)::  q2(im,jm,kb)    !square of turbulence velocity scale
     real(kind = r_size),intent(in)::  boygr(im,jm,kb) !in POM, N**2 ~= -boygr/1.025
     real(kind = r_size),intent(in)::  wtsurf(im,jm)   !Total_Heat_Flux/(pho*cp), K*(m/s), positive if ocean losses heat
+    !!pho is same as rho?
+
     real(kind = r_size),intent(in)::  wssurf(im,jm)   !Total_Salt_Flux/Rho_fresh_water, [PSU*(m/s)], -(s+sbias)*WQ*RoFWR where
     ! WQ [kg/m**2/s] is positive mass flux for evaporation (salination),
     ! wssurf is positive for precipitation case (desalination)
+    !!consistent with fluxlib.f90
     real(kind = r_size),intent(in):: wusurf_t(im,jm),wvsurf_t(im,jm) !surface_stress/Rho, defined in T-points (not in U and V points as wusrf and wvsurf of POM).
     real(kind = r_size),intent(in):: z0(im,jm)               !surface roughness length; bottom roughness is fixed as 0.01 m
     real(kind = r_size),intent(in):: z(im,jm,kb),dzz(im,jm,kb),dh(im,jm) !sea depth dh is required only for SIGMA layers model
+    !dzz:sigma spacing? dh:depth of seafloor? 
 
     !     Working arrays used for PBL scale,
     !     inverse Monin-Obukhov scale and buoyancy flux at the surface
