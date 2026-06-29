@@ -11,7 +11,10 @@ subroutine surface_airseaflux
   implicit none
 
   integer,parameter :: n_iter=4 !number of interation 
-  
+ 
+  !!Added by H. Tsuribe(2026.6.22)
+  real(kind=r_size), parameter :: cp   = 3.994d3  !! specific heat capacity of ocean [J/kg/K] 
+
   !     Height in Atmospheric dataset [m]
   real(kind = r_size) zt,zu
 
@@ -222,6 +225,10 @@ subroutine surface_airseaflux
         wtsurf(i,j)= &
              & (qh(i,j)+qe(i,j)+lwrad(i,j))/(4.1876d6)*fsm(i,j)
         swrad(i,j)=-swrad(i,j)/(4.1876d6)*fsm(i,j)
+
+!!        wtsurf(i,j)= &
+!!             & (qh(i,j)+qe(i,j)+lwrad(i,j))/(rhoref*cp)*fsm(i,j)
+!!        swrad(i,j)=-swrad(i,j)/(rhoref*cp)*fsm(i,j)
      end do
   end do
   !$omp end do

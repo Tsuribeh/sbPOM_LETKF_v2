@@ -35,9 +35,11 @@ module MYNNF_lev25_2012
   real(kind = r_size),parameter :: a2 = a1*(g1-c1)/(g1*pr) !!???
   real(kind = r_size),parameter :: g2 = b2/b1*(1.d0-c3)+2.d0*a1/b1*(3.d0-2.d0*c2) !!???
 
-  real(kind = r_size),parameter :: alp1 = 0.23d0      !Multiplier for L as planetary boundary layer z-scale  !!???
-  real(kind = r_size),parameter :: alp2 = 0.53d0      !0.53 in Furuichi et al, 2012 for LES; 1 in NN !!???
-  real(kind = r_size),parameter :: alp3 = 1.d0/3.7d0  !1/3.7 in NN; 1 in Furuichi et al, 2012, but no !!???
+  real(kind = r_size),parameter :: alp1 = 0.23d0      !Multiplier for L as planetary boundary layer z-scale  !!consistent with !! Furuichi et al.(2012)
+  real(kind = r_size),parameter :: alp2 = 0.53d0      !0.53 in Furuichi et al, 2012 for LES; 1 in NN !!consistent in lb. MYNN:1.0,
+                                                      !! Furuichi et al.(2012):0.53
+  real(kind = r_size),parameter :: alp3 = 1.d0/3.7d0  !1/3.7 in NN; 1 in Furuichi et al, 2012, but no !!consistent with Nakanishi
+  !!and Niino(2009)
   real(kind = r_size),parameter :: almost_zero = 1d-12 !small value for nonsingular numerics
   !
   !     Constants for surfase boundary layer Monin-Obukhov length scale "Lmo" estimation
@@ -78,7 +80,7 @@ contains
     real(kind = r_size),intent(in):: wusurf_t(im,jm),wvsurf_t(im,jm) !surface_stress/Rho, defined in T-points (not in U and V points as wusrf and wvsurf of POM).
     real(kind = r_size),intent(in):: z0(im,jm)               !surface roughness length; bottom roughness is fixed as 0.01 m
     real(kind = r_size),intent(in):: z(im,jm,kb),dzz(im,jm,kb),dh(im,jm) !sea depth dh is required only for SIGMA layers model
-    !dzz:sigma spacing? dh:depth of seafloor? 
+    !!dzz:sigma spacing? dh:depth of seafloor? 
 
     !     Working arrays used for PBL scale,
     !     inverse Monin-Obukhov scale and buoyancy flux at the surface
@@ -145,14 +147,14 @@ contains
           !         Remove radiation that reaches bottom. It could decrease
           !         surface heating stabilization impact in shallow waters
 
-          rr = exp(zk/ad1(ntp))*r(ntp)+exp(zk/ad2(ntp))*(1.d0-r(ntp))
+          rr = exp(zk/ad1(ntp))*r(ntp)+exp(zk/ad2(ntp))*(1.d0-r(ntp)) !!rr isn't used
           hf = wtsurf(i,j)
           Bf(i,j) = grav*(alpha_sw*hf-beta_sw*wssurf(i,j))  !Bf positive for the case of convection
           !          u_star = sqrt(0.5*sqrt(
           !     *        (wusurf(i,j)+wusurf(i+1,j))**2+
           !     *        (wvsurf(i,j)+wvsurf(i,j+1))**2))
-          u_star = sqrt(sqrt(wusurf_t(i,j)**2+wvsurf_t(i,j)**2))
-          LmoR(i,j)= -vk*Bf(i,j)/max(u_star**3,almost_zero)
+          u_star = sqrt(sqrt(wusurf_t(i,j)**2+wvsurf_t(i,j)**2)) !!defined at t-grid, not u/v-grid
+          LmoR(i,j)= -vk*Bf(i,j)/max(u_star**3,almost_zero) !!check unit! -> O.K.
        end do
     end do
     !$omp end do
@@ -187,7 +189,7 @@ contains
              ! test case: no MO impact
              !            ls = max(zk,almost_zero)
              !
-             !           Bottom mixed layer, distance from bottom. Assume zn_MO_bottom = 0
+             !          lh: Bottom mixed layer, distance from bottom. Assume zn_MO_bottom = 0
              !
              lh = vk*(abs((z(i,j,kb)-z(i,j,k))*dh(i,j))+0.01d0)
              !            lh = max(lh,almost_zero)
@@ -203,8 +205,8 @@ contains
                    !v20130313, consider surface conditions only in PBL
                    if( zn_MO < 0.d0 )then !count for convection impact
                       !                 Convective velocity scale
-                      qc = (Bf(i,j)*Lt(i,j))**(1.d0/3.d0)
-                      lb = lb*sqrt(1.d0+40.d0*qc/(Lt(i,j)*N))
+                      qc = (Bf(i,j)*lt(i,j))**(1.d0/3.d0)
+                      lb = lb*sqrt(1.d0+40.d0*qc/(lt(i,j)*N))
                    endif
                 endif
 
@@ -340,7 +342,7 @@ contains
     
     !end tmp  diagnostic test
 
-    real(kind = r_size),intent(in):: boygr(im,jm,kb)        !in POM N**2 ~= -boygr/1.025
+    real(kind = r_size),intent(in):: boygr(im,jm,kb)        !in POM N**2 ~= -boygr/1.025 !!Why?
     integer i,j,k
     real(kind = r_size) ac,gh,gm,rr,ac2,a2c2,f1,f2,f3,f4,f5,d25
 
