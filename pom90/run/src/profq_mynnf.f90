@@ -155,7 +155,7 @@ subroutine profq_mynnf
   !$omp end do
 
   if(.not. lmynnf)then
-
+!!use MY (not MYNN)
      !$omp do private(i,j,k)
      do k=2,kbm1
         do j=2,jmm1

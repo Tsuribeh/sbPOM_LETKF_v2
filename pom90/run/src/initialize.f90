@@ -94,7 +94,7 @@ subroutine read_input
   lramp=.false.
 
   ! Reference density (recommended values: 1025 for seawater,
-  ! 1000 for freswater; S.I. units):
+  ! 1000 for freswater; S.I. units -> kg/m^3):
   rhoref=1025.d0
 
   ! Temperature bias (deg. C)

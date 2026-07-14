@@ -343,6 +343,7 @@ contains
     !end tmp  diagnostic test
 
     real(kind = r_size),intent(in):: boygr(im,jm,kb)        !in POM N**2 ~= -boygr/1.025 !!Why?
+    !! ->see solver.f90 
     integer i,j,k
     real(kind = r_size) ac,gh,gm,rr,ac2,a2c2,f1,f2,f3,f4,f5,d25
 

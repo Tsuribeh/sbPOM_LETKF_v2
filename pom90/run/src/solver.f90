@@ -94,14 +94,15 @@ subroutine unesco_potential_density(temp,sal,rho)
            t=temp(i,j,k)+tbias
            s=sal(i,j,k)+sbias
            pres=0.d0
-           
+
+           !!Density of freshwater 
            rhow=999.842594d0 &
                 & +6.793952d-2*t &
                 & -9.095290d-3*t*t &
                 & +1.001685d-4*t*t*t &
                 & -1.120083d-6*t*t*t*t &
                 & +6.536332d-9*t*t*t*t*t
-           
+           !!Density of seawater
            rho0=rhow &
                 & +s*(0.824493d0 &
                 & -4.0899d-3*t &
@@ -1464,6 +1465,7 @@ subroutine profq
   !$omp end do
 
   ! calculate buoyancy gradient
+  !!boygr is grav*(gradient of rho)
   !$omp do private(i,j,k)
   do k=2,kbm1
      do j=1,jm

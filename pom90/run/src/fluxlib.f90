@@ -13,7 +13,7 @@ subroutine surface_airseaflux
   integer,parameter :: n_iter=4 !number of interation 
  
   !!Added by H. Tsuribe(2026.6.22)
-  real(kind=r_size), parameter :: cp   = 3.994d3  !! specific heat capacity of ocean [J/kg/K] 
+  real(kind=r_size), parameter :: cp_ocn   = 3.994d3  !! specific heat capacity of ocean [J/kg/K] 
 
   !     Height in Atmospheric dataset [m]
   real(kind = r_size) zt,zu
@@ -218,17 +218,17 @@ subroutine surface_airseaflux
   !$omp end do
   
   ! unit change [W/m**2] -> [K m/sec]
-  !!4.1876d6:hard-coded rho * cp ?
+  !!4.1876d6:hard-coded rho * cp_ocn ?
   !$omp do private(i,j)
   do j=1,jm
      do i=1,im
-        wtsurf(i,j)= &
-             & (qh(i,j)+qe(i,j)+lwrad(i,j))/(4.1876d6)*fsm(i,j)
-        swrad(i,j)=-swrad(i,j)/(4.1876d6)*fsm(i,j)
-
 !!        wtsurf(i,j)= &
-!!             & (qh(i,j)+qe(i,j)+lwrad(i,j))/(rhoref*cp)*fsm(i,j)
-!!        swrad(i,j)=-swrad(i,j)/(rhoref*cp)*fsm(i,j)
+!!             & (qh(i,j)+qe(i,j)+lwrad(i,j))/(4.1876d6)*fsm(i,j)
+!!        swrad(i,j)=-swrad(i,j)/(4.1876d6)*fsm(i,j)
+
+        wtsurf(i,j)= &
+             & (qh(i,j)+qe(i,j)+lwrad(i,j))/(rhoref*cp_ocn)*fsm(i,j)
+        swrad(i,j)=-swrad(i,j)/(rhoref*cp_ocn)*fsm(i,j)
      end do
   end do
   !$omp end do
@@ -439,7 +439,7 @@ subroutine sensibleh(qh,ts,ta,ua,va,im,jm)
   ! -- local
   integer i,j
   real(kind = r_size),parameter :: z10=10.0d0,z2=1.5d0,rkalm=0.4d0
-  real(kind = r_size),parameter :: rhoa=1.2d0,cp=1.005d3,chc=1.1d-3
+  real(kind = r_size),parameter :: rhoa=1.2d0,cp_atm=1.005d3,chc=1.1d-3
   real(kind = r_size) wmag(im,jm)
   real(kind = r_size) ch10m(im,jm),ch2m(im,jm)
   real(kind = r_size) cd10m(im,jm),cd2m(im,jm)
@@ -494,7 +494,7 @@ subroutine sensibleh(qh,ts,ta,ua,va,im,jm)
   do j=1,jm
      do i=1,im
         !  Kondo(1975)
-        qh(i,j)=cp*rhoa*ch2m(i,j) &
+        qh(i,j)=cp_atm*rhoa*ch2m(i,j) &
              & *sqrt(ua2m(i,j)*ua2m(i,j)+va2m(i,j)*va2m(i,j))*(ts(i,j)-ta(i,j)) 
         
      enddo
