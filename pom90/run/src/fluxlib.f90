@@ -686,7 +686,8 @@ subroutine bulkcof(cf,u,v,ts,ta,w,id,jd,ind)
 
         if(w(i,j) < 0.3d0)then
            cf(i,j)=1.1d-3
-           exit
+          !! exit
+          cycle
         endif
 
         cf0=1.d-3*( A(ind,kkk)+B(ind,kkk)*(w(i,j)**P(ind,kkk)) &

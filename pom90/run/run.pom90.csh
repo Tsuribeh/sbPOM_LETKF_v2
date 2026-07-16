@@ -21,9 +21,9 @@ set SI_NUDGE=0.  #S internal
 #set machine="jss3"
 set machine="fugaku"
 
-set sdate=(1982 1) #start time
-set idate=(1982 1) #initial time
-set edate=(1982 2) #end time
+set sdate=(2000 1) #start time
+set idate=(2000 1) #initial time
+set edate=(2002 6) #end time
 
 #========================================================================
 
