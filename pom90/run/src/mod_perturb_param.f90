@@ -33,10 +33,10 @@ contains
     ! so we must NOT overwrite it here.
     if (.not. irestart) then
        alp2(:,:) = 0.53d0
+       is_alp2_perturbed = .false.
+    else
+       is_alp2_perturbed = .true.
     end if
-    
-    ! Reset the internal perturbation flag at initialization
-    is_alp2_perturbed = .false.
     
   end subroutine init_perturb_alp2
 
