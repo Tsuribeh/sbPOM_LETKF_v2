@@ -13,7 +13,7 @@
 module MYNNF_lev25_2012
 
   !$use omp_lib
-  use common_pom_var, only: r_size
+  use common_pom_var, only: r_size, alp2
   implicit none
 
   private
@@ -36,7 +36,7 @@ module MYNNF_lev25_2012
   real(kind = r_size),parameter :: g2 = b2/b1*(1.d0-c3)+2.d0*a1/b1*(3.d0-2.d0*c2) !!???
 
   real(kind = r_size),parameter :: alp1 = 0.23d0      !Multiplier for L as planetary boundary layer z-scale  !!consistent with !! Furuichi et al.(2012)
-  real(kind = r_size),parameter :: alp2 = 0.53d0      !0.53 in Furuichi et al, 2012 for LES; 1 in NN !!consistent in lb. MYNN:1.0,
+  !! real(kind = r_size),parameter :: alp2 = 0.53d0      !0.53 in Furuichi et al, 2012 for LES; 1 in NN !!consistent in lb. MYNN:1.0, 
                                                       !! Furuichi et al.(2012):0.53
   real(kind = r_size),parameter :: alp3 = 1.d0/3.7d0  !1/3.7 in NN; 1 in Furuichi et al, 2012, but no !!consistent with Nakanishi
   !!and Niino(2009)
@@ -56,7 +56,13 @@ module MYNNF_lev25_2012
   real(kind = r_size),parameter :: b2_my=10.1d0
   real(kind = r_size),parameter :: c1_my= 0.08d0
 
+  ! ====================================================
+  !     Dynamic parameters for Data Assimilation / SPP
+  ! ====================================================
+!  real(kind = r_size), allocatable :: alp2(:,:)       
+
   public mynn_get_l,mynn_get_q2l2,mynn_get_ShSm,my_get_ShSm
+!  public init_mynn_params, update_mynn_params !subroutine for perturb parameter in mynnf
 
 contains
 
@@ -199,7 +205,7 @@ contains
              if(k > 1 .and. boygr(i,j,k) < 0.d0) then !statically stable stratification
                 N = sqrt(-boygr(i,j,k)/1.025d0)
                 q = sqrt(abs(q2(i,j,k)))
-                lb=alp2*q/N
+                lb=alp2(i, j)*q/N
                 ! test case: comment out MO impact terms
                 if(abs(dh(i,j)*z(i,j,k)) < lt(i,j))then
                    !v20130313, consider surface conditions only in PBL
@@ -463,5 +469,6 @@ contains
    !$omp end parallel
    
  end subroutine my_get_ShSm
- 
+
+
 end module MYNNF_lev25_2012
