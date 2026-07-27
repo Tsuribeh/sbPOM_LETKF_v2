@@ -20,9 +20,9 @@ contains
   ! ===================================================================
   !  Initialization: MYNN alp2 parameter
   ! ===================================================================
-  subroutine init_perturb_alp2(im, jm, l_restart)
+  subroutine init_perturb_alp2(im, jm, irestart)
     integer, intent(in) :: im, jm
-    logical, intent(in) :: l_restart ! .true. if this is a restart run
+    logical, intent(in) :: irestart ! .true. if this is a restart run
 
     ! Allocate alp2 array if not yet allocated
     if (.not. allocated(alp2)) allocate(alp2(im, jm))
@@ -31,7 +31,7 @@ contains
     ! During a restart run (e.g., in LETKF parameter estimation cycles), 
     ! alp2 should have already been read from the restart file, 
     ! so we must NOT overwrite it here.
-    if (.not. l_restart) then
+    if (.not. irestart) then
        alp2(:,:) = 0.53d0
     end if
     

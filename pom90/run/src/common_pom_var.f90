@@ -522,4 +522,20 @@ module common_pom_var
        &  sref0(im_local,jm_local,kb)   , &
        &  sref1(im_local,jm_local,kb)
 
+  !_______________________________________________________________________
+  !  Parameter Perturbation Variables
+
+  !The parameter to be perturbed
+  real(kind=r_size), allocatable, save :: alp2(:,:)
+
+  ! Perturbation on/off and mode switch flags
+  logical, save :: l_pert_alp2          ! Enable alp2 perturbation (Main switch)
+  logical, save :: l_pert_alp2_linspace ! Linspace allocation mode (True: linspace, False: random)
+  logical, save :: l_pert_alp2_space    ! Spatial variation mode (True: 2D spatially varying, False: spatially uniform)
+  logical, save :: l_pert_alp2_time     ! Temporal variation mode (True: varies every step, False: constant in time)
+
+  ! Range specifications for linspace allocation mode
+  real(kind=r_size), save :: alp2_range_min ! Minimum value for allocation 
+  real(kind=r_size), save :: alp2_range_max ! Maximum value for allocation
+
 end module common_pom_var

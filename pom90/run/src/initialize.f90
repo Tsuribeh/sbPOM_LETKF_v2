@@ -248,7 +248,15 @@ subroutine read_input
 
   ! S.Ohishi 2024.12
   alpha_atm=0.2d0
-  
+ 
+  ! H.Tsuribe 2026.07
+  l_pert_alp2=.false.
+  l_pert_alp2_linspace=.false.
+  l_pert_alp2_space=.false.
+  l_pert_alp2_time=.false.
+  alp2_range_min=0.1d0
+  alp2_range_max=1.0d0 
+
   ! End of input of constants
 
   ! calculate some constants
@@ -336,6 +344,12 @@ subroutine read_input
      write(6,'('' lroff      = '',l10)') lroff
      write(6,'('' lpnetcdf      = '',l10)') lpnetcdf
      write(6,'('' lqglobal      = '',l10)') lqglobal
+     write(6,'('' l_pert_alp2          = '',l10)') l_pert_alp2
+     write(6,'('' l_pert_alp2_linspace          = '',l10)') l_pert_alp2_linspace
+     write(6,'('' l_pert_alp2_space          = '',l10)') l_pert_alp2_space
+     write(6,'('' l_pert_alp2_time          = '',l10)') l_pert_alp2_time
+     write(6,'('' alp2_range_min = '',f10.3)') alp2_range_min
+     write(6,'('' alp2_range_max = '',f10.3)') alp2_range_max
   end if
   
 end subroutine read_input
@@ -405,6 +419,8 @@ subroutine initialize_arrays
 
   tnudge_dave(1:im,1:jm,1:kb)=0.d0
   snudge_dave(1:im,1:jm,1:kb)=0.d0
+
+  !alp2(:, :)=0.d0 
   
 end subroutine initialize_arrays
 
