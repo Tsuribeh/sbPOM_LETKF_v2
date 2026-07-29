@@ -11,131 +11,103 @@ module mod_perturb_param
 
   public :: init_perturb_alp2, update_perturb_alp2
 
-  ! Internal flag to remember if the perturbation has already been applied
-  ! (Useful for time-constant perturbation mode)
-  logical, save :: is_alp2_perturbed = .false.
+  ! Flag for random seed initialization (for Update mode)
+  logical, save :: is_seed_initialized = .false.
 
 contains
 
   ! ===================================================================
-  !  Initialization: MYNN alp2 parameter
+  !  Initialization: Set initial parameter fields (Cold Start Only)
   ! ===================================================================
-  subroutine init_perturb_alp2(im, jm, irestart)
+  subroutine init_perturb_alp2(im, jm, irestart, nens, iens)
     integer, intent(in) :: im, jm
-    logical, intent(in) :: irestart ! .true. if this is a restart run
+    logical, intent(in) :: irestart
+    integer, intent(in) :: nens, iens
 
-    ! Allocate alp2 array if not yet allocated
+    real(kind = r_size) :: assigned_val
+    real(kind = r_size), parameter :: alp2_default = 0.53d0
+
     if (.not. allocated(alp2)) allocate(alp2(im, jm))
     
-    ! Apply default values ONLY for cold starts.
-    ! During a restart run (e.g., in LETKF parameter estimation cycles), 
-    ! alp2 should have already been read from the restart file, 
-    ! so we must NOT overwrite it here.
-    if (.not. irestart) then
-       alp2(:,:) = 0.53d0
-       is_alp2_perturbed = .false.
-    else
-       is_alp2_perturbed = .true.
-    end if
-    
+    ! Do nothing for restart runs to preserve LETKF-updated values
+    if (irestart) return 
+
+    ! Set initial values for cold start
+    select case (i_init_alp2)
+    case (1)
+       ! Pattern 1: Linspace (Equally spaced spread)
+       if (nens > 1) then
+          assigned_val = alp2_range_min + &
+               (alp2_range_max - alp2_range_min) * real(iens - 1, kind=r_size) / real(nens - 1, kind=r_size)
+       else
+          assigned_val = alp2_default 
+       end if
+       alp2(:,:) = assigned_val
+
+    case default
+       ! Pattern 0: Common default value for all members
+       alp2(:,:) = alp2_default
+
+    end select
+
   end subroutine init_perturb_alp2
 
 
   ! ===================================================================
-  !  Update: Apply perturbations to MYNN alp2 parameter
+  !  Update: Time evolution and Physical Constraints
   ! ===================================================================
-  subroutine update_perturb_alp2(im, jm, nens, iens, step_count)
+  subroutine update_perturb_alp2(im, jm, iens)
     integer, intent(in) :: im, jm
-    integer, intent(in) :: nens, iens, step_count
+    integer, intent(in) :: iens
 
     integer :: i, j, seed_size
     integer, allocatable :: seed_array(:)
-    real(kind = r_size) :: rand_val, assigned_val
+    real(kind = r_size) :: rand_val
     real(kind = r_size), allocatable :: rand_field(:,:)
     
-    ! Perturbation settings (Can be moved to namelist in the future)
-    real(kind = r_size), parameter :: alp2_default = 0.53d0
-    real(kind = r_size), parameter :: pert_amp     = 0.1d0
-    real(kind = r_size), parameter :: alp2_min     = 0.1d0
-    real(kind = r_size), parameter :: alp2_max     = 1.0d0
+    real(kind = r_size), parameter :: pert_amp = 0.1d0
+    real(kind = r_size), parameter :: alp2_min = 0.1d0
+    real(kind = r_size), parameter :: alp2_max = 1.0d0
 
-    ! ---------------------------------------------------------
-    ! Condition 3: Is perturbation enabled at all?
-    ! ---------------------------------------------------------
-    if (.not. l_pert_alp2) return 
-
-    ! ---------------------------------------------------------
-    ! Linspace Mode (Equally spaced assignments)
-    ! ---------------------------------------------------------
-    if (l_pert_alp2_linspace) then
-       if (.not. is_alp2_perturbed) then
-          if (nens > 1) then
-             ! Assign values linearly from min to max across ensemble members
-             assigned_val = alp2_range_min + &
-                  (alp2_range_max - alp2_range_min) * real(iens - 1, kind=r_size) / real(nens - 1, kind=r_size)
-          else
-             ! Failsafe for single runs
-             assigned_val = alp2_default 
-          end if
-          
-          alp2(:,:) = assigned_val
-          is_alp2_perturbed = .true.
+    ! --- 1. Add time-varying noise (Modes 1 and 2) ---
+    if (i_update_alp2 == 1 .or. i_update_alp2 == 2) then
+       
+       ! Setup random seed (First time only)
+       if (.not. is_seed_initialized) then
+          call random_seed(size=seed_size)
+          allocate(seed_array(seed_size))
+          seed_array = iens * 1000000 
+          call random_seed(put=seed_array)
+          deallocate(seed_array)
+          is_seed_initialized = .true.
        end if
-       return ! Exit here without adding random noise
-    end if
 
-    ! ---------------------------------------------------------
-    ! Condition 2: Time-varying or Time-constant? (Random mode)
-    ! ---------------------------------------------------------
-    ! If it is set to time-constant and already perturbed, do nothing
-    if (.not. l_pert_alp2_time .and. is_alp2_perturbed) return
-
-    ! --- Random Seed Setup ---
-    ! Ensure reproducibility across runs and members
-    call random_seed(size=seed_size)
-    allocate(seed_array(seed_size))
-    
-    if (l_pert_alp2_time) then
-       ! Time-varying: Seed depends on member ID and current step
-       seed_array = iens * 1000000 + step_count
-    else
-       ! Time-constant: Seed depends ONLY on member ID
-       seed_array = iens * 1000000
-    end if
-    call random_seed(put=seed_array)
-
-    ! ---------------------------------------------------------
-    ! Condition 1: Spatially varying or Uniform? (Random mode)
-    ! ---------------------------------------------------------
-    if (l_pert_alp2_space) then
-       ! (A) Spatially varying (Stochastic 2D)
-       allocate(rand_field(im, jm))
-       call random_number(rand_field)
-       do j = 1, jm
-          do i = 1, im
-             ! Convert 0.0~1.0 random number to -1.0~1.0, then scale by pert_amp
-             alp2(i,j) = alp2_default + (rand_field(i,j) - 0.5d0) * 2.0d0 * pert_amp
+       if (i_update_alp2 == 2) then
+          ! Mode 2: 2D spatial random noise
+          allocate(rand_field(im, jm))
+          call random_number(rand_field)
+          do j = 1, jm
+             do i = 1, im
+                alp2(i,j) = alp2(i,j) + (rand_field(i,j) - 0.5d0) * 2.0d0 * pert_amp
+             end do
           end do
-       end do
-       deallocate(rand_field)
-    else
-       ! (B) Spatially uniform (Uniform 1D)
-       call random_number(rand_val)
-       alp2(:,:) = alp2_default + (rand_val - 0.5d0) * 2.0d0 * pert_amp
+          deallocate(rand_field)
+       else
+          ! Mode 1: 1D uniform random noise
+          call random_number(rand_val)
+          alp2(:,:) = alp2(:,:) + (rand_val - 0.5d0) * 2.0d0 * pert_amp
+       end if
     end if
+    ! (Skip noise addition if i_update_alp2 == 0)
 
-    ! --- Guardrails (Clipping) ---
-    ! Prevent physical inconsistencies and model crashes
+    ! --- 2. Physical constraints (Clipping) ---
+    ! Ensure value safety at every step regardless of the mode
     do j = 1, jm
        do i = 1, im
           alp2(i,j) = max(alp2_min, min(alp2_max, alp2(i,j)))
        end do
     end do
 
-    ! Mark as perturbed to prevent redundant updates in time-constant mode
-    is_alp2_perturbed = .true.
-    deallocate(seed_array)
-    
   end subroutine update_perturb_alp2
 
 end module mod_perturb_param
