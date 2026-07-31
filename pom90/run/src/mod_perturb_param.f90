@@ -26,32 +26,32 @@ contains
 
     real(kind = r_size) :: assigned_val
     real(kind = r_size), parameter :: alp2_default = 0.53d0
+    real(kind = r_size), parameter :: alp2_range_min = 0.1d0
+    real(kind = r_size), parameter :: alp2_range_max = 1.0d0
 
     if (.not. allocated(alp2)) allocate(alp2(im, jm))
-    
+
     ! Do nothing for restart runs to preserve LETKF-updated values
-    if (irestart) return 
+    if (irestart) return
 
     ! Set initial values for cold start
-    select case (i_init_alp2)
-    case (1)
+    if (i_init_alp2 == 1) then
        ! Pattern 1: Linspace (Equally spaced spread)
        if (nens > 1) then
           assigned_val = alp2_range_min + &
                (alp2_range_max - alp2_range_min) * real(iens - 1, kind=r_size) / real(nens - 1, kind=r_size)
        else
-          assigned_val = alp2_default 
+          assigned_val = alp2_default
        end if
        alp2(:,:) = assigned_val
 
-    case default
+    else if (i_init_alp2 == 0) then
        ! Pattern 0: Common default value for all members
        alp2(:,:) = alp2_default
 
-    end select
+    end if
 
   end subroutine init_perturb_alp2
-
 
   ! ===================================================================
   !  Update: Time evolution and Physical Constraints
@@ -100,7 +100,7 @@ contains
     end if
     ! (Skip noise addition if i_update_alp2 == 0)
 
-    ! --- 2. Physical constraints (Clipping) ---
+    ! --- 2. Clipping ---
     ! Ensure value safety at every step regardless of the mode
     do j = 1, jm
        do i = 1, im

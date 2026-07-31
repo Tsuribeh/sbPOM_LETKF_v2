@@ -250,12 +250,8 @@ subroutine read_input
   alpha_atm=0.2d0
  
   ! H.Tsuribe 2026.07
-  l_pert_alp2=.false.
-  l_pert_alp2_linspace=.false.
-  l_pert_alp2_space=.false.
-  l_pert_alp2_time=.false.
-  alp2_range_min=0.1d0
-  alp2_range_max=1.0d0 
+  i_init_alp2=1
+  i_update_alp2=0
 
   ! End of input of constants
 
@@ -344,12 +340,8 @@ subroutine read_input
      write(6,'('' lroff      = '',l10)') lroff
      write(6,'('' lpnetcdf      = '',l10)') lpnetcdf
      write(6,'('' lqglobal      = '',l10)') lqglobal
-     write(6,'('' l_pert_alp2          = '',l10)') l_pert_alp2
-     write(6,'('' l_pert_alp2_linspace          = '',l10)') l_pert_alp2_linspace
-     write(6,'('' l_pert_alp2_space          = '',l10)') l_pert_alp2_space
-     write(6,'('' l_pert_alp2_time          = '',l10)') l_pert_alp2_time
-     write(6,'('' alp2_range_min = '',f10.3)') alp2_range_min
-     write(6,'('' alp2_range_max = '',f10.3)') alp2_range_max
+     write(6,'('' i_init_alp2 = '',i10)') i_init_alp2
+     write(6,'('' i_update_alp2 = '',i10)') i_update_alp2
   end if
   
 end subroutine read_input

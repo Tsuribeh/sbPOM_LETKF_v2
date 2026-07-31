@@ -525,17 +525,8 @@ module common_pom_var
   !_______________________________________________________________________
   !  Parameter Perturbation Variables
 
-  !The parameter to be perturbed
-  real(kind=r_size), allocatable, save :: alp2(:,:)
-
-  ! Perturbation on/off and mode switch flags
-  logical, save :: l_pert_alp2          ! Enable alp2 perturbation (Main switch)
-  logical, save :: l_pert_alp2_linspace ! Linspace allocation mode (True: linspace, False: random)
-  logical, save :: l_pert_alp2_space    ! Spatial variation mode (True: 2D spatially varying, False: spatially uniform)
-  logical, save :: l_pert_alp2_time     ! Temporal variation mode (True: varies every step, False: constant in time)
-
-  ! Range specifications for linspace allocation mode
-  real(kind=r_size), save :: alp2_range_min ! Minimum value for allocation 
-  real(kind=r_size), save :: alp2_range_max ! Maximum value for allocation
+  ! Perturbation mode switch flags
+  integer, save :: i_init_alp2    ! 0: Default, 1: Linspace
+  integer, save :: i_update_alp2  ! 0: Clip only, 1: 1D Stoc, 2: 2D Stoc
 
 end module common_pom_var
