@@ -8,6 +8,8 @@ subroutine initialize
   
   ! initialize POM
   use common_pom_var
+  use mod_perturb_param, only: init_perturb_alp2 !parameter perturbation
+
   implicit none
   
   integer iyr,imon,iday
@@ -40,6 +42,10 @@ subroutine initialize
   
   ! calculate the bottom friction coefficient
   call bottom_friction
+
+  ! initialize MYNN alp2 parameter (allocates array and sets cold-start values)
+  ! nread_rst /= 0 の時 (リスタート時) は .true. が渡され、初期化がスキップされます
+  call init_perturb_alp2(im, jm, (nread_rst /= 0), nens, iens)
 
   ! read restart data from a previous run
   if(nread_rst /= 0) call read_restart_netcdf
