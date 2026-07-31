@@ -58,16 +58,16 @@ contains
   ! ===================================================================
   subroutine update_perturb_alp2(im, jm, iens)
     integer, intent(in) :: im, jm
-    integer, intent(in) :: iens
+    integer, intent(in) :: nens, iens
 
     integer :: i, j, seed_size
     integer, allocatable :: seed_array(:)
     real(kind = r_size) :: rand_val
     real(kind = r_size), allocatable :: rand_field(:,:)
     
-    real(kind = r_size), parameter :: pert_amp = 0.1d0
     real(kind = r_size), parameter :: alp2_min = 0.1d0
     real(kind = r_size), parameter :: alp2_max = 1.0d0
+    real(kind = r_size), parameter :: pert_amp = (alp2_max-alp2_min)/nens
 
     ! --- 1. Add time-varying noise (Modes 1 and 2) ---
     if (i_update_alp2 == 1 .or. i_update_alp2 == 2) then
