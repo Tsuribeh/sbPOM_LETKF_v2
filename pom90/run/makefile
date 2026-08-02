@@ -66,10 +66,11 @@ OBJS =	common_pom_var.o	\
 	mod_blk_ncar.o		\
 	mod_aerobulk_compute.o	\
 	mod_aerobulk.o		\
-	parallel_mpi.o          \
+	mod_perturb_param.o     \
+        parallel_mpi.o          \
 	merge_scatter.o         \
 	timelib.o		\
-	random.o\
+	random.o                \
 	read_netcdf.o           \
 	fluxlib.o		\
 	solver.o		\
@@ -81,7 +82,7 @@ OBJS =	common_pom_var.o	\
 	write_netcdf.o          \
 	advance.o		\
 	initialize.o		\
-	pom.o
+	pom.o                   
 
 VPATH = $(SRCDIR)
 

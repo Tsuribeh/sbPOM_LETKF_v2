@@ -22,8 +22,8 @@ set SI_NUDGE=0.  #S internal
 set machine="fugaku"
 
 set sdate=(2000 1) #start time
-set idate=(2000 1) #initial time
-set edate=(2002 6) #end time
+set idate=(2002 7) #initial time
+set edate=(2002 8) #end time
 
 #========================================================================
 

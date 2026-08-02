@@ -56,13 +56,8 @@ module MYNNF_lev25_2012
   real(kind = r_size),parameter :: b2_my=10.1d0
   real(kind = r_size),parameter :: c1_my= 0.08d0
 
-  ! ====================================================
-  !     Dynamic parameters for Data Assimilation / SPP
-  ! ====================================================
-!  real(kind = r_size), allocatable :: alp2(:,:)       
 
   public mynn_get_l,mynn_get_q2l2,mynn_get_ShSm,my_get_ShSm
-!  public init_mynn_params, update_mynn_params !subroutine for perturb parameter in mynnf
 
 contains
 

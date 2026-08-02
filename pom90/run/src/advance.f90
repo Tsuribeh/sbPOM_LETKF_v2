@@ -5,6 +5,7 @@ subroutine advance
   ! advance POM 1 step in time
 
   use common_pom_var
+  use mod_perturb_param, only: update_perturb_alp2 !parameter perturbation
   implicit none
   
   if(my_task == master_task .and. mod(iint,100) == 0)then
@@ -85,6 +86,12 @@ subroutine advance
   !call check_nan("el",im,jm,1,el)
   !call check_nan("ua",im,jm,1,ua)
   !call check_nan("va",im,jm,1,va)
+
+
+  !===============================================================
+  !  SPP: update alp2 stocasticly before internal mode calculation
+  ! ==============================================================
+  call update_perturb_alp2(im, jm, nens, iens)
 
   ! write(6,"(/a)") "internal mode started"
 

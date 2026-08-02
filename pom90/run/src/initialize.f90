@@ -44,7 +44,7 @@ subroutine initialize
   call bottom_friction
 
   ! initialize MYNN alp2 parameter (allocates array and sets cold-start values)
-  ! nread_rst /= 0 の時 (リスタート時) は .true. が渡され、初期化がスキップされます
+  ! At restart run (nread_rst /= 0), init_perturb is skipped
   call init_perturb_alp2(im, jm, (nread_rst /= 0), nens, iens)
 
   ! read restart data from a previous run

@@ -5,7 +5,7 @@
 
 module mod_perturb_param
   use common_pom_var
-  use MYNNF_lev25_2012, only: alp2
+!  use MYNNF_lev25_2012
   implicit none
   private
 
@@ -48,7 +48,6 @@ contains
     else if (i_init_alp2 == 0) then
        ! Pattern 0: Common default value for all members
        alp2(:,:) = alp2_default
-
     end if
 
   end subroutine init_perturb_alp2
@@ -56,7 +55,7 @@ contains
   ! ===================================================================
   !  Update: Time evolution and Physical Constraints
   ! ===================================================================
-  subroutine update_perturb_alp2(im, jm, iens)
+  subroutine update_perturb_alp2(im, jm, nens, iens)
     integer, intent(in) :: im, jm
     integer, intent(in) :: nens, iens
 
@@ -67,7 +66,10 @@ contains
     
     real(kind = r_size), parameter :: alp2_min = 0.1d0
     real(kind = r_size), parameter :: alp2_max = 1.0d0
-    real(kind = r_size), parameter :: pert_amp = (alp2_max-alp2_min)/nens
+    real(kind = r_size) :: pert_amp  ! Dynamic variable instead of parameter
+
+    ! Dynamically calculate perturbation amplitude using nens
+    pert_amp = (alp2_max - alp2_min) / real(nens, kind=r_size)
 
     ! --- 1. Add time-varying noise (Modes 1 and 2) ---
     if (i_update_alp2 == 1 .or. i_update_alp2 == 2) then
@@ -76,6 +78,8 @@ contains
        if (.not. is_seed_initialized) then
           call random_seed(size=seed_size)
           allocate(seed_array(seed_size))
+          ! Set unique seed for each ensemble member 
+          !need to modify (use of year & month)
           seed_array = iens * 1000000 
           call random_seed(put=seed_array)
           deallocate(seed_array)
@@ -98,12 +102,22 @@ contains
           alp2(:,:) = alp2(:,:) + (rand_val - 0.5d0) * 2.0d0 * pert_amp
        end if
     end if
-    ! (Skip noise addition if i_update_alp2 == 0)
 
-    ! --- 2. Clipping ---
-    ! Ensure value safety at every step regardless of the mode
+    ! --- 2. Reflecting Boundary ---
+    ! Reflect values inward if they exceed boundaries to maintain natural variance
     do j = 1, jm
        do i = 1, im
+          ! Reflection at the upper boundary
+          if (alp2(i,j) > alp2_max) then
+             alp2(i,j) = 2.0d0 * alp2_max - alp2(i,j)
+          end if
+          
+          ! Reflection at the lower boundary
+          if (alp2(i,j) < alp2_min) then
+             alp2(i,j) = 2.0d0 * alp2_min - alp2(i,j)
+          end if
+          
+          ! Failsafe (prevents values from escaping bounds due to extreme cases)
           alp2(i,j) = max(alp2_min, min(alp2_max, alp2(i,j)))
        end do
     end do

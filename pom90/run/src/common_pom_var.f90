@@ -524,6 +524,7 @@ module common_pom_var
 
   !_______________________________________________________________________
   !  Parameter Perturbation Variables
+  real(kind = r_size), allocatable, public :: alp2(:,:)
 
   ! Perturbation mode switch flags
   integer, save :: i_init_alp2    ! 0: Default, 1: Linspace
