@@ -5,7 +5,7 @@
 
 set REGION=qglobal
 set EXE=pom.exe
-set DIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/pom90-ens
+set DIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/pom90-ens_perturbed_alp2_1_0
 set PDIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/prep/program
 set NCDIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/prep/in
 set ATMDIR=${NCDIR}
