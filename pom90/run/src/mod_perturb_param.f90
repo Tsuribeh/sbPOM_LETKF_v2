@@ -7,9 +7,9 @@ module mod_perturb_param
   use common_pom_var
 !  use MYNNF_lev25_2012
   implicit none
-  private
+!  private
 
-  public :: init_perturb_alp2, update_perturb_alp2
+!  public :: init_perturb_alp2, update_perturb_alp2
 
   ! Flag for random seed initialization (for Update mode)
   logical, save :: is_seed_initialized = .false.
