@@ -6,9 +6,9 @@
 module mod_perturb_param
   use common_pom_var
   implicit none
-!  private
+  private
 
-!  public :: init_perturb_alp2, update_perturb_alp2
+  public :: init_perturb_alp2, update_perturb_alp2
 
 
 contains
@@ -73,16 +73,13 @@ contains
   ! ===================================================================
   !  Update: Time evolution and Physical Constraints
   ! ===================================================================
-  subroutine update_perturb_alp2(im, jm, nens)
+  subroutine update_perturb_alp2(im, jm)
     integer, intent(in) :: im, jm
-    integer, intent(in) :: nens
 
     integer :: i, j
     real(kind = r_size) :: rand_val
     real(kind = r_size), allocatable :: rand_field(:,:)
     
-    real(kind = r_size), intent(in) :: pert_amp_alp2  ! perturbation amplitude
-
 
     ! --- 1. Add time-varying noise (Modes 1 and 2) ---
     ! 毎ステップ、単純に random_number を引くだけで済むように！
