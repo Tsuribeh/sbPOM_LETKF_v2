@@ -24,10 +24,13 @@ contains
     logical, intent(in) :: irestart
     integer, intent(in) :: nens, iens
 
+    real(kind= rsize), intent(in) :: alp2_range_min = 0.1d0
+    real(kind= rsize), intent(in) :: alp2_range_max = 1.0d0
+
     real(kind = r_size) :: assigned_val
     real(kind = r_size), parameter :: alp2_default = 0.53d0
-    real(kind = r_size), parameter :: alp2_range_min = 0.1d0
-    real(kind = r_size), parameter :: alp2_range_max = 1.0d0
+    !real(kind = r_size), parameter :: alp2_range_min = 0.1d0
+    !real(kind = r_size), parameter :: alp2_range_max = 1.0d0
 
     if (.not. allocated(alp2)) allocate(alp2(im, jm))
 
@@ -48,6 +51,8 @@ contains
     else if (i_init_alp2 == 0) then
        ! Pattern 0: Common default value for all members
        alp2(:,:) = alp2_default
+    else
+       alp2(:,:) = alp2_default 
     end if
 
   end subroutine init_perturb_alp2
