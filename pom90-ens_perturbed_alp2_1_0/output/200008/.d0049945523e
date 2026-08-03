@@ -1,0 +1,31 @@
+#!/bin/bash
+ibm_qname=("q-IBM-M","q-IBM-L")
+qtm_qname=("q-QTM-M","q-QTM-L")
+sim_qname=("q-SIM-M","q-SIM-L")
+qcmgr_cmd="/opt/local/coscheduler/coscheduler.sh"
+gateway_port="8899"
+ibm_addr="10.132.0.11"
+qtm_addr="10.132.0.10"
+sim_addr="10.132.0.12"
+site="fugaku"
+
+if [[ ${ibm_qname[@]} =~ "$PJM_RSCGRP" ]]; then
+  sh ${qcmgr_cmd} -a ${ibm_addr} -g ${gateway_port} -j ${PJM_JOBID} -e -q ${ibm_addr} -s ${site}
+  result=$?
+  if [ $result -eq 2 ] ; then
+    exit 2
+  fi
+elif [[ ${qtm_qname[@]} =~ "$PJM_RSCGRP" ]]; then
+  sh ${qcmgr_cmd} -a ${qtm_addr} -g ${gateway_port} -j ${PJM_JOBID} -e -q ${qtm_addr} -s ${site}
+  result=$?
+  if [ $result -eq 2 ] ; then
+    exit 2
+  fi
+elif [[ ${sim_qname[@]} =~ "$PJM_RSCGRP" ]]; then
+  sh ${qcmgr_cmd} -a ${sim_addr} -g ${gateway_port} -j ${PJM_JOBID} -e -q ${sim_addr} -s ${site}
+  result=$?
+  if [ $result -eq 2 ] ; then
+    exit 2
+  fi
+fi
+exit 0

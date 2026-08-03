@@ -447,7 +447,8 @@ contains
             if(k == 1 .or. k == kb)then
                gh = 0.d0
             else
-               gh=(l(i,j,k)**2)*boygr(i,j,k)/(1.025d0*q2(i,j,k))
+               !gh=(l(i,j,k)**2)*boygr(i,j,k)/(1.025d0*q2(i,j,k))
+               gh=(l(i,j,k)**2)*boygr(i,j,k)/(q2(i,j,k)) !!20260803 H.Tsuribe
                !              write(*,*)"MY gh=",gh,1./coef2,1./coef5
 
                !     sm and sh limit to infinity when gh approaches 0.0288, :

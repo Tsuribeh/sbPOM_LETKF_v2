@@ -1,0 +1,17 @@
+#PJM -L rscunit=rscunit_ft01
+#PJM -L rscgrp=large
+#PJM -L node=512
+#PJM --mpi proc=2048
+#PJM -L elapse=03:00:00
+#PJM -L proc-crproc=1024
+#PJM -L retention_state=0
+#PJM -g ra000007
+#PJM -x PJM_LLIO_GFSCACHE=/vol0004
+#PJM --name sbPOM_qglobal_200008
+#PJM -S
+
+export OMP_NUM_THREAD=12
+export PARALLEL=12
+
+csh /vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/pom90-ens_perturbed_alp2_1_0/run/submit_vcoord.csh qglobal pom.exe 16 128 12 fugaku /vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/pom90-ens_perturbed_alp2_1_0/output/200008 ${PJM_JOBID}
+

@@ -23,16 +23,16 @@ set ENODE=4    #Node for each simulation
 @ PROC = ${EPROC} * ${NMEM}
 
 set BUDGET=0     #Heat/Salinity budget convervation [1:On, 0:Off]
-set TS_NUDGE=30. #T surface nudging [day]
-set TI_NUDGE=30. #T internal
+set TS_NUDGE=0. #T surface nudging [day]
+set TI_NUDGE=0. #T internal
 set SS_NUDGE=30. #S surface
-set SI_NUDGE=30. #S internal
+set SI_NUDGE=0. #S internal
 set RM_ENS=1     #Remove ensemble member 1: On, 0: Off
 #set machine="jss3"
 set machine="fugaku"
 
 set sdate=(2000 1) #start time
-set idate=(2000 1) #initial time
+set idate=(2000 5) #initial time
 set edate=(2002 6) #end time
 
 #=========================================================================
