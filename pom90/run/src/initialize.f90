@@ -261,7 +261,6 @@ subroutine read_input
   alp2_min = 0.1d0
   alp2_max = 1.0d0
   pert_amp_alp2 = 1.d-9
-  !is_seed_initialized = .false.  
 
   ! End of input of constants
 

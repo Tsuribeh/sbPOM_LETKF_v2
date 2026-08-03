@@ -22,14 +22,16 @@ contains
     logical, intent(in) :: irestart
     integer, intent(in) :: nens, iens
 
-    real(kind= rsize), intent(in) :: alp2_range_min = 0.1d0
-    real(kind= rsize), intent(in) :: alp2_range_max = 1.0d0
 
     real(kind = r_size) :: assigned_val
 
-    integer :: iyr, imon   !compute with julday_ymd
+    integer :: iyr, imon, iday   !compute with julday_ymd
 
     real(kind = r_size), parameter :: alp2_default = 0.53d0
+
+    ! シード用変数の宣言を追加
+    integer :: seed_size
+    integer, allocatable :: seed_array(:)
 
     if (.not. allocated(alp2)) allocate(alp2(im, jm))
 
@@ -40,6 +42,7 @@ contains
     
     ! 年、月、アンサンブルメンバ番号から一意なシードを生成
     ! 例: iens=3, iyr=2012, imon=8 の場合 -> 3000000 + 201200 + 8 = 3201208
+    call julian_ymd(int(julday_start+time),iyr,imon,iday)
     seed_array(:) = iens * 1000000 + iyr * 100 + imon
     
     call random_seed(put=seed_array)
