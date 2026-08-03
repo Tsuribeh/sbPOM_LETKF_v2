@@ -91,7 +91,8 @@ subroutine advance
   !===============================================================
   !  SPP: update alp2 stocasticly before internal mode calculation
   ! ==============================================================
-  call update_perturb_alp2(im, jm, nens, iens)
+  !update_perturb_alp2(im, jm)
+  call update_perturb_alp2(im, jm)
 
   ! write(6,"(/a)") "internal mode started"
 
