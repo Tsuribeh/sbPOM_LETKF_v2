@@ -525,10 +525,9 @@ module common_pom_var
   !_______________________________________________________________________
   !  Parameter Perturbation Variables
   real(kind = r_size), allocatable, public :: alp2(:,:)
-  real(kind=r_size) :: alp2_min
-  real(kind=r_size) :: alp2_max
-  logical :: is_seed_initialized
-
+  real(kind = r_size) :: alp2_min
+  real(kind = r_size) :: alp2_max
+  real(kind = r_size) :: pert_amp_alp2
   ! Perturbation mode switch flags
   integer, save :: i_init_alp2    ! 0: Default, 1: Linspace
   integer, save :: i_update_alp2  ! 0: Clip only, 1: 1D Stoc, 2: 2D Stoc

@@ -11,13 +11,11 @@ module mod_perturb_param
 
 !  public :: init_perturb_alp2, update_perturb_alp2
 
-  ! Flag for random seed initialization (for Update mode)
-  logical, save :: is_seed_initialized = .false.
 
 contains
 
   ! ===================================================================
-  !  Initialization: Set initial parameter fields (Cold Start Only)
+  !  Initialization: Set initial parameter fields (Called at initialize.f90 once)
   ! ===================================================================
   subroutine init_perturb_alp2(im, jm, irestart, nens, iens)
     integer, intent(in) :: im, jm
@@ -28,11 +26,24 @@ contains
     real(kind= rsize), intent(in) :: alp2_range_max = 1.0d0
 
     real(kind = r_size) :: assigned_val
+
+    integer :: iyr, imon   !compute with julday_ymd
+
     real(kind = r_size), parameter :: alp2_default = 0.53d0
-    !real(kind = r_size), parameter :: alp2_range_min = 0.1d0
-    !real(kind = r_size), parameter :: alp2_range_max = 1.0d0
 
     if (.not. allocated(alp2)) allocate(alp2(im, jm))
+
+
+    ! --- 乱数シードの初期化（ここで1回だけ実行！） ---
+    call random_seed(size=seed_size)
+    allocate(seed_array(seed_size))
+    
+    ! 年、月、アンサンブルメンバ番号から一意なシードを生成
+    ! 例: iens=3, iyr=2012, imon=8 の場合 -> 3000000 + 201200 + 8 = 3201208
+    seed_array(:) = iens * 1000000 + iyr * 100 + imon
+    
+    call random_seed(put=seed_array)
+    deallocate(seed_array)
 
     ! Do nothing for restart runs to preserve LETKF-updated values
     if (irestart) return
@@ -41,8 +52,8 @@ contains
     if (i_init_alp2 == 1) then
        ! Pattern 1: Linspace (Equally spaced spread)
        if (nens > 1) then
-          assigned_val = alp2_range_min + &
-               (alp2_range_max - alp2_range_min) * real(iens - 1, kind=r_size) / real(nens - 1, kind=r_size)
+          assigned_val = alp2_min + &
+               (alp2_max - alp2_min) * real(iens - 1, kind=r_size) / real(nens - 1, kind=r_size)
        else
           assigned_val = alp2_default
        end if
@@ -60,51 +71,35 @@ contains
   ! ===================================================================
   !  Update: Time evolution and Physical Constraints
   ! ===================================================================
-  subroutine update_perturb_alp2(im, jm, nens, iens)
+  subroutine update_perturb_alp2(im, jm, nens)
     integer, intent(in) :: im, jm
-    integer, intent(in) :: nens, iens
+    integer, intent(in) :: nens
 
-    integer :: i, j, seed_size
-    integer, allocatable :: seed_array(:)
+    integer :: i, j
     real(kind = r_size) :: rand_val
     real(kind = r_size), allocatable :: rand_field(:,:)
     
-    real(kind = r_size), parameter :: alp2_min = 0.1d0
-    real(kind = r_size), parameter :: alp2_max = 1.0d0
-    real(kind = r_size) :: pert_amp  ! Dynamic variable instead of parameter
+    real(kind = r_size), intent(in) :: pert_amp_alp2  ! perturbation amplitude
 
-    ! Dynamically calculate perturbation amplitude using nens
-    pert_amp = (alp2_max - alp2_min) / real(nens, kind=r_size)
 
     ! --- 1. Add time-varying noise (Modes 1 and 2) ---
+    ! 毎ステップ、単純に random_number を引くだけで済むように！
     if (i_update_alp2 == 1 .or. i_update_alp2 == 2) then
        
-       ! Setup random seed (First time only)
-       if (.not. is_seed_initialized) then
-          call random_seed(size=seed_size)
-          allocate(seed_array(seed_size))
-          ! Set unique seed for each ensemble member 
-          !need to modify (use of year & month)
-          seed_array = iens * 1000000 
-          call random_seed(put=seed_array)
-          deallocate(seed_array)
-          is_seed_initialized = .true.
-       end if
-
        if (i_update_alp2 == 2) then
           ! Mode 2: 2D spatial random noise
           allocate(rand_field(im, jm))
           call random_number(rand_field)
           do j = 1, jm
              do i = 1, im
-                alp2(i,j) = alp2(i,j) + (rand_field(i,j) - 0.5d0) * 2.0d0 * pert_amp
+                alp2(i,j) = alp2(i,j) + (rand_field(i,j) - 0.5d0) * 2.0d0 * pert_amp_alp2
              end do
           end do
           deallocate(rand_field)
        else
           ! Mode 1: 1D uniform random noise
           call random_number(rand_val)
-          alp2(:,:) = alp2(:,:) + (rand_val - 0.5d0) * 2.0d0 * pert_amp
+          alp2(:,:) = alp2(:,:) + (rand_val - 0.5d0) * 2.0d0 * pert_amp_alp2
        end if
     end if
 
