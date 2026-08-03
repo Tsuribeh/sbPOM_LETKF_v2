@@ -258,6 +258,9 @@ subroutine read_input
   ! H.Tsuribe 2026.07
   i_init_alp2=1 ! 0: Default, 1: Linspace (Vary linearly across ensemble members)
   i_update_alp2=0 ! 0: Clip only, 1: 1D Stochastic, 2: 2D Stochastic
+  alp2_min = 0.1d0
+  alp2_max = 1.0d0
+  !is_seed_initialized = .false.  
 
   ! End of input of constants
 
