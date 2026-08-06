@@ -915,6 +915,9 @@ subroutine read_restart_netcdf
      call read_pnetcdf_var_sngl(ncid,im,jm,1,'advva',loc2d)
      advva(:,:)=loc2d(:,:)
 
+     call read_pnetcdf_var_sngl(ncid,im,jm,1,'alp2',loc2d)
+     alp2(:,:)=loc2d(:,:)
+
   else
      
      call read_netcdf_var_sngl(ncid,im_global,jm_global,1,'wubot',glb2d)
@@ -970,7 +973,9 @@ subroutine read_restart_netcdf
 
      call read_netcdf_var_sngl(ncid,im_global,jm_global,1,'advva',glb2d)
      call scatter2d(advva,dble(glb2d))
-          
+    
+     call read_netcdf_var_sngl(ncid,im_global,jm_global,1,'alp2',glb2d)
+     call scatter2d(alp2,dble(glb2d))     
   end if
                                     
   !---3d

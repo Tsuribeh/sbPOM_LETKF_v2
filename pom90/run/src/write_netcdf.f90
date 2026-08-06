@@ -1504,6 +1504,8 @@ subroutine write_restart_netcdf
      call define_var_netcdf(ncid,ndim,dim,varid,"advua","sum of 2nd, 3rd, and 4th terms in Eq. (18) [u]","-")
      call define_var_netcdf(ncid,ndim,dim,varid,"advva","sum of 2nd, 3rd, and 4th terms in Eq. (19) [v]","-")
 
+     call define_var_netcdf(ncid,ndim,dim,varid,"alp2","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")      
+
      deallocate(dim)
 
      !3D+Time
@@ -1612,6 +1614,8 @@ subroutine write_restart_netcdf
 
      call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"advva",real(advva))
 
+     call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"alp2",real(alp2))
+ 
   else
      
      call merge2d(glb2d,wubot)  
@@ -1685,7 +1689,11 @@ subroutine write_restart_netcdf
      call merge2d(glb2d,advva)  
      if(my_task == master_task) &
           & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"advva",real(glb2d))
-     
+
+     call merge2d(glb2d,alp2)
+     if(my_task == master_task) &
+          & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"alp2",real(glb2d)) 
+
   end if
   
   !3D
