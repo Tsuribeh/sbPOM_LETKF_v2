@@ -429,7 +429,9 @@ subroutine write_output_netcdf
         call define_var_netcdf(ncid,ndim,dim,varid,"qa","air specific humidity [el]","g/kg")
         call define_var_netcdf(ncid,ndim,dim,varid,"qs","surface saturated specific humidity [el]","g/kg")
         call define_var_netcdf(ncid,ndim,dim,varid,"ta","air temperature [el]","degree C")
-
+        
+        call define_var_netcdf(ncid,ndim,dim,varid,"alp2","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+        
         if(issf == 1)then
            call define_var_netcdf(ncid,ndim,dim,varid,"evap","evaporation [el]","mm/day")
            call define_var_netcdf(ncid,ndim,dim,varid,"prep","precipitation [el]","mm/day")
@@ -713,7 +715,13 @@ subroutine write_output_netcdf
      else if(idave == 2)then
         call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"ta",real(ta))
      end if
-     
+    
+     if(idave == 1)then
+        call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"alp2",real(alp2))
+     else if(idave == 2)then
+        call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"alp2",real(alp2))
+     end if
+
      if(issf == 1)then
 
         if(idave == 1)then
@@ -884,6 +892,15 @@ subroutine write_output_netcdf
      end if
      if(my_task == master_task) &
           & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"ta",real(glb2d))
+
+
+     if(idave == 1)then
+        call merge2d(glb2d,alp2)
+     else if(idave == 2)then
+        call merge2d(glb2d,alp2)
+     end if
+     if(my_task == master_task) &
+          & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"alp2",real(glb2d))  
 
      if(issf == 1)then
 
