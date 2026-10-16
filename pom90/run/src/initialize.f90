@@ -46,7 +46,7 @@ subroutine initialize
   ! initialize MYNN alp2 parameter (allocates array and sets cold-start values)
   !init_perturb_alp2(im, jm, irestart, nens, iens)
   ! At restart run (nread_rst /= 0), init_perturb is skipped
-  call init_perturb_alp2(im, jm, (nread_rst /= 0), nens, iens)
+  call init_perturb_alp2(im, jm, nens, iens)
 
   ! read restart data from a previous run
   if(nread_rst /= 0) call read_restart_netcdf

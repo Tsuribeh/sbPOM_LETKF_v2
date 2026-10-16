@@ -109,10 +109,11 @@ contains
     lt(1:im,1:jm) = 0.d0
     bf(1:im,1:jm) = 0.d0
 
+    !Ohishi: Bug fixed 2026.10.14
     !$omp parallel
     !$omp do private(i,j,k,qdz,zk)
-    do k=2,kb-1
-       do j=1,jm
+    do j=1,jm
+       do k=2,kb-1
           do i=1,im
              qdz=sqrt(abs(q2(i,j,k)))*dzz(i,j,k-1)*dh(i,j)
              zk=abs(z(i,j,k)*dh(i,j))
@@ -122,6 +123,7 @@ contains
        end do
     end do
     !$omp end do
+
 
     !$omp do private(i,j)    
     do j=1,jm

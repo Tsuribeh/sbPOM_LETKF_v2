@@ -32,8 +32,8 @@ set RM_ENS=1     #Remove ensemble member 1: On, 0: Off
 set machine="fugaku"
 
 set sdate=(2000 1) #start time
-set idate=(2000 3) #initial time
-set edate=(2002 6) #end time
+set idate=(2000 1) #initial time
+set edate=(2000 2) #end time
 
 #=========================================================================
 # Compile Option |

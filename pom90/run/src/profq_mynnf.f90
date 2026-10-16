@@ -28,6 +28,11 @@ subroutine profq_mynnf
 
   real(kind = r_size),parameter :: coef4=18.d0*a1*a1+9.d0*a1*a2
   real(kind = r_size),parameter :: coef5=9.d0*a1*a2
+
+  !Add two parameters below Ohishi 2026.10.16
+  real(kind = r_size),parameter :: charnock=1400.d0  ! water-side Charnock-type constant (e.g., GOTM default) 
+  real(kind = r_size),parameter :: z0s_min=0.02d0    ! [m] lower bound of surface roughness
+
   
   real(kind = r_size) a(im,jm,kb),c(im,jm,kb)
   real(kind = r_size) ee(im,jm,kb),gg(im,jm,kb)
@@ -119,6 +124,23 @@ subroutine profq_mynnf
         end do
      end do
      !$omp end do
+
+  else !Ohishi: Added lwbrk=false condition 2026.10.14
+     
+     !     no wave breaking: Dirichlet BC q2(0)=B1**(2/3)*u*^2 (Mellor and Yamada, 1982)
+     !     surface roughness length: constant z0s_min (GOTM default)
+     !     (optional Charnock-type: max(charnock*u*^2/g, z0s_min), charnock=1400 for water-side u*)
+     !$omp do private(i,j)
+     do j=2,jmm1
+        do i=2,imm1
+           ee(i,j,1)=0.d0
+           gg(i,j,1)=const1*utau2(i,j)
+           !l0(i,j)=max(charnock*utau2(i,j)/grav, z0s_min)
+           l0(i,j)=z0s_min
+        end do
+     end do
+     !$omp end do
+     
      
   end if
   
