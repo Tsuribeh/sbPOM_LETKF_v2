@@ -1,7 +1,8 @@
 # Ignore output directories
-letkf/output/
-pom90/output/
-pom90-ens/output/
+letkf*/output/
+pom90*/output/
+letkf*/work/
+pom90*/work/
 
 # Ignore input directory in prep
 prep/in/

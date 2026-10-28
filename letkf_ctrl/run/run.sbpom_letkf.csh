@@ -4,7 +4,7 @@
 #========================================================#
 
 set sdate=(2000 1 1) #Spin-up start date
-set idate=(2002 9 11) #Assimilation start date
+set idate=(2002 6 9) #Assimilation start date
 set edate=(2003 7 1) #Assimilation end date
 
 #========================================================#
@@ -94,7 +94,8 @@ echo "Total process: ${PROC_TOTAL}"
 echo "LETKF: ${LPROC} processor and ${LTHREAD} thread"
 
 if(1 <= ${NODE_TOTAL} && ${NODE_TOTAL} <= 384)then
-    set group="small"
+#    set group="small"
+    set group="small-s2"
 else if(385 <= ${NODE_TOTAL} && ${NODE_TOTAL} <= 12288)then
     set group="large"
 else
