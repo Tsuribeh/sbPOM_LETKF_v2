@@ -8,7 +8,7 @@ subroutine initialize
   
   ! initialize POM
   use common_pom_var
-  use mod_perturb_param, only: init_perturb_alp2 !parameter perturbation
+  use mod_perturb_param, only: init_perturb_alp2,init_perturb_horcon  !parameter perturbation
 
   implicit none
   
@@ -47,6 +47,7 @@ subroutine initialize
   !init_perturb_alp2(im, jm, irestart, nens, iens)
   ! At restart run (nread_rst /= 0), init_perturb is skipped
   call init_perturb_alp2(im, jm, nens, iens)
+  call init_perturb_horcon(im, jm, nens, iens)
 
   ! read restart data from a previous run
   if(nread_rst /= 0) call read_restart_netcdf

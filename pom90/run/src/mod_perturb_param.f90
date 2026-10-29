@@ -8,13 +8,25 @@ module mod_perturb_param
   implicit none
   private
 
-  public :: init_perturb_alp2, update_perturb_alp2
+  public :: init_perturb_alp2, update_perturb_alp2 &
+            init_perturb_horcon, update_perturb_horcon 
 
 contains
 
   ! ===================================================================
   !  Initialization: Set initial parameter fields (Called at initialize.f90)
   ! ===================================================================
+  subroutine init_perturb_2d(field, im, jm, nens, iens, &
+                          default_val, min_val, max_val, init_mode)
+
+   real(kind=r_size), intent(inout) :: field(im, jm)
+   integer, intent(in) :: im, jm, nens, iens
+   real(kind=r_size), intent(in) :: default_val, min_val, max_val
+   integer, intent(in) :: init_mode
+
+   ! 中身は alp2 とほぼ同じロジック
+  end subroutine init_perturb_2d
+
   subroutine init_perturb_alp2(im, jm, nens, iens)
     integer, intent(in) :: im, jm
     integer, intent(in) :: nens, iens
@@ -66,7 +78,7 @@ contains
     real(kind = r_size) :: assigned_val
     integer :: iyr, imon, iday
 
-    real(kind = r_size), parameter :: horcon_default = 0.53d0
+    real(kind = r_size), parameter :: horcon_default = 0.3d0
 
     integer :: seed_size
     integer, allocatable :: seed_array(:)
@@ -106,6 +118,25 @@ contains
   ! ===================================================================
   !  Update: Time evolution and Constraints
   ! ===================================================================
+  subroutine update_perturb_2d(field, im, jm, &
+                            update_mode, min_val, max_val, amp)
+
+   real(kind=r_size), intent(inout) :: field(im, jm)
+   integer, intent(in) :: im, jm, update_mode
+   real(kind=r_size), intent(in) :: min_val, max_val, amp
+
+   ! 1D/2D random noise を追加して clamp
+  end subroutine update_perturb_2d
+
+  subroutine update_perturb_scalar(value, update_mode, min_val, max_val, amp)
+ 
+    real(kind=r_size), intent(inout) :: value
+    integer, intent(in) :: update_mode
+    real(kind=r_size), intent(in) :: min_val, max_val, amp
+
+    ! scalar への摂動
+  end subroutine update_perturb_scalar
+
   subroutine update_perturb_alp2(im, jm)
     integer, intent(in) :: im, jm
 

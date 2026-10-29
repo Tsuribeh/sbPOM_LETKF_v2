@@ -5,7 +5,7 @@ subroutine advance
   ! advance POM 1 step in time
 
   use common_pom_var
-  use mod_perturb_param, only: update_perturb_alp2 !parameter perturbation
+  use mod_perturb_param, only: update_perturb_alp2, update_perturb_horcon !parameter perturbation
   implicit none
   
   if(my_task == master_task .and. mod(iint,100) == 0)then
