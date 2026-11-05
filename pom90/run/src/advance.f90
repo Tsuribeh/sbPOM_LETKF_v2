@@ -5,7 +5,7 @@ subroutine advance
   ! advance POM 1 step in time
 
   use common_pom_var
-  use mod_perturb_param, only: update_perturb_alp2, update_perturb_horcon !parameter perturbation
+  use mod_perturb_param, only: update_perturb_2d !parameter perturbation
   implicit none
   
   if(my_task == master_task .and. mod(iint,100) == 0)then
@@ -39,6 +39,9 @@ subroutine advance
   ! set monthly climatological data
   call set_tsclim
 
+  !perturbation to horcon
+  call update_perturb_2d(horcon_field, im, jm, i_update_horcon, &
+     horcon_min, horcon_max, pert_amp_horcon) 
   ! set lateral viscosity
   call lateral_viscosity
   
@@ -92,8 +95,8 @@ subroutine advance
   !  SPP: update alp2 stocasticly before internal mode calculation
   ! ==============================================================
   !update_perturb_alp2(im, jm)
-  call update_perturb_alp2(im, jm)
-
+  call update_perturb_2d(alp2, im, jm, i_update_alp2, &
+     alp2_min, alp2_max, pert_amp_alp2)
   ! write(6,"(/a)") "internal mode started"
 
   ! internal (3-D) mode calculation

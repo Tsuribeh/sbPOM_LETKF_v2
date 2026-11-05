@@ -8,7 +8,7 @@ subroutine initialize
   
   ! initialize POM
   use common_pom_var
-  use mod_perturb_param, only: init_perturb_alp2,init_perturb_horcon  !parameter perturbation
+  use mod_perturb_param, only: init_perturb_2d !parameter perturbation
 
   implicit none
   
@@ -43,11 +43,16 @@ subroutine initialize
   ! calculate the bottom friction coefficient
   call bottom_friction
 
-  ! initialize MYNN alp2 parameter (allocates array and sets cold-start values)
-  !init_perturb_alp2(im, jm, irestart, nens, iens)
+  ! initialize perturbed parameter (allocates array and sets cold-start values)
+  !init_perturb_2d(field, im, jm, nens, iens, &
+  !                           default_val, min_val, max_val, init_mode)
   ! At restart run (nread_rst /= 0), init_perturb is skipped
-  call init_perturb_alp2(im, jm, nens, iens)
-  call init_perturb_horcon(im, jm, nens, iens)
+
+  call init_perturb_2d(alp2, im, jm, nens, iens, &
+     alp2_default, alp2_min, alp2_max, i_init_alp2)
+ 
+  call init_perturb_2d(horcon, im, jm, nens, iens, &
+     horcon_default, horcon_min, horcon_max, i_init_horcon)
 
   ! read restart data from a previous run
   if(nread_rst /= 0) call read_restart_netcdf
@@ -125,20 +130,6 @@ subroutine read_input
 
   ! Maximum bottom friction coeff.
   cbcmax=1.d0
-
-  ! Smagorinsky diffusivity coeff.
-  horcon=0.1d0
-  !horcon=0.3d0
-  aamadd=0.d0
-
-  ! Inverse horizontal turbulent Prandtl number (ah/am; dimensionless):
-  ! NOTE that tprni=0.e0 yields zero horizontal diffusivity!
-  tprni=0.2d0
-  !tprni=0.5d0
-
-  ! Background viscosity used in subroutines profq, proft, profu and
-  ! profv (S.I. units):
-  umol=2.d-5
 
   ! Maximum magnitude of vaf (used in check that essentially tests
   ! for CFL violation):
@@ -256,15 +247,45 @@ subroutine read_input
 
   ! S.Ohishi 2024.12
   alpha_atm=0.2d0
- 
+
+  !Perturbed parameters
+
   ! H.Tsuribe 2026.07
-  i_init_alp2=1 ! 0: Default, 1: Linspace (Vary linearly across ensemble members)
+  alp2_default=0.53d0
+  i_init_alp2=0 ! 0: Default, 1: Linspace (Vary linearly across ensemble members)
   i_update_alp2=0 ! 0: Clip only, 1: 1D Stochastic, 2: 2D Stochastic
   alp2_min = 0.1d0
   alp2_max = 1.0d0
-  pert_amp_alp2 = 1.d-9
+
+  ! H.Tsuribe 2026.11
+  ! Smagorinsky diffusivity coeff.
+  horcon_default=0.1d0
+  !horcon=0.3d0
+  aamadd=0.d0
+
+  horcon_min = horcon_default - 0.09d0 
+  horcon_max = horcon_default + 0.09d0
+  i_init_horcon = 0
+
+
+  ! Inverse horizontal turbulent Prandtl number (ah/am; dimensionless):
+  ! NOTE that tprni=0.e0 yields zero horizontal diffusivity!
+  tprni_default=0.2d0
+  !tprni=0.5d0
+  tprni_min = tprni_default - 0.1d0
+  tprni_max = tprni_default + 0.1d0
+  i_init_tprni = 0
+
+  ! Background viscosity used in subroutines profq, proft, profu and
+  ! profv (S.I. units):
+  umol_default=2.d-5
+  umol_min = umol_default - 1.d-5
+  umol_max = umol_default + 1.d-5
+  i_init_umol = 0
 
   ! End of input of constants
+
+
 
   ! calculate some constants
   small=1.d-9           ! Small value

@@ -148,8 +148,6 @@ module common_pom_var
        &  slmax          , & 
        &  small          , & ! small value
        &  tbias          , & ! temperature bias
-       &  tprni          , & ! inverse horizontal turbulent Prandtl number
-       &  umol           , & ! background viscosity
        &  vmaxl          , & ! max vaf used to test for model blow-up
        &  write_rst      , & 
        &  aam_init       , & ! initial value of aam
@@ -157,7 +155,6 @@ module common_pom_var
        &  cbcmin         , & ! minimum bottom friction coefficient
        &  days           , & ! run duration in days
        &  dte2           , & ! 2*dte
-       &  horcon         , & ! smagorinsky diffusivity coefficient
        &  aamadd         , & ! Additional viscosity constant
        &  ispi           , & ! dte/dti
        &  isp2i          , & ! dte/(2*dti)
@@ -524,12 +521,50 @@ module common_pom_var
 
   !_______________________________________________________________________
   !  Parameter Perturbation Variables
+  ! MYNN parameter
   real(kind = r_size), allocatable, public :: alp2(:,:)
-  real(kind = r_size) :: alp2_min
-  real(kind = r_size) :: alp2_max
-  real(kind = r_size) :: pert_amp_alp2
+  real(kind = r_size) ::      &
+      &  alp2_default,        &
+      &  alp2_min,            &
+      &  alp2_max,            &  
+      &  pert_amp_alp2
+
+  ! smagorinsky diffusivity coefficient
+  real(kind =r_size), allocatable, public :: horcon(:,:)
+  real(kind = r_size) ::      &
+      &  horcon_default,      &
+      &  horcon_min,          &
+      &  horcon_max,          &
+      &  pert_amp_horcon
+
+  ! inverse horizontal turbulent Prandtl number
+  real(kind = r_size), allocatable, public :: tprni(:,:)
+  real(kind = r_size) ::      & 
+      &  tprni_default,      &
+      &  tprni_min,          &
+      &  tprni_max,          &
+      &  pert_amp_tprni
+
+  ! background viscosity
+  real(kind = r_size), allocatable, public :: umol(:,:)
+  real(kind = r_size) ::      &
+      &  umol_default,      &
+      &  umol_min,          &
+      &  umol_max,          &
+      &  pert_amp_umol
+
   ! Perturbation mode switch flags
-  integer, save :: i_init_alp2    ! 0: Default, 1: Linspace
-  integer, save :: i_update_alp2  ! 0: Clip only, 1: 1D Stoc, 2: 2D Stoc
+  integer, save ::            & 
+      &    i_init_alp2,       &
+      &    i_init_horcon,     &
+      &    i_init_tprni,      &
+      &    i_init_umol        &
+      &    ! 0: Default, 1: Linspace
+  integer, save ::            &
+      &    i_update_alp2,     & 
+      &    i_update_horcon,   &
+      &    i_update_tprni,    &
+      &    i_update_umol      & 
+      &    ! 0: Clip only, 1: 1D Stoc, 2: 2D Stoc
 
 end module common_pom_var

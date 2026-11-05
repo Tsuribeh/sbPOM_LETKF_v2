@@ -1,209 +1,75 @@
-! mod_perturb_param.f90
-! =====================================
-!  Module for Parameter Perturbations
-! ======================================
-
 module mod_perturb_param
-  use common_pom_var
+  use common_pom_var, only: r_size
   implicit none
   private
 
-  public :: init_perturb_alp2, update_perturb_alp2 &
-            init_perturb_horcon, update_perturb_horcon 
+  public :: init_perturb_2d, update_perturb_2d
 
 contains
 
-  ! ===================================================================
-  !  Initialization: Set initial parameter fields (Called at initialize.f90)
-  ! ===================================================================
   subroutine init_perturb_2d(field, im, jm, nens, iens, &
-                          default_val, min_val, max_val, init_mode)
+                             default_val, min_val, max_val, init_mode)
+    integer, intent(in) :: im, jm, nens, iens, init_mode
+    real(kind=r_size), intent(in) :: default_val, min_val, max_val
+    real(kind=r_size), intent(inout), allocatable :: field(:,:)
 
-   real(kind=r_size), intent(inout) :: field(im, jm)
-   integer, intent(in) :: im, jm, nens, iens
-   real(kind=r_size), intent(in) :: default_val, min_val, max_val
-   integer, intent(in) :: init_mode
+    real(kind=r_size) :: assigned_val
 
-   ! 中身は alp2 とほぼ同じロジック
+    if (.not. allocated(field)) allocate(field(im, jm))
+
+    if (init_mode == 1) then
+       if (nens > 1) then
+          assigned_val = min_val + (max_val - min_val) * &
+               real(iens - 1, kind=r_size) / real(nens - 1, kind=r_size)
+       else
+          assigned_val = default_val
+       end if
+       field(:,:) = assigned_val
+    else
+       ! init_mode == 0 または未定義のモード
+       field(:,:) = default_val
+    end if
+
+    ! どの初期化モードでも許容範囲内にする
+    field(:,:) = max(min_val, min(max_val, field(:,:)))
+
   end subroutine init_perturb_2d
 
-  subroutine init_perturb_alp2(im, jm, nens, iens)
-    integer, intent(in) :: im, jm
-    integer, intent(in) :: nens, iens
 
-    real(kind = r_size) :: assigned_val
-    integer :: iyr, imon, iday
+  subroutine update_perturb_2d(field, im, jm, update_mode, &
+                               min_val, max_val, amp)
+    integer, intent(in) :: im, jm, update_mode
+    real(kind=r_size), intent(in) :: min_val, max_val, amp
+    real(kind=r_size), intent(inout) :: field(im, jm)
 
-    real(kind = r_size), parameter :: alp2_default = 0.53d0
+    integer :: i, j
+    real(kind=r_size) :: rand_val
+    real(kind=r_size), allocatable :: rand_field(:,:)
 
-    integer :: seed_size
-    integer, allocatable :: seed_array(:)
+    if (update_mode == 1) then
+       ! 全格子点に同じノイズを加える
+       call random_number(rand_val)
+       field(:,:) = field(:,:) + (2.0_r_size * rand_val - 1.0_r_size) * amp
 
-    if (.not. allocated(alp2)) allocate(alp2(im, jm))
+    else if (update_mode == 2) then
+       ! 格子点ごとに異なるノイズを加える
+       allocate(rand_field(im, jm))
+       call random_number(rand_field)
 
-    ! --- 乱数シードの初期化（メンバ一意） ---
-    call random_seed(size=seed_size)
-    allocate(seed_array(seed_size))
+       do j = 1, jm
+          do i = 1, im
+             field(i,j) = field(i,j) + &
+                  (2.0_r_size * rand_field(i,j) - 1.0_r_size) * amp
+          end do
+       end do
 
-    call julian_ymd(int(julday_start+time), iyr, imon, iday)
-    seed_array(:) = iens * 1000000 + iyr * 100 + imon
-
-    call random_seed(put=seed_array)
-    deallocate(seed_array)
-
-    if (i_init_alp2 == 0) then
-        ! Pattern 0: Common default value
-        alp2(:,:) = alp2_default
-
-    else if (i_init_alp2 == 1) then
-        ! Pattern 1: Linspace (Equally spaced spread)
-        if (nens > 1) then
-           assigned_val = alp2_min + &
-                (alp2_max - alp2_min) * real(iens - 1, kind=r_size) / real(nens - 1, kind=r_size)
-        else
-           assigned_val = alp2_default
-        end if
-        alp2(:,:) = assigned_val
-
-    else
-        alp2(:,:) = alp2_default
+       deallocate(rand_field)
     end if
+    ! update_mode == 0 または未定義のモードではノイズを加えない
 
-  end subroutine init_perturb_alp2
+    ! ノイズを加えない場合も含めて、毎回許容範囲内にする
+    field(:,:) = max(min_val, min(max_val, field(:,:)))
 
-  subroutine init_perturb_horcon(im, jm, nens, iens)
-    integer, intent(in) :: im, jm
-    integer, intent(in) :: nens, iens
-
-    real(kind = r_size) :: assigned_val
-    integer :: iyr, imon, iday
-
-    real(kind = r_size), parameter :: horcon_default = 0.3d0
-
-    integer :: seed_size
-    integer, allocatable :: seed_array(:)
-
-    if (.not. allocated(alp2)) allocate(horcon(im, jm))
-
-    ! --- 乱数シードの初期化（メンバ一意） ---
-    call random_seed(size=seed_size)
-    allocate(seed_array(seed_size))
-
-    call julian_ymd(int(julday_start+time), iyr, imon, iday)
-    seed_array(:) = iens * 1000000 + iyr * 100 + imon
-
-    call random_seed(put=seed_array)
-    deallocate(seed_array)
-
-    if (i_init_horcon == 0) then
-        ! Pattern 0: Common default value
-        horcon(:,:) = horcon_default
-
-    else if (i_init_horcon == 1) then
-        ! Pattern 1: Linspace (Equally spaced spread)
-        if (nens > 1) then
-           assigned_val = horcon_min + &
-                (horcon_max - horcon_min) * real(iens - 1, kind=r_size) / real(nens - 1, kind=r_size)
-        else
-           assigned_val = horcon_default
-        end if
-        horcon(:,:) = assigned_val
-
-    else
-        horcon(:,:) = horcon_default
-    end if
-
-  end subroutine init_perturb_horcon
-
-  ! ===================================================================
-  !  Update: Time evolution and Constraints
-  ! ===================================================================
-  subroutine update_perturb_2d(field, im, jm, &
-                            update_mode, min_val, max_val, amp)
-
-   real(kind=r_size), intent(inout) :: field(im, jm)
-   integer, intent(in) :: im, jm, update_mode
-   real(kind=r_size), intent(in) :: min_val, max_val, amp
-
-   ! 1D/2D random noise を追加して clamp
   end subroutine update_perturb_2d
 
-  subroutine update_perturb_scalar(value, update_mode, min_val, max_val, amp)
- 
-    real(kind=r_size), intent(inout) :: value
-    integer, intent(in) :: update_mode
-    real(kind=r_size), intent(in) :: min_val, max_val, amp
-
-    ! scalar への摂動
-  end subroutine update_perturb_scalar
-
-  subroutine update_perturb_alp2(im, jm)
-    integer, intent(in) :: im, jm
-
-    integer :: i, j
-    real(kind = r_size) :: rand_val
-    real(kind = r_size), allocatable :: rand_field(:,:)
-
-    ! --- 1. Add time-varying noise (前ステップの値を維持してノイズ加算) ---
-    if (i_update_alp2 == 1) then
-        ! Mode 1: 1D uniform random noise (領域一律)
-        call random_number(rand_val)
-        alp2(:,:) = alp2(:,:) + (rand_val - 0.5d0) * 2.0d0 * pert_amp_alp2
-
-    else if (i_update_alp2 == 2) then
-        ! Mode 2: 2D spatial random noise
-        allocate(rand_field(im, jm))
-        call random_number(rand_field)
-        do j = 1, jm
-           do i = 1, im
-              alp2(i,j) = alp2(i,j) + (rand_field(i,j) - 0.5d0) * 2.0d0 * pert_amp_alp2
-           end do
-        end do
-        deallocate(rand_field)
-    end if
-
-    ! --- 2. Reflecting Boundary & Physical Constraints ---
-    do j = 1, jm
-       do i = 1, im
-          ! フェールセーフ（安全クランプ）
-          alp2(i,j) = max(alp2_min, min(alp2_max, alp2(i,j)))
-       end do
-    end do
-
-  end subroutine update_perturb_alp2
-
-  subroutine update_perturb_horcon(im, jm)
-    integer, intent(in) :: im, jm
-
-    integer :: i, j
-    real(kind = r_size) :: rand_val
-    real(kind = r_size), allocatable :: rand_field(:,:)
-
-    ! --- 1. Add time-varying noise (前ステップの値を維持してノイズ加算) ---
-    if (i_update_horcon == 1) then
-        ! Mode 1: 1D uniform random noise (領域一律)
-        call random_number(rand_val)
-        horcon(:,:) = horcon(:,:) + (rand_val - 0.5d0) * 2.0d0 * pert_amp_horcon
-
-    else if (i_update_horcon == 2) then
-        ! Mode 2: 2D spatial random noise
-        allocate(rand_field(im, jm))
-        call random_number(rand_field)
-        do j = 1, jm
-           do i = 1, im
-              horcon(i,j) = horcon(i,j) + (rand_field(i,j) - 0.5d0) * 2.0d0 * pert_amp_horcon
-           end do
-        end do
-        deallocate(rand_field)
-    end if
-
-    ! --- 2. Reflecting Boundary & Physical Constraints ---
-    do j = 1, jm
-       do i = 1, im
-          ! フェールセーフ（安全クランプ）
-          horcon(i,j) = max(horcon_min, min(horcon_max, horcon(i,j)))
-       end do
-    end do
-
-  end subroutine update_perturb_horcon
 end module mod_perturb_param
