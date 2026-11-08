@@ -97,6 +97,13 @@ subroutine advance
   !update_perturb_alp2(im, jm)
   call update_perturb_2d(alp2, im, jm, i_update_alp2, &
      alp2_min, alp2_max, pert_amp_alp2)
+
+  call update_perturb_2d(tprni, im, jm, i_update_tprni, &
+     tprni_min, tprni_max, pert_amp_tprni)
+
+  call update_perturb_2d(umol, im, jm, i_update_umol, &
+     umol_min, umol_max, pert_amp_umol)
+
   ! write(6,"(/a)") "internal mode started"
 
   ! internal (3-D) mode calculation

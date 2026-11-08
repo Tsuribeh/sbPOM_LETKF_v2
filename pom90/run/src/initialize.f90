@@ -54,6 +54,12 @@ subroutine initialize
   call init_perturb_2d(horcon, im, jm, nens, iens, &
      horcon_default, horcon_min, horcon_max, i_init_horcon)
 
+  call init_perturb_2d(tprni, im, jm, nens, iens, &
+     tprni_default, tprni_min, tprni_max, i_init_tprni)
+
+  call init_perturb_2d(umol, im, jm, nens, iens, &
+     umol_default, umol_min, umol_max, i_init_umol)
+
   ! read restart data from a previous run
   if(nread_rst /= 0) call read_restart_netcdf
   if(nread_rst == 2) call restart_tsuv
@@ -350,12 +356,12 @@ subroutine read_input
      write(6,'('' cbcmin     = '',f10.6)') cbcmin
      write(6,'('' cbcmax     = '',f10.6)') cbcmax
 !     write(6,'('' horcon     = '',f10.3)') horcon
-     write(6,'('' horcon(0,0)= '',f10.3)') horcon(0,0)
+     write(6,'('' maxval(horcon)= '',f10.3)') maxval(horcon)
      write(6,'('' aamadd     = '',f10.3)') aamadd
 !     write(6,'('' tprni      = '',f10.4)') tprni
-     write(6,'('' tprni(0,0) = '',f10.4)') tprni(0,0)
+     write(6,'('' maxval(tprni) = '',f10.4)') maxval(tprni)
 !     write(6,'('' umol       = '',f10.4)') umol
-     write(6,'('' umol(0,0)  = '',f10.4)') umol(0,0)
+     write(6,'('' maxval(umol)  = '',f10.4)') maxval(umol)
      write(6,'('' vmaxl      = '',f10.4)') vmaxl
      write(6,'('' slmax      = '',f10.4)') slmax
      write(6,'('' ntp        = '',i10)') ntp
@@ -383,6 +389,12 @@ subroutine read_input
      write(6,'('' lqglobal      = '',l10)') lqglobal
      write(6,'('' i_init_alp2 = '',i10)') i_init_alp2
      write(6,'('' i_update_alp2 = '',i10)') i_update_alp2
+     write(6,'('' i_init_horcon = '',i10)') i_init_horcon
+     write(6,'('' i_update_horcon = '',i10)') i_update_horcon
+     write(6,'('' i_init_tprni = '',i10)') i_init_tprni
+     write(6,'('' i_update_tprni = '',i10)') i_update_tprni
+     write(6,'('' i_init_umol = '',i10)') i_init_umol
+     write(6,'('' i_update_umol = '',i10)') i_update_umol
   end if
   
 end subroutine read_input
@@ -453,7 +465,6 @@ subroutine initialize_arrays
   tnudge_dave(1:im,1:jm,1:kb)=0.d0
   snudge_dave(1:im,1:jm,1:kb)=0.d0
 
-  !alp2(:, :)=0.d0 
   
 end subroutine initialize_arrays
 
