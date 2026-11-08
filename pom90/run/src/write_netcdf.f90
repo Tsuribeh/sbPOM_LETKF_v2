@@ -431,7 +431,13 @@ subroutine write_output_netcdf
         call define_var_netcdf(ncid,ndim,dim,varid,"ta","air temperature [el]","degree C")
         
         call define_var_netcdf(ncid,ndim,dim,varid,"alp2","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
-        
+
+        call define_var_netcdf(ncid,ndim,dim,varid,"horcon","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+
+        call define_var_netcdf(ncid,ndim,dim,varid,"tprni","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+
+        call define_var_netcdf(ncid,ndim,dim,varid,"umol","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+
         if(issf == 1)then
            call define_var_netcdf(ncid,ndim,dim,varid,"evap","evaporation [el]","mm/day")
            call define_var_netcdf(ncid,ndim,dim,varid,"prep","precipitation [el]","mm/day")
@@ -722,6 +728,24 @@ subroutine write_output_netcdf
         call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"alp2",real(alp2))
      end if
 
+     if(idave == 1)then
+        call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"horcon",real(horcon))
+     else if(idave == 2)then
+        call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"horcon",real(horcon))
+     end if
+
+     if(idave == 1)then
+        call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"tprni",real(tprni))
+     else if(idave == 2)then
+        call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"tprni",real(tprni))
+     end if
+
+     if(idave == 1)then
+        call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"umol",real(umol))
+     else if(idave == 2)then
+        call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"umol",real(umol))
+     end if
+
      if(issf == 1)then
 
         if(idave == 1)then
@@ -901,6 +925,30 @@ subroutine write_output_netcdf
      end if
      if(my_task == master_task) &
           & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"alp2",real(glb2d))  
+
+     if(idave == 1)then
+        call merge2d(glb2d,horcon)
+     else if(idave == 2)then
+        call merge2d(glb2d,horcon)
+     end if
+     if(my_task == master_task) &
+          & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"horcon",real(glb2d))
+
+     if(idave == 1)then
+        call merge2d(glb2d,tprni)
+     else if(idave == 2)then
+        call merge2d(glb2d,tprni)
+     end if
+     if(my_task == master_task) &
+          & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"tprni",real(glb2d))
+
+     if(idave == 1)then
+        call merge2d(glb2d,umol)
+     else if(idave == 2)then
+        call merge2d(glb2d,umol)
+     end if
+     if(my_task == master_task) &
+          & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"umol",real(glb2d))
 
      if(issf == 1)then
 
@@ -1506,6 +1554,12 @@ subroutine write_restart_netcdf
 
      call define_var_netcdf(ncid,ndim,dim,varid,"alp2","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")      
 
+     call define_var_netcdf(ncid,ndim,dim,varid,"horcon","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+
+     call define_var_netcdf(ncid,ndim,dim,varid,"tprni","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+
+     call define_var_netcdf(ncid,ndim,dim,varid,"umol","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+
      deallocate(dim)
 
      !3D+Time
@@ -1615,6 +1669,12 @@ subroutine write_restart_netcdf
      call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"advva",real(advva))
 
      call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"alp2",real(alp2))
+
+     call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"horcon",real(horcon))
+
+     call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"tprni",real(tprni))
+
+     call write_pnetcdf_var2d_time_sngl(ncid,im,jm,nprint,"umol",real(umol))
  
   else
      
@@ -1693,6 +1753,21 @@ subroutine write_restart_netcdf
      call merge2d(glb2d,alp2)
      if(my_task == master_task) &
           & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"alp2",real(glb2d)) 
+
+     call merge2d(glb2d,horcon)
+     if(my_task == master_task) &
+          & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"horcon",real(glb2d))
+
+
+     call merge2d(glb2d,tprni)
+     if(my_task == master_task) &
+          & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"tprni",real(glb2d))
+
+
+     call merge2d(glb2d,umol)
+     if(my_task == master_task) &
+          & call write_netcdf_var2d_time_sngl(ncid,im_global,jm_global,nprint,"umol",real(glb2d))
+
 
   end if
   

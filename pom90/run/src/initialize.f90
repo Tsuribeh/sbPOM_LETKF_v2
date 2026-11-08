@@ -47,7 +47,7 @@ subroutine initialize
   !init_perturb_2d(field, im, jm, nens, iens, &
   !                           default_val, min_val, max_val, init_mode)
   ! At restart run (nread_rst /= 0), init_perturb is skipped
-
+  if (nread_rst ==0) then
   call init_perturb_2d(alp2, im, jm, nens, iens, &
      alp2_default, alp2_min, alp2_max, i_init_alp2)
  
@@ -59,6 +59,7 @@ subroutine initialize
 
   call init_perturb_2d(umol, im, jm, nens, iens, &
      umol_default, umol_min, umol_max, i_init_umol)
+  end if
 
   ! read restart data from a previous run
   if(nread_rst /= 0) call read_restart_netcdf

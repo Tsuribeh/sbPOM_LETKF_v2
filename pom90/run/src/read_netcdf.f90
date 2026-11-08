@@ -917,6 +917,15 @@ subroutine read_restart_netcdf
 
      call read_pnetcdf_var_sngl(ncid,im,jm,1,'alp2',loc2d)
      alp2(:,:)=loc2d(:,:)
+ 
+     call read_pnetcdf_var_sngl(ncid,im,jm,1,'horcon',loc2d)
+     horcon(:,:)=loc2d(:,:)
+
+     call read_pnetcdf_var_sngl(ncid,im,jm,1,'tprni',loc2d)
+     tprni(:,:)=loc2d(:,:)
+
+     call read_pnetcdf_var_sngl(ncid,im,jm,1,'umol',loc2d)
+     umol(:,:)=loc2d(:,:)
 
   else
      
@@ -975,7 +984,16 @@ subroutine read_restart_netcdf
      call scatter2d(advva,dble(glb2d))
     
      call read_netcdf_var_sngl(ncid,im_global,jm_global,1,'alp2',glb2d)
-     call scatter2d(alp2,dble(glb2d))     
+     call scatter2d(alp2,dble(glb2d))    
+
+     call read_netcdf_var_sngl(ncid,im_global,jm_global,1,'horcon',glb2d)
+     call scatter2d(horcon,dble(glb2d))
+
+     call read_netcdf_var_sngl(ncid,im_global,jm_global,1,'tprni',glb2d)
+     call scatter2d(tprni,dble(glb2d)) 
+
+     call read_netcdf_var_sngl(ncid,im_global,jm_global,1,'umol',glb2d)
+     call scatter2d(umol,dble(glb2d))
   end if
                                     
   !---3d
