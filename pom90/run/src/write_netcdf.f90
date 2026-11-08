@@ -432,11 +432,11 @@ subroutine write_output_netcdf
         
         call define_var_netcdf(ncid,ndim,dim,varid,"alp2","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
 
-        call define_var_netcdf(ncid,ndim,dim,varid,"horcon","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+        call define_var_netcdf(ncid,ndim,dim,varid,"horcon","Smagorinsky diffusivity coefficient","1")
 
-        call define_var_netcdf(ncid,ndim,dim,varid,"tprni","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+        call define_var_netcdf(ncid,ndim,dim,varid,"tprni","Inverse horizontal turbulent Prandtl number (ah/am)","1")
 
-        call define_var_netcdf(ncid,ndim,dim,varid,"umol","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+        call define_var_netcdf(ncid,ndim,dim,varid,"umol","Background viscosity used in profq, proft, profu and profv","m^2/s")
 
         if(issf == 1)then
            call define_var_netcdf(ncid,ndim,dim,varid,"evap","evaporation [el]","mm/day")
@@ -1554,11 +1554,11 @@ subroutine write_restart_netcdf
 
      call define_var_netcdf(ncid,ndim,dim,varid,"alp2","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")      
 
-     call define_var_netcdf(ncid,ndim,dim,varid,"horcon","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+     call define_var_netcdf(ncid,ndim,dim,varid,"horcon","Smagorinsky diffusivity coefficient","1")
 
-     call define_var_netcdf(ncid,ndim,dim,varid,"tprni","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+     call define_var_netcdf(ncid,ndim,dim,varid,"tprni","Inverse horizontal turbulent Prandtl number (ah/am)","1")
 
-     call define_var_netcdf(ncid,ndim,dim,varid,"umol","MYNN stability parameter alpha2 (l_b*N/q) [el]","1")
+     call define_var_netcdf(ncid,ndim,dim,varid,"umol","Background viscosity used in profq, proft, profu and profv","m^2/s")
 
      deallocate(dim)
 
