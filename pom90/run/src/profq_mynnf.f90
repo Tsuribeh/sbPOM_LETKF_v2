@@ -75,9 +75,9 @@ subroutine profq_mynnf
   do k=2,kbm1
      do j=2,jmm1
         do i=2,imm1
-           a(i,j,k)=-dti2*(kq(i,j,k+1)+kq(i,j,k)+2.d0*umol)*0.5d0 &
+           a(i,j,k)=-dti2*(kq(i,j,k+1)+kq(i,j,k)+2.d0*umol(i,j))*0.5d0 &
                 & /(dzz(i,j,k-1)*dz(i,j,k)*dh(i,j)*dh(i,j))
-           c(i,j,k)=-dti2*(kq(i,j,k-1)+kq(i,j,k)+2.d0*umol)*0.5d0 &
+           c(i,j,k)=-dti2*(kq(i,j,k-1)+kq(i,j,k)+2.d0*umol(i,j))*0.5d0 &
                 & /(dzz(i,j,k-1)*dz(i,j,k-1)*dh(i,j)*dh(i,j))
         end do
      end do

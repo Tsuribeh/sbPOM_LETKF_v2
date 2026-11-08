@@ -252,10 +252,11 @@ subroutine read_input
 
   ! H.Tsuribe 2026.07
   alp2_default=0.53d0
-  i_init_alp2=0 ! 0: Default, 1: Linspace (Vary linearly across ensemble members)
-  i_update_alp2=0 ! 0: Clip only, 1: 1D Stochastic, 2: 2D Stochastic
   alp2_min = 0.1d0
   alp2_max = 1.0d0
+  i_init_alp2=0 ! 0: Default, 1: Linspace (Vary linearly across ensemble members)
+  i_update_alp2=0 ! 0: Clip only, 1: 1D Stochastic, 2: 2D Stochastic
+  pert_amp_alp2=0.d0
 
   ! H.Tsuribe 2026.11
   ! Smagorinsky diffusivity coeff.
@@ -263,25 +264,30 @@ subroutine read_input
   !horcon=0.3d0
   aamadd=0.d0
 
-  horcon_min = horcon_default - 0.09d0 
-  horcon_max = horcon_default + 0.09d0
+  horcon_min = horcon_default * 0.5d0 
+  horcon_max = horcon_default * 1.5d0
   i_init_horcon = 0
-
+  i_update_horcon = 0
+  pert_amp_horcon = 0.d0
 
   ! Inverse horizontal turbulent Prandtl number (ah/am; dimensionless):
   ! NOTE that tprni=0.e0 yields zero horizontal diffusivity!
   tprni_default=0.2d0
   !tprni=0.5d0
-  tprni_min = tprni_default - 0.1d0
-  tprni_max = tprni_default + 0.1d0
+  tprni_min = 0.1d0
+  tprni_max = 0.6d0
   i_init_tprni = 0
+  i_update_tprni = 0
+  pert_amp_tprni = 0.d0
 
   ! Background viscosity used in subroutines profq, proft, profu and
   ! profv (S.I. units):
   umol_default=2.d-5
-  umol_min = umol_default - 1.d-5
-  umol_max = umol_default + 1.d-5
+  umol_min = umol_default * 0.1d0
+  umol_max = umol_default * 1.9d0
   i_init_umol = 0
+  i_update_umol =0
+  pert_amp_umol = 0.d0
 
   ! End of input of constants
 
@@ -343,10 +349,13 @@ subroutine read_input
      write(6,'('' z0b        = '',f10.6)') z0b
      write(6,'('' cbcmin     = '',f10.6)') cbcmin
      write(6,'('' cbcmax     = '',f10.6)') cbcmax
-     write(6,'('' horcon     = '',f10.3)') horcon
+!     write(6,'('' horcon     = '',f10.3)') horcon
+     write(6,'('' horcon(0,0)= '',f10.3)') horcon(0,0)
      write(6,'('' aamadd     = '',f10.3)') aamadd
-     write(6,'('' tprni      = '',f10.4)') tprni
-     write(6,'('' umol       = '',f10.4)') umol
+!     write(6,'('' tprni      = '',f10.4)') tprni
+     write(6,'('' tprni(0,0) = '',f10.4)') tprni(0,0)
+!     write(6,'('' umol       = '',f10.4)') umol
+     write(6,'('' umol(0,0)  = '',f10.4)') umol(0,0)
      write(6,'('' vmaxl      = '',f10.4)') vmaxl
      write(6,'('' slmax      = '',f10.4)') slmax
      write(6,'('' ntp        = '',i10)') ntp

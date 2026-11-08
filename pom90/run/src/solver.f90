@@ -1405,9 +1405,9 @@ subroutine profq
   do k=2,kbm1
      do j=1,jm
         do i=1,im
-           a(i,j,k)=-dti2*(kq(i,j,k+1)+kq(i,j,k)+2.d0*umol)*0.5d0 &
+           a(i,j,k)=-dti2*(kq(i,j,k+1)+kq(i,j,k)+2.d0*umol(i,j))*0.5d0 &
                 & /(dzz(i,j,k-1)*dz(i,j,k)*dh(i,j)*dh(i,j))
-           c(i,j,k)=-dti2*(kq(i,j,k-1)+kq(i,j,k)+2.d0*umol)*0.5d0 &
+           c(i,j,k)=-dti2*(kq(i,j,k-1)+kq(i,j,k)+2.d0*umol(i,j))*0.5d0 &
                 & /(dzz(i,j,k-1)*dz(i,j,k-1)*dh(i,j)*dh(i,j))
         end do
      end do
@@ -1896,11 +1896,11 @@ subroutine advt1(fb,f,fclim,ff)
      do j=2,jm
         do i=2,im
            xflux(i,j,k)= &
-                & -0.5d0*(aam(i,j,k)+aam(i-1,j,k))*(h(i,j)+h(i-1,j))*tprni &
+                & -0.5d0*(aam(i,j,k)+aam(i-1,j,k))*(h(i,j)+h(i-1,j))*tprni(i,j) &
                 & *(fb(i,j,k)-fb(i-1,j,k))*dum(i,j) &
                 & *(dy(i,j)+dy(i-1,j))*0.5d0/(dx(i,j)+dx(i-1,j))
            yflux(i,j,k)= &
-                & -0.5d0*(aam(i,j,k)+aam(i,j-1,k))*(h(i,j)+h(i,j-1))*tprni &
+                & -0.5d0*(aam(i,j,k)+aam(i,j-1,k))*(h(i,j)+h(i,j-1))*tprni(i,j) &
                 & *(fb(i,j,k)-fb(i,j-1,k))*dvm(i,j) &
                 & *(dx(i,j)+dx(i,j-1))*0.5d0/(dy(i,j)+dy(i,j-1))
         end do
@@ -2223,11 +2223,11 @@ subroutine advt2(fb,f,fclim,ff)
      do j=2,jm
         do i=2,im
            xflux(i,j,k)= &
-                & -0.5d0*(aam(i,j,k)+aam(i-1,j,k))*(h(i,j)+h(i-1,j))*tprni &
+                & -0.5d0*(aam(i,j,k)+aam(i-1,j,k))*(h(i,j)+h(i-1,j))*tprni(i,j) &
                 & *(fb(i,j,k)-fb(i-1,j,k))*dum(i,j)*(dy(i,j)+dy(i-1,j))*0.5d0 &
                 & /(dx(i,j)+dx(i-1,j))
            yflux(i,j,k)= &
-                & -0.5d0*(aam(i,j,k)+aam(i,j-1,k))*(h(i,j)+h(i,j-1))*tprni &
+                & -0.5d0*(aam(i,j,k)+aam(i,j-1,k))*(h(i,j)+h(i,j-1))*tprni(i,j) &
                 & *(fb(i,j,k)-fb(i,j-1,k))*dvm(i,j)*(dx(i,j)+dx(i,j-1))*0.5d0 &
                 & /(dy(i,j)+dy(i,j-1))
         end do
@@ -2455,8 +2455,8 @@ subroutine proft(f,wfsurf,fsurf,nbc)
   do k=2,kbm1
      do j=1,jm
         do i=1,im
-           a(i,j,k-1)=-dti2*(kh(i,j,k)+umol)/(dz(i,j,k-1)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
-           c(i,j,k)=-dti2*(kh(i,j,k)+umol)/(dz(i,j,k)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
+           a(i,j,k-1)=-dti2*(kh(i,j,k)+umol(i,j))/(dz(i,j,k-1)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
+           c(i,j,k)=-dti2*(kh(i,j,k)+umol(i,j))/(dz(i,j,k)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
         end do
      end do
   end do
@@ -2751,8 +2751,8 @@ subroutine profu
   do k=2,kbm1
      do j=1,jm
         do i=1,im
-           a(i,j,k-1)=-dti2*(c(i,j,k)+umol)/(dz(i,j,k-1)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
-           c(i,j,k)=-dti2*(c(i,j,k)+umol)/(dz(i,j,k)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
+           a(i,j,k-1)=-dti2*(c(i,j,k)+umol(i,j))/(dz(i,j,k-1)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
+           c(i,j,k)=-dti2*(c(i,j,k)+umol(i,j))/(dz(i,j,k)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
         end do
      end do
   end do
@@ -2860,8 +2860,8 @@ subroutine profv
   do k=2,kbm1
      do j=1,jm
         do i=1,im
-           a(i,j,k-1)=-dti2*(c(i,j,k)+umol)/(dz(i,j,k-1)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
-           c(i,j,k)=-dti2*(c(i,j,k)+umol)/(dz(i,j,k)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
+           a(i,j,k-1)=-dti2*(c(i,j,k)+umol(i,j))/(dz(i,j,k-1)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
+           c(i,j,k)=-dti2*(c(i,j,k)+umol(i,j))/(dz(i,j,k)*dzz(i,j,k-1)*dh(i,j)*dh(i,j))
         end do
      end do
   end do

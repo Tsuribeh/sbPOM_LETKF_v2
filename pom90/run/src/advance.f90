@@ -40,7 +40,7 @@ subroutine advance
   call set_tsclim
 
   !perturbation to horcon
-  call update_perturb_2d(horcon_field, im, jm, i_update_horcon, &
+  call update_perturb_2d(horcon, im, jm, i_update_horcon, &
      horcon_min, horcon_max, pert_amp_horcon) 
   ! set lateral viscosity
   call lateral_viscosity
@@ -569,7 +569,8 @@ subroutine lateral_viscosity
         do j=2,jmm1
            do i=2,imm1
               aam(i,j,k)= &
-                   & horcon*dx(i,j)*dy(i,j) &
+                  ! & horcon*dx(i,j)*dy(i,j) &
+                   & horcon(i,j)*dx(i,j)*dy(i,j) &
                    & *sqrt( ((u(i+1,j,k)-u(i,j,k))/dx(i,j))**2+((v(i,j+1,k)-v(i,j,k))/dy(i,j))**2 &
                    & +0.5d0*(0.25d0*(u(i,j+1,k)+u(i+1,j+1,k)-u(i,j-1,k)-u(i+1,j-1,k))/dy(i,j) &
                    & +0.25d0*(v(i+1,j,k)+v(i+1,j+1,k)-v(i-1,j,k)-v(i-1,j+1,k))/dx(i,j)) **2) &
