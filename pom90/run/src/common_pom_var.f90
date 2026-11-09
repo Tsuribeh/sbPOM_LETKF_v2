@@ -554,17 +554,19 @@ module common_pom_var
       &  pert_amp_umol
 
   ! Perturbation mode switch flags
-  integer, save ::            & 
-      &    i_init_alp2,       &
-      &    i_init_horcon,     &
-      &    i_init_tprni,      &
-      &    i_init_umol        &
-      &    ! 0: Default, 1: Linspace
-  integer, save ::            &
-      &    i_update_alp2,     & 
-      &    i_update_horcon,   &
-      &    i_update_tprni,    &
-      &    i_update_umol      & 
-      &    ! 0: Clip only, 1: 1D Stoc, 2: 2D Stoc
 
+  ! Initialization mode: 0 = default value, 1 = linspace across ensemble
+  integer, save :: &
+       & i_init_alp2,   &
+       & i_init_horcon, &
+       & i_init_tprni,  &
+       & i_init_umol
+
+  ! Update mode: 0 = clip only, 1 = spatially uniform noise,
+  !              2 = independent noise at each grid point
+  integer, save :: &
+       & i_update_alp2,   &
+       & i_update_horcon, &
+       & i_update_tprni,  &
+       & i_update_umol
 end module common_pom_var

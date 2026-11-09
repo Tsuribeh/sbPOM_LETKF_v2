@@ -2,7 +2,7 @@
 #=======================================================================
 # Setting for single simulation|
 #=======================================================================
-set REGION=test_qglobal  #Region name
+set REGION=qglobal  #Region name
 set DIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/pom90         #POM Directory
 set PDIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/prep/program #Pre-process source file directory
 set NCDIR=/vol0004/ra000007/data/tsuribe/sbPOM_LETKF_v2/prep/in     #Pre-process netcdf directory
@@ -22,8 +22,8 @@ set SI_NUDGE=0.  #S internal
 set machine="fugaku"
 
 set sdate=(2000 1) #start time
-set idate=(2002 7) #initial time
-set edate=(2002 8) #end time
+set idate=(2000 1) #initial time
+set edate=(2002 5) #end time
 
 #========================================================================
 
