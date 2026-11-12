@@ -20,7 +20,7 @@ set elapse_time=${argv[10]}
 #-------------------------------------------------------------------------------
 
 if(1 <= ${NODE} && ${NODE} <= 384)then
-    set group="small"
+    set group="small-s2"
 else if(385 <= ${NODE} && ${NODE} <= 12288)then
     set group="large"
 else

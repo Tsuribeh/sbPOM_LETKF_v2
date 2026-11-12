@@ -1,0 +1,1167 @@
+Compile
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/common_pom_var.f90
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/mod_const.f90
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/mod_thermo.f90
+Fortran diagnostic messages: program name(mod_thermo)
+  jwd8220o-i  "src/mod_thermo.f90", line 11: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+ Module subprogram name(visc_air)
+  jwd2881i-i  "src/mod_thermo.f90", line 40: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_thermo.f90", line 41: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_thermo.f90", line 43: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(e_sat)
+  jwd8206o-i  "src/mod_thermo.f90", line 87: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_thermo.f90", line 87: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(e_air)
+  jwd2881i-i  "src/mod_thermo.f90", line 170: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_thermo.f90", line 170: Division is changed to multiplication by reciprocal.
+  jwd2881i-i  "src/mod_thermo.f90", line 173: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_thermo.f90", line 173: Division is changed to multiplication by reciprocal.
+  jwd8208o-i  "src/mod_thermo.f90", line 174: Method of calculating sum or product is changed.
+  jwd2881i-i  "src/mod_thermo.f90", line 175: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+ Module subprogram name(q_air_rh)
+  jwd2881i-i  "src/mod_thermo.f90", line 232: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+ Module subprogram name(e_sat_ice)
+  jwd8206o-i  "src/mod_thermo.f90", line 346: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_thermo.f90", line 346: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(One_on_L_MO)
+  jwd2881i-i  "src/mod_thermo.f90", line 386: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_thermo.f90", line 388: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(gamma_moist)
+  jwd8209o-i  "src/mod_thermo.f90", line 415: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/mod_blk_coare.f90
+Fortran diagnostic messages: program name(mod_blk_coare)
+  jwd8220o-i  "src/mod_blk_coare.f90", line 11: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+ Module subprogram name(turb_coare)
+  jwd2881i-i  "src/mod_blk_coare.f90", line 185: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 186: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 187: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 198: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 199: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 201: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 207: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 208: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 209: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_coare.f90", line 209: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 214: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 216: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 217: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 223: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_coare.f90", line 223: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 223: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 224: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_coare.f90", line 224: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 226: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 228: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_coare.f90", line 228: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 231: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_coare.f90", line 231: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 232: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 233: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_coare.f90", line 247: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 249: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 258: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 260: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 261: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 262: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 267: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_coare.f90", line 267: Division is changed to multiplication by reciprocal.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 270: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 271: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_coare.f90", line 272: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 272: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 273: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 273: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 276: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 277: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 285: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 286: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 290: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_coare.f90", line 290: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 290: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 297: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_coare.f90", line 297: Division is changed to multiplication by reciprocal.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 298: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 299: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 303: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_coare.f90", line 303: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 303: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 304: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 308: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 312: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 317: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 319: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 323: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 324: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 326: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 327: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 328: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 333: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 334: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_coare.f90", line 335: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 335: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 336: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 336: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_coare.f90", line 345: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 346: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_coare.f90", line 351: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_coare.f90", line 360: Division is changed to multiplication by reciprocal.
+ Module subprogram name(alfa_charn_3p0)
+  jwd8209o-i  "src/mod_blk_coare.f90", line 401: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(One_on_L)
+  jwd8209o-i  "src/mod_blk_coare.f90", line 438: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(psi_m_coare)
+  jwd8213o-i  "src/mod_blk_coare.f90", line 476: Exponentiation method is changed.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 478: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 483: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 483: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 491: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(psi_h_coare)
+  jwd8213o-i  "src/mod_blk_coare.f90", line 533: Exponentiation method is changed.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 539: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 539: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 547: Division is changed to multiplication by reciprocal.
+  jwd8213o-i  "src/mod_blk_coare.f90", line 547: Exponentiation method is changed.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 547: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(CSWL_COARE)
+  jwd8209o-i  "src/mod_blk_coare.f90", line 593: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 594: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 602: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 602: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 606: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 611: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 614: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 614: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 623: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 624: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 624: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 630: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/mod_blk_coare.f90", line 637: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_coare.f90", line 637: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/mod_blk_ecmwf.f90
+Fortran diagnostic messages: program name(mod_blk_ecmwf)
+  jwd8220o-i  "src/mod_blk_ecmwf.f90", line 11: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+ Module subprogram name(TURB_ECMWF)
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 202: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 203: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 204: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 214: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 215: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 217: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 223: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 224: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 225: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 225: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 227: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 227: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 227: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 228: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 228: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 230: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 233: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 233: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 235: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 238: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 239: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 252: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 254: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 263: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 265: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 266: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 267: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 273: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 273: Division is changed to multiplication by reciprocal.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 274: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 275: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 275: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 276: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 276: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 279: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 280: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 285: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 286: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 286: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 289: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 290: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 290: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 291: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 291: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 297: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 300: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 300: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 305: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 305: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 308: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 309: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 310: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 311: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 311: Division is changed to multiplication by reciprocal.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 312: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 313: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 317: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 317: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 317: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 326: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 327: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 329: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 330: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 331: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 332: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 333: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 334: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 335: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 335: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 337: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 338: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 339: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 340: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 341: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 342: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 343: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 343: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 348: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 349: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 349: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 350: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 350: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 358: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 358: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 362: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 363: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 364: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 364: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 374: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 375: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ecmwf.f90", line 381: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 381: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 387: Division is changed to multiplication by reciprocal.
+ Module subprogram name(psi_m_ecmwf)
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 434: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(psi_h_ecmwf)
+  jwd8213o-i  "src/mod_blk_ecmwf.f90", line 476: Exponentiation method is changed.
+  jwd8213o-i  "src/mod_blk_ecmwf.f90", line 482: Exponentiation method is changed.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 482: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(CSWL_ECMWF)
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 611: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 613: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 616: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 616: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 618: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 619: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 619: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 656: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/mod_blk_ecmwf.f90", line 663: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ecmwf.f90", line 679: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/mod_blk_ncar.f90
+Fortran diagnostic messages: program name(mod_blk_ncar)
+  jwd8220o-i  "src/mod_blk_ncar.f90", line 11: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+ Module subprogram name(turb_ncar)
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 146: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 147: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 150: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 152: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 158: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 166: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 167: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 170: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 170: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 171: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 171: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 173: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 176: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 176: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 180: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 181: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 186: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 187: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 187: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_ncar.f90", line 188: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 188: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/mod_blk_ncar.f90", line 189: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 189: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 197: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 198: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ncar.f90", line 198: Division is changed to multiplication by reciprocal.
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 199: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 200: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 202: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 203: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 206: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ncar.f90", line 206: Division is changed to multiplication by reciprocal.
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 208: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 210: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ncar.f90", line 210: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 210: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 211: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 212: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 215: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_blk_ncar.f90", line 216: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8206o-i  "src/mod_blk_ncar.f90", line 224: Division is changed to multiplication by reciprocal.
+ Module subprogram name(cd_neutral_10m)
+  jwd8206o-i  "src/mod_blk_ncar.f90", line 262: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 262: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(psi_m)
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 304: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(psi_h)
+  jwd8209o-i  "src/mod_blk_ncar.f90", line 341: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/mod_aerobulk_compute.f90
+Fortran diagnostic messages: program name(mod_aerobulk_compute)
+  jwd8220o-i  "src/mod_aerobulk_compute.f90", line 4: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+ Module subprogram name(aerobulk_compute)
+  jwd2881i-i  "src/mod_aerobulk_compute.f90", line 97: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_aerobulk_compute.f90", line 103: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_aerobulk_compute.f90", line 107: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_aerobulk_compute.f90", line 156: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd2881i-i  "src/mod_aerobulk_compute.f90", line 158: The allocatable assignment of the Fortran 2003 or later standard is operated. 
+  jwd8209o-i  "src/mod_aerobulk_compute.f90", line 162: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_aerobulk_compute.f90", line 163: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_aerobulk_compute.f90", line 184: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/mod_aerobulk_compute.f90", line 185: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/mod_aerobulk.f90
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/mod_perturb_param.f90
+Fortran diagnostic messages: program name(mod_perturb_param)
+  jwd8220o-i  "src/mod_perturb_param.f90", line 1: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+ Module subprogram name(init_perturb_2d)
+  jwd8209o-i  "src/mod_perturb_param.f90", line 22: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/parallel_mpi.f90
+Fortran diagnostic messages: program name(exchange3d_mpi_bl)
+  jwd8220o-i  "src/parallel_mpi.f90", line 342: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/parallel_mpi.f90", line 373: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 405: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 421: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 453: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 517: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 549: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(order3d_mpi_bl)
+  jwd8220o-i  "src/parallel_mpi.f90", line 646: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/parallel_mpi.f90", line 679: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(exchange3d_mpi)
+  jwd8220o-i  "src/parallel_mpi.f90", line 924: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/parallel_mpi.f90", line 955: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 989: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 1005: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 1039: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 1105: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/parallel_mpi.f90", line 1139: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(order3d_mpi)
+  jwd8220o-i  "src/parallel_mpi.f90", line 1241: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/parallel_mpi.f90", line 1274: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/merge_scatter.f90
+Fortran diagnostic messages: program name(scatter3d)
+  jwd8220o-i  "src/merge_scatter.f90", line 186: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/merge_scatter.f90", line 205: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/timelib.f90
+Fortran diagnostic messages: program name(CALDAT)
+  jwd8220o-i  "src/timelib.f90", line 76: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/timelib.f90", line 132: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/timelib.f90", line 138: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/timelib.f90", line 140: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(julian_ymd)
+  jwd8220o-i  "src/timelib.f90", line 191: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/timelib.f90", line 203: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/timelib.f90", line 210: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/timelib.f90", line 212: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(readtiming)
+  jwd8220o-i  "src/timelib.f90", line 233: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/timelib.f90", line 248: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/timelib.f90", line 249: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(ratioclim)
+  jwd8220o-i  "src/timelib.f90", line 266: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/timelib.f90", line 302: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/random.f90
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/read_netcdf.f90
+Fortran diagnostic messages: program name(read_netcdf_timeinfo_cama)
+  jwd8220o-i  "src/read_netcdf.f90", line 603: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/read_netcdf.f90", line 645: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/read_netcdf.f90", line 645: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(read_atm_netcdf)
+  jwd8220o-i  "src/read_netcdf.f90", line 1469: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/read_netcdf.f90", line 1760: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(read_lbc_netcdf)
+  jwd8220o-i  "src/read_netcdf.f90", line 2452: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/read_netcdf.f90", line 2501: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/read_netcdf.f90", line 2501: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/read_netcdf.f90", line 2503: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/read_netcdf.f90", line 2743: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/read_netcdf.f90", line 2743: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(read_tsdata_netcdf)
+  jwd8220o-i  "src/read_netcdf.f90", line 3070: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/read_netcdf.f90", line 3115: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/read_netcdf.f90", line 3115: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/read_netcdf.f90", line 3117: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/read_netcdf.f90", line 3150: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/read_netcdf.f90", line 3150: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/fluxlib.f90
+Fortran diagnostic messages: program name(surface_airseaflux)
+  jwd8220o-i  "src/fluxlib.f90", line 2: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd2006i-i  "src/fluxlib.f90", line 23: 'ierr' is declared but never referenced.
+  jwd8206o-i  "src/fluxlib.f90", line 38: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/fluxlib.f90", line 62: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 62: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/fluxlib.f90", line 184: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/fluxlib.f90", line 184: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 185: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/fluxlib.f90", line 185: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 205: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/fluxlib.f90", line 206: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/fluxlib.f90", line 209: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/fluxlib.f90", line 210: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/fluxlib.f90", line 214: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/fluxlib.f90", line 215: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 215: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/fluxlib.f90", line 229: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/fluxlib.f90", line 229: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 231: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(surface_riverflux)
+  jwd8220o-i  "src/fluxlib.f90", line 247: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/fluxlib.f90", line 272: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/fluxlib.f90", line 287: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 287: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/fluxlib.f90", line 291: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 291: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(latenth)
+  jwd8220o-i  "src/fluxlib.f90", line 317: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8213o-i  "src/fluxlib.f90", line 357: Exponentiation method is changed.
+  jwd8209o-i  "src/fluxlib.f90", line 357: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/fluxlib.f90", line 357: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 364: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8213o-i  "src/fluxlib.f90", line 378: Exponentiation method is changed.
+  jwd8209o-i  "src/fluxlib.f90", line 378: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/fluxlib.f90", line 378: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 408: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(sensibleh)
+  jwd8220o-i  "src/fluxlib.f90", line 423: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8213o-i  "src/fluxlib.f90", line 462: Exponentiation method is changed.
+  jwd8209o-i  "src/fluxlib.f90", line 462: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/fluxlib.f90", line 462: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 468: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8213o-i  "src/fluxlib.f90", line 476: Exponentiation method is changed.
+  jwd8209o-i  "src/fluxlib.f90", line 476: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/fluxlib.f90", line 476: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 497: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(wind_stress)
+  jwd8220o-i  "src/fluxlib.f90", line 508: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/fluxlib.f90", line 540: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/fluxlib.f90", line 541: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(wind_stress_mb)
+  jwd8220o-i  "src/fluxlib.f90", line 550: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/fluxlib.f90", line 580: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/fluxlib.f90", line 581: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(bulkcof)
+  jwd8220o-i  "src/fluxlib.f90", line 590: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/fluxlib.f90", line 693: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/fluxlib.f90", line 700: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8213o-i  "src/fluxlib.f90", line 720: Exponentiation method is changed.
+Fortran diagnostic messages: program name(longrad1)
+  jwd8220o-i  "src/fluxlib.f90", line 732: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/fluxlib.f90", line 767: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(shortrad)
+  jwd8220o-i  "src/fluxlib.f90", line 820: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/fluxlib.f90", line 844: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/fluxlib.f90", line 844: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/solver.f90
+Fortran diagnostic messages: program name(dens)
+  jwd8220o-i  "src/solver.f90", line 1: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 35: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8213o-i  "src/solver.f90", line 39: Exponentiation method is changed.
+  jwd8209o-i  "src/solver.f90", line 39: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 44: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 45: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 47: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 47: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(unesco_potential_density)
+  jwd8220o-i  "src/solver.f90", line 72: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 99: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8213o-i  "src/solver.f90", line 106: Exponentiation method is changed.
+  jwd8209o-i  "src/solver.f90", line 106: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 117: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8213o-i  "src/solver.f90", line 123: Exponentiation method is changed.
+  jwd8209o-i  "src/solver.f90", line 123: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8213o-i  "src/solver.f90", line 131: Exponentiation method is changed.
+  jwd8209o-i  "src/solver.f90", line 131: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(baropg)
+  jwd8220o-i  "src/solver.f90", line 156: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 185: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 194: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 208: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 218: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 227: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 241: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(baropg_thiem)
+  jwd8220o-i  "src/solver.f90", line 274: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 309: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 312: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 324: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 333: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 351: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 376: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 411: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 414: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(baropg_mcc)
+  jwd8220o-i  "src/solver.f90", line 440: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 484: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 495: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 508: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 522: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 537: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 551: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 568: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 577: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 589: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 611: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 621: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 632: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 646: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 662: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 676: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 694: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 703: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 715: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(advct)
+  jwd8220o-i  "src/solver.f90", line 748: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 775: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 795: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 807: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 820: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 822: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 825: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 831: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 848: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 861: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 875: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 898: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 910: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 923: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 926: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 929: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 932: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 950: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 961: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 973: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(advave)
+  jwd8220o-i  "src/solver.f90", line 985: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 1027: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1036: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1042: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1055: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1092: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1102: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1115: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1129: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1140: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1151: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(advq)
+  jwd8220o-i  "src/solver.f90", line 1225: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 1246: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1248: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1260: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1264: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1286: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1289: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(vertvl)
+  jwd8220o-i  "src/solver.f90", line 1299: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 1315: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1316: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1337: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 1337: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(profq)
+  jwd8220o-i  "src/solver.f90", line 1346: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 1408: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1410: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 1446: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 1460: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 1461: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 1475: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1489: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1512: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1536: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1551: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1553: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1575: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1576: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1577: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1586: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1598: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1601: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1647: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1664: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(advt1)
+  jwd8220o-i  "src/solver.f90", line 1721: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 1805: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1807: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1830: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1832: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1853: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1857: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1860: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1864: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1867: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1870: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1873: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 1873: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 1898: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1902: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 1915: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 1939: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/solver.f90", line 1941: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(advt2)
+  jwd8220o-i  "src/solver.f90", line 1968: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd2008i-i  "src/solver.f90", line 1985: Dummy argument 'f' not used in this subprogram.
+  jwd8209o-i  "src/solver.f90", line 2025: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2031: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2096: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2108: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2111: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2133: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2136: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2137: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 2139: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2142: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2143: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 2146: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2149: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2151: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2154: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2154: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/solver.f90", line 2171: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/solver.f90", line 2175: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 2179: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2183: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2183: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 2225: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2229: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2253: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2270: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/solver.f90", line 2272: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(smol_adif)
+  jwd8220o-i  "src/solver.f90", line 2290: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 2318: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2333: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2339: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2355: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2361: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2377: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2382: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(proft)
+  jwd8220o-i  "src/solver.f90", line 2394: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 2458: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2459: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2480: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2480: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/solver.f90", line 2496: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/solver.f90", line 2498: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/solver.f90", line 2510: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 2511: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2513: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 2529: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2531: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2542: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2576: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(advu)
+  jwd8220o-i  "src/solver.f90", line 2595: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 2626: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2643: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(advv)
+  jwd8220o-i  "src/solver.f90", line 2653: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 2683: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2700: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(profu)
+  jwd8220o-i  "src/solver.f90", line 2711: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 2735: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2744: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2754: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2755: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2764: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/solver.f90", line 2765: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 2775: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2786: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2789: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(profv)
+  jwd8220o-i  "src/solver.f90", line 2820: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 2844: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2853: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2863: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2864: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2873: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/solver.f90", line 2874: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/solver.f90", line 2883: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/solver.f90", line 2894: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(realvertvl)
+  jwd8220o-i  "src/solver.f90", line 2928: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/solver.f90", line 2956: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/solver.f90", line 2956: Division is changed to multiplication by reciprocal.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/turb_MYNNF_lev2.5.f90
+Fortran diagnostic messages: program name(MYNNF_lev25_2012)
+  jwd8220o-i  "src/turb_MYNNF_lev2.5.f90", line 13: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+ Module subprogram name(mynn_get_l)
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 118: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 134: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/turb_MYNNF_lev2.5.f90", line 176: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 176: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/turb_MYNNF_lev2.5.f90", line 203: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 203: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 224: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(mynn_get_q2l2)
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 307: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 309: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 310: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+ Module subprogram name(mynn_get_ShSm)
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 367: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/turb_MYNNF_lev2.5.f90", line 374: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 382: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 383: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 384: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 385: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 386: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 394: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/turb_MYNNF_lev2.5.f90", line 394: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/turb_MYNNF_lev2.5.f90", line 395: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/turb_MYNNF_lev2.5.f90", line 395: Division is changed to multiplication by reciprocal.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/profq_mynnf.f90
+Fortran diagnostic messages: program name(profq_mynnf)
+  jwd8220o-i  "src/profq_mynnf.f90", line 2: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/profq_mynnf.f90", line 78: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 80: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/profq_mynnf.f90", line 123: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/profq_mynnf.f90", line 156: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/profq_mynnf.f90", line 157: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/profq_mynnf.f90", line 171: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 187: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 212: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 230: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 243: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 256: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 258: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 284: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 285: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 294: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 306: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 309: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 354: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 384: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 402: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/profq_mynnf.f90", line 419: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/bounds_forcing.f90
+Fortran diagnostic messages: program name(bcond)
+  jwd8220o-i  "src/bounds_forcing.f90", line 2: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/bounds_forcing.f90", line 59: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/bounds_forcing.f90", line 73: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/bounds_forcing.f90", line 86: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/bounds_forcing.f90", line 100: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/daily_average.f90
+Fortran diagnostic messages: program name(calculate_daily_average)
+  jwd8220o-i  "src/daily_average.f90", line 198: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/daily_average.f90", line 234: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/daily_average.f90", line 234: Division is changed to multiplication by reciprocal.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/whole_average.f90
+Fortran diagnostic messages: program name(calculate_whole_average)
+  jwd8220o-i  "src/whole_average.f90", line 34: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/whole_average.f90", line 68: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/whole_average.f90", line 68: Division is changed to multiplication by reciprocal.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/write_netcdf.f90
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/advance.f90
+Fortran diagnostic messages: program name(get_time)
+  jwd8220o-i  "src/advance.f90", line 161: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/advance.f90", line 167: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/advance.f90", line 167: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 168: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(lateral_forcing_mclim)
+  jwd8220o-i  "src/advance.f90", line 232: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/advance.f90", line 244: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(lateral_forcing)
+  jwd8220o-i  "src/advance.f90", line 324: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/advance.f90", line 341: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(set_tsdata_mclim)
+  jwd8220o-i  "src/advance.f90", line 402: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/advance.f90", line 414: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(set_tsdata)
+  jwd8220o-i  "src/advance.f90", line 453: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/advance.f90", line 471: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(set_tsclim)
+  jwd8220o-i  "src/advance.f90", line 491: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/advance.f90", line 502: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(lateral_viscosity)
+  jwd8220o-i  "src/advance.f90", line 541: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/advance.f90", line 578: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(mode_interaction)
+  jwd8220o-i  "src/advance.f90", line 598: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/advance.f90", line 662: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 670: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(mode_external)
+  jwd8220o-i  "src/advance.f90", line 683: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/advance.f90", line 696: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 697: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 708: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 734: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 748: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 759: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 773: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 809: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 830: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 831: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 832: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 856: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 864: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(mode_internal)
+  jwd8220o-i  "src/advance.f90", line 877: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/advance.f90", line 904: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 926: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 1161: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 1162: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 1245: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 1269: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(print_section)
+  jwd8220o-i  "src/advance.f90", line 1315: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/advance.f90", line 1353: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8208o-i  "src/advance.f90", line 1363: Method of calculating sum or product is changed.
+  jwd8208o-i  "src/advance.f90", line 1365: Method of calculating sum or product is changed.
+Fortran diagnostic messages: program name(ts_nudging)
+  jwd8220o-i  "src/advance.f90", line 1403: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/advance.f90", line 1437: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 1448: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 1465: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/advance.f90", line 1476: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(ts_iau)
+  jwd8220o-i  "src/advance.f90", line 1595: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/advance.f90", line 1611: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/advance.f90", line 1612: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(uv_iau)
+  jwd8220o-i  "src/advance.f90", line 1622: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/advance.f90", line 1638: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/advance.f90", line 1639: Division is changed to multiplication by reciprocal.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/initialize.f90
+Fortran diagnostic messages: program name(read_input)
+  jwd8220o-i  "src/initialize.f90", line 89: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/initialize.f90", line 311: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/initialize.f90", line 312: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/initialize.f90", line 313: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/initialize.f90", line 314: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(read_grid)
+  jwd8220o-i  "src/initialize.f90", line 472: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/initialize.f90", line 485: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/initialize.f90", line 562: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/initialize.f90", line 562: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+Fortran diagnostic messages: program name(initial_conditions)
+  jwd8220o-i  "src/initialize.f90", line 591: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd2006i-i  "src/initialize.f90", line 599: 'ierr' is declared but never referenced.
+  jwd8206o-i  "src/initialize.f90", line 649: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/initialize.f90", line 649: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8209o-i  "src/initialize.f90", line 683: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/initialize.f90", line 683: Division is changed to multiplication by reciprocal.
+  jwd8209o-i  "src/initialize.f90", line 684: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/initialize.f90", line 684: Division is changed to multiplication by reciprocal.
+Fortran diagnostic messages: program name(bottom_friction)
+  jwd8220o-i  "src/initialize.f90", line 810: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8209o-i  "src/initialize.f90", line 824: Evaluation order of polynomial expression is changed according to commutative law of addition and multiplication.
+  jwd8206o-i  "src/initialize.f90", line 824: Division is changed to multiplication by reciprocal.
+
+mpifrtpx -c -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  src/pom.f90
+Fortran diagnostic messages: program name(pom)
+  jwd8220o-i  "src/pom.f90", line 5: Optimizations is performed in this program unit with possibility of side effects. See informational messages below to determine which such optimizations have been performed.
+  jwd8206o-i  "src/pom.f90", line 47: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/pom.f90", line 48: Division is changed to multiplication by reciprocal.
+  jwd8206o-i  "src/pom.f90", line 49: Division is changed to multiplication by reciprocal.
+
+mpifrtpx -o pom.exe -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/include -I/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/include  common_pom_var.o mod_const.o mod_thermo.o mod_blk_coare.o mod_blk_ecmwf.o mod_blk_ncar.o mod_aerobulk_compute.o mod_aerobulk.o mod_perturb_param.o parallel_mpi.o merge_scatter.o timelib.o random.o read_netcdf.o fluxlib.o solver.o turb_MYNNF_lev2.5.o profq_mynnf.o bounds_forcing.o daily_average.o whole_average.o write_netcdf.o advance.o initialize.o pom.o                    -Kfast -Kparallel -Kopenmp -Kcmodel=large -Nfjomplib -Nalloc_assign -L/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-fortran-4.6.1-4jlnxiqcepafk4y3whu4763jzuyjvxr7/lib -lnetcdff  -lnetcdf -lnetcdf -lm -L/vol0004/apps/oss/spack-v1.0.1/opt/spack/linux-a64fx/netcdf-c-4.9.2-gxiznee6h7r35ke6tivigi54gvzefl6v/lib -lnetcdf  -lhdf5_hl -lhdf5 -lm -lsz -lbz2 -lzstd -lblosc -lmpi_cxx -lfjprofmpi 
+Start 200001
+Make Workdir
+Make link
+Link Netcdf file
+Make namelist
+Submit Job
+[INFO] PJM 0000 pjsub Job 53832380 submitted.
+Wait for Job finish
+sbPOM: 0:10 elapsed
+sbPOM: 0:20 elapsed
+sbPOM: 0:30 elapsed
+sbPOM: 0:40 elapsed
+sbPOM: 0:50 elapsed
+sbPOM: 1:0 elapsed
+sbPOM: 1:10 elapsed
+sbPOM: 1:20 elapsed
+sbPOM: 1:30 elapsed
+sbPOM: 1:40 elapsed
+sbPOM: 1:50 elapsed
+sbPOM: 2:0 elapsed
+sbPOM: 2:10 elapsed
+sbPOM: 2:20 elapsed
+sbPOM: 2:30 elapsed
+sbPOM: 2:40 elapsed
+sbPOM: 2:50 elapsed
+sbPOM: 3:0 elapsed
+sbPOM: 3:10 elapsed
+sbPOM: 3:20 elapsed
+sbPOM: 3:30 elapsed
+sbPOM: 3:40 elapsed
+sbPOM: 3:50 elapsed
+sbPOM: 4:0 elapsed
+sbPOM: 4:10 elapsed
+sbPOM: 4:20 elapsed
+sbPOM: 4:30 elapsed
+sbPOM: 4:40 elapsed
+sbPOM: 4:50 elapsed
+sbPOM: 5:0 elapsed
+sbPOM: 5:10 elapsed
+sbPOM: 5:20 elapsed
+sbPOM: 5:30 elapsed
+sbPOM: 5:40 elapsed
+sbPOM: 5:50 elapsed
+sbPOM: 6:0 elapsed
+sbPOM: 6:10 elapsed
+sbPOM: 6:20 elapsed
+sbPOM: 6:30 elapsed
+sbPOM: 6:40 elapsed
+sbPOM: 6:50 elapsed
+sbPOM: 7:0 elapsed
+sbPOM: 7:10 elapsed
+sbPOM: 7:20 elapsed
+sbPOM: 7:30 elapsed
+sbPOM: 7:40 elapsed
+sbPOM: 7:50 elapsed
+sbPOM: 8:0 elapsed
+sbPOM: 8:10 elapsed
+sbPOM: 8:20 elapsed
+sbPOM: 8:30 elapsed
+sbPOM: 8:40 elapsed
+sbPOM: 8:50 elapsed
+sbPOM: 9:0 elapsed
+sbPOM: 9:10 elapsed
+sbPOM: 9:20 elapsed
+sbPOM: 9:30 elapsed
+sbPOM: 9:40 elapsed
+sbPOM: 9:50 elapsed
+sbPOM: 10:0 elapsed
+sbPOM: 10:10 elapsed
+sbPOM: 10:20 elapsed
+sbPOM: 10:30 elapsed
+sbPOM: 10:40 elapsed
+sbPOM: 10:50 elapsed
+sbPOM: 11:0 elapsed
+sbPOM: 11:10 elapsed
+sbPOM: 11:20 elapsed
+sbPOM: 11:30 elapsed
+sbPOM: 11:40 elapsed
+sbPOM: 11:50 elapsed
+sbPOM: 12:0 elapsed
+sbPOM: 12:10 elapsed
+sbPOM: 12:20 elapsed
+sbPOM: 12:30 elapsed
+sbPOM: 12:40 elapsed
+sbPOM: 12:50 elapsed
+sbPOM: 13:0 elapsed
+sbPOM: 13:10 elapsed
+sbPOM: 13:20 elapsed
+sbPOM: 13:30 elapsed
+sbPOM: 13:40 elapsed
+sbPOM: 13:50 elapsed
+sbPOM: 14:0 elapsed
+sbPOM: 14:10 elapsed
+sbPOM: 14:20 elapsed
+sbPOM: 14:30 elapsed
+sbPOM: 14:40 elapsed
+sbPOM: 14:50 elapsed
+sbPOM: 15:0 elapsed
+sbPOM: 15:10 elapsed
+sbPOM: 15:20 elapsed
+sbPOM: 15:30 elapsed
+sbPOM: 15:40 elapsed
+sbPOM: 15:50 elapsed
+sbPOM: 16:0 elapsed
+sbPOM: 16:10 elapsed
+sbPOM: 16:20 elapsed
+sbPOM: 16:30 elapsed
+sbPOM: 16:40 elapsed
+sbPOM: 16:50 elapsed
+sbPOM: 17:0 elapsed
+sbPOM: 17:10 elapsed
+sbPOM: 17:20 elapsed
+sbPOM: 17:30 elapsed
+sbPOM: 17:40 elapsed
+sbPOM: 17:50 elapsed
+sbPOM: 18:0 elapsed
+sbPOM: 18:10 elapsed
+sbPOM: 18:20 elapsed
+sbPOM: 18:30 elapsed
+sbPOM: 18:40 elapsed
+sbPOM: 18:50 elapsed
+sbPOM: 19:0 elapsed
+sbPOM: 19:10 elapsed
+sbPOM: 19:20 elapsed
+sbPOM: 19:30 elapsed
+sbPOM: 19:40 elapsed
+sbPOM: 19:50 elapsed
+sbPOM: 20:0 elapsed
+sbPOM: 20:10 elapsed
+sbPOM: 20:20 elapsed
+sbPOM: 20:30 elapsed
+sbPOM: 20:40 elapsed
+sbPOM: 20:50 elapsed
+sbPOM: 21:0 elapsed
+sbPOM: 21:10 elapsed
+sbPOM: 21:20 elapsed
+sbPOM: 21:30 elapsed
+sbPOM: 21:40 elapsed
+sbPOM: 21:50 elapsed
+sbPOM: 22:0 elapsed
+sbPOM: 22:10 elapsed
+sbPOM: 22:20 elapsed
+sbPOM: 22:30 elapsed
+sbPOM: 22:40 elapsed
+sbPOM: 22:50 elapsed
+sbPOM: 23:0 elapsed
+sbPOM: 23:10 elapsed
+sbPOM: 23:20 elapsed
+sbPOM: 23:30 elapsed
+sbPOM: 23:40 elapsed
+sbPOM: 23:50 elapsed
+sbPOM: 24:0 elapsed
+sbPOM: 24:10 elapsed
+sbPOM: 24:20 elapsed
+sbPOM: 24:30 elapsed
+sbPOM: 24:40 elapsed
+sbPOM: 24:50 elapsed
+sbPOM: 25:0 elapsed
+sbPOM: 25:10 elapsed
+sbPOM: 25:20 elapsed
+sbPOM: 25:30 elapsed
+sbPOM: 25:40 elapsed
+sbPOM: 25:50 elapsed
+sbPOM: 26:0 elapsed
+sbPOM: 26:10 elapsed
+sbPOM: 26:20 elapsed
+sbPOM: 26:30 elapsed
+sbPOM: 26:40 elapsed
+sbPOM: 26:50 elapsed
+sbPOM: 27:0 elapsed
+sbPOM: 27:10 elapsed
+sbPOM: 27:20 elapsed
+sbPOM: 27:30 elapsed
+sbPOM: 27:40 elapsed
+sbPOM: 27:50 elapsed
+sbPOM: 28:0 elapsed
+sbPOM: 28:10 elapsed
+sbPOM: 28:20 elapsed
+sbPOM: 28:30 elapsed
+sbPOM: 28:40 elapsed
+sbPOM: 28:50 elapsed
+sbPOM: 29:0 elapsed
+sbPOM: 29:10 elapsed
+sbPOM: 29:20 elapsed
+sbPOM: 29:30 elapsed
+sbPOM: 29:40 elapsed
+sbPOM: 29:50 elapsed
+sbPOM: 30:0 elapsed
+sbPOM: 30:10 elapsed
+sbPOM: 30:20 elapsed
+sbPOM: 30:30 elapsed
+sbPOM: 30:40 elapsed
+sbPOM: 30:50 elapsed
+sbPOM: 31:0 elapsed
+sbPOM: 31:10 elapsed
+sbPOM: 31:20 elapsed
+sbPOM: 31:30 elapsed
+sbPOM: 31:40 elapsed
+sbPOM: 31:50 elapsed
+sbPOM: 32:0 elapsed
+sbPOM: 32:10 elapsed
+sbPOM: 32:20 elapsed
+sbPOM: 32:30 elapsed
+sbPOM: 32:40 elapsed
+sbPOM: 32:50 elapsed
+sbPOM: 33:0 elapsed
+sbPOM: 33:10 elapsed
+sbPOM: 33:20 elapsed
+sbPOM: 33:30 elapsed
+sbPOM: 33:40 elapsed
+sbPOM: 33:50 elapsed
+sbPOM: 34:0 elapsed
+sbPOM: 34:10 elapsed
+sbPOM: 34:20 elapsed
+sbPOM: 34:30 elapsed
+sbPOM: 34:40 elapsed
+sbPOM: 34:50 elapsed
+sbPOM: 35:0 elapsed
+sbPOM: 35:10 elapsed
+sbPOM: 35:20 elapsed
+sbPOM: 35:30 elapsed
+sbPOM: 35:40 elapsed
+sbPOM: 35:50 elapsed
+sbPOM: 36:0 elapsed
+sbPOM: 36:10 elapsed
+sbPOM: 36:20 elapsed
+sbPOM: 36:30 elapsed
+sbPOM: 36:40 elapsed
+sbPOM: 36:50 elapsed
+sbPOM: 37:0 elapsed
+sbPOM: 37:10 elapsed
+sbPOM: 37:20 elapsed
+sbPOM: 37:30 elapsed
+sbPOM: 37:40 elapsed
+sbPOM: 37:50 elapsed
+sbPOM: 38:0 elapsed
+sbPOM: 38:10 elapsed
+sbPOM: 38:20 elapsed
+sbPOM: 38:30 elapsed
+sbPOM: 38:40 elapsed
+sbPOM: 38:50 elapsed
+sbPOM: 39:0 elapsed
+sbPOM: 39:10 elapsed
+sbPOM: 39:20 elapsed
+sbPOM: 39:30 elapsed
+sbPOM: 39:40 elapsed
+sbPOM: 39:50 elapsed
+sbPOM: 40:0 elapsed
+sbPOM: 40:10 elapsed
+sbPOM: 40:20 elapsed
+sbPOM: 40:30 elapsed
+sbPOM: 40:40 elapsed
+sbPOM: 40:50 elapsed
+sbPOM: 41:0 elapsed
+sbPOM: 41:10 elapsed
+sbPOM: 41:20 elapsed
+sbPOM: 41:30 elapsed
+End 200001
+Start 200002
+Make Workdir
+Make link
+Link Netcdf file
+Make namelist
+Submit Job
+[INFO] PJM 0000 pjsub Job 53833074 submitted.
+Wait for Job finish
+sbPOM: 0:10 elapsed
+sbPOM: 0:20 elapsed
+sbPOM: 0:30 elapsed
+sbPOM: 0:40 elapsed
+sbPOM: 0:50 elapsed
+sbPOM: 1:0 elapsed
+sbPOM: 1:10 elapsed
+End 200002
+Start 200003
+Make Workdir
+Make link
+Link Netcdf file
+***Error: Not found restart.nc

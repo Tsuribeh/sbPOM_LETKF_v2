@@ -270,7 +270,6 @@ subroutine read_input
   horcon_default=0.1d0
   !horcon=0.3d0
   aamadd=0.d0
-
   horcon_min = horcon_default * 0.5d0 
   horcon_max = horcon_default * 1.5d0
   i_init_horcon = 0
