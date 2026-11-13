@@ -43,32 +43,54 @@ contains
 
     integer :: i, j
     real(kind=r_size) :: rand_val
-    real(kind=r_size), allocatable :: rand_field(:,:)
+    real(kind=r_size):: rand_field(im,jm)
 
     if (update_mode == 1) then
        ! 全格子点に同じノイズを加える
-       call random_number(rand_val)
-       field(:,:) = field(:,:) + (2.0_r_size * rand_val - 1.0_r_size) * amp
+       rand_val = gaussian_random()
+       field(:,:) = field(:,:) + rand_val * amp
 
     else if (update_mode == 2) then
        ! 格子点ごとに異なるノイズを加える
-       allocate(rand_field(im, jm))
-       call random_number(rand_field)
+       
 
        do j = 1, jm
           do i = 1, im
-             field(i,j) = field(i,j) + &
-                  (2.0_r_size * rand_field(i,j) - 1.0_r_size) * amp
+             rand_field(i,j) = gaussian_random()
+             field(i,j) = field(i,j) + rand_field(i,j)* amp
           end do
        end do
 
-       deallocate(rand_field)
     end if
     ! update_mode == 0 または未定義のモードではノイズを加えない
 
     ! ノイズを加えない場合も含めて、毎回許容範囲内にする
-    field(:,:) = max(min_val, min(max_val, field(:,:)))
+    do j=1, jm
+      do i=1, im
+        field(i,j) = max(min_val, min(max_val, field(i,j)))
+      enddo
+    enddo
 
   end subroutine update_perturb_2d
+
+  contains
+
+  real(kind=r_size) function gaussian_random()
+   use common_pom_var, only: r_size
+   implicit none
+
+   real(kind=r_size) :: u1, u2
+   real(kind=r_size), parameter :: pi = 4.0_r_size * atan(1.0_r_size)
+
+   call random_number(u1)
+   call random_number(u2)
+
+   ! log(0)を避ける
+   u1 = max(u1, tiny(1.0_r_size))
+
+   gaussian_random = sqrt(-2.0_r_size * log(u1)) * &
+                    cos(2.0_r_size * pi * u2)
+
+  end function gaussian_random
 
 end module mod_perturb_param
