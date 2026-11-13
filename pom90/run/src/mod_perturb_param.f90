@@ -71,7 +71,6 @@ contains
       enddo
     enddo
 
-  end subroutine update_perturb_2d
 
   contains
 
@@ -92,5 +91,5 @@ contains
                     cos(2.0_r_size * pi * u2)
 
   end function gaussian_random
-
+  end subroutine update_perturb_2d
 end module mod_perturb_param
