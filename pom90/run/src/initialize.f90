@@ -466,10 +466,10 @@ subroutine initialize_arrays
   snudge_dave(1:im,1:jm,1:kb)=0.d0
 
   !H.Tsuribe 2026/11/13
-  alp2(:,:)   = 0.d0
-  horcon(:,:) = 0.d0
-  tprni(:,:)  = 0.d0
-  umol(:,:)   = 0.d0
+  alp2(1:im,1:jm)=0.d0
+  horcon(1:im,1:jm)=0.d0
+  tprni(1:jm,1:jm)=0.d0
+  umol(1:jm,1:jm)=0.d0
 
   
 end subroutine initialize_arrays

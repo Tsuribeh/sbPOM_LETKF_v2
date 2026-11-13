@@ -11,11 +11,10 @@ contains
                              default_val, min_val, max_val, init_mode)
     integer, intent(in) :: im, jm, nens, iens, init_mode
     real(kind=r_size), intent(in) :: default_val, min_val, max_val
-    real(kind=r_size), intent(inout), allocatable :: field(:,:)
+    real(kind=r_size), intent(inout) :: field(im, jm)
 
     real(kind=r_size) :: assigned_val
 
-    if (.not. allocated(field)) allocate(field(im, jm))
 
     if (init_mode == 1) then
        if (nens > 1) then
