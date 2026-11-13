@@ -522,32 +522,32 @@ module common_pom_var
   !_______________________________________________________________________
   !  Parameter Perturbation Variables
   ! MYNN parameter
-  real(kind = r_size), allocatable, public :: alp2(:,:)
-  real(kind = r_size) ::      &
+  real(kind = r_size), save :: alp2(im_local,jm_local)
+  real(kind = r_size), save ::      &
       &  alp2_default,        &
       &  alp2_min,            &
       &  alp2_max,            &  
       &  pert_amp_alp2
 
   ! smagorinsky diffusivity coefficient
-  real(kind =r_size), allocatable, public :: horcon(:,:)
-  real(kind = r_size) ::      &
+  real(kind =r_size), save :: horcon(im_local,jm_local)
+  real(kind = r_size), save ::      &
       &  horcon_default,      &
       &  horcon_min,          &
       &  horcon_max,          &
       &  pert_amp_horcon
 
   ! inverse horizontal turbulent Prandtl number
-  real(kind = r_size), allocatable, public :: tprni(:,:)
-  real(kind = r_size) ::      & 
+  real(kind = r_size), save :: tprni(im_local,jm_local)
+  real(kind = r_size), save ::      & 
       &  tprni_default,      &
       &  tprni_min,          &
       &  tprni_max,          &
       &  pert_amp_tprni
 
   ! background viscosity
-  real(kind = r_size), allocatable, public :: umol(:,:)
-  real(kind = r_size) ::      &
+  real(kind = r_size), save :: umol(im_local,jm_local)
+  real(kind = r_size), save ::      &
       &  umol_default,      &
       &  umol_min,          &
       &  umol_max,          &
